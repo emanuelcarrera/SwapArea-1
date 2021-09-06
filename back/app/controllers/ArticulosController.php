@@ -10,7 +10,6 @@ public function Alta($request, $response, $args){
 
 
     $listaDeParametros = $request->getParsedBody();
-    $Art->idArticulo =  $listaDeParametros['idArticulo'];
     $Art->idUsuario =  $listaDeParametros['idUsuario'];
     $Art->Nombre =  $listaDeParametros['Nombre'];
     $Art->Descripcion =  $listaDeParametros['Descripcion'];
@@ -27,9 +26,9 @@ public function Baja($request, $response, $args){
 
     $Art=  new Articulos();
     $listaDeParametros = $request->getParsedBody();
-    $usr->idUsuario =  $listaDeParametros['idArticulo'];
+    $Art->idArticulo =  $listaDeParametros['idArticulo'];
 
-    $usr->EliminarArticulo($usr);
+    $Art->EliminarArticulo($Art);
     $response->getBody()->Write("Eliminado");
     return $response;
 }
@@ -38,17 +37,18 @@ public function Modificacion($request, $response, $args){
 
     $Art=  new Articulos();
 
-    
+
+
     $listaDeParametros = $request->getParsedBody();
-    $usr->idUsuario =  $listaDeParametros['idUsuario'];
-    $usr->nombreUsuario =  $listaDeParametros['NUsuario'];
-    $usr->pass =  $listaDeParametros['pass'];
-    $usr->nombre =  $listaDeParametros['Nombre'];
-    $usr->papellido =  $listaDeParametros['Apellido'];
-    $usr->edad =  $listaDeParametros['Edad'];
-    $usr->Descripcion =  $listaDeParametros['Descripcion'];
-    $usr->UpdateUsuario($usr);
-    $response->getBody()->Write("Creado");
+    $Art->idArticulo =  $listaDeParametros['idArticulo'];
+    $Art->Nombre =  $listaDeParametros['Nombre'];
+    $Art->Descripcion =  $listaDeParametros['Descripcion'];
+    $Art->foto =  $listaDeParametros['foto'];
+    $Art->Valor =  $listaDeParametros['Valor'];
+    $Art->Clasificacion =  $listaDeParametros['Clasificacion'];
+    $Art->UpdateArticulo($Art);
+    $response->getBody()->Write("Modificado");
+
     
 
     return $response;

@@ -16,26 +16,30 @@ public function CrearArticulo($art)
 
 
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO `Articulo` (`idArticulo`,`idUsuario`,`Nombre`,`Descripcion`,`foto`,`Valor`,`Clasificacion`) values ($art->idArticulo, $art->idUsuario, '$art->Nombre', '$art->Descripcion','$art->foto','$art->Valor','$art->Clasificacion')");
-    
-   
+    $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO `articulo` (`idUsuario`,`Nombre`,`Descripcion`,`foto`,`Valor`,`Clasificacion`) VALUES ( $art->idUsuario, '$art->Nombre', '$art->Descripcion','$art->foto','$art->Valor','$art->Clasificacion');"); 
     $consulta->execute();
 
     return $consulta->fetchAll(PDO::FETCH_CLASS, 'Articulos');
 }
 
 
-public function UpdateUsuario($usr)
+public function UpdateArticulo($art)
 {
 
 
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("UPDATE `usuarios` SET `NumbreUsuario` =  '$usr->nombreUsuario'  , `pass` = '$usr->pass' , `nombre` = '$usr->nombre' , `Apellido` = '$usr->papellido', `edad` = $usr->edad  ,`Descripcion` = '$usr->Descripcion' WHERE `idUsuario` = $usr->idUsuario");
+    $consulta = $objAccesoDatos->prepararConsulta("UPDATE `articulo` 
+    SET `Nombre`='$art->Nombre',
+    `Descripcion`='$art->Descripcion',
+    `foto`='$art->foto',
+    `Valor`='$art->Valor',
+    `Clasificacion`='$art->Clasificacion'
+    WHERE `idArticulo` = $art->idArticulo");
     
   
     $consulta->execute();
 
-    return $consulta->fetchAll(PDO::FETCH_CLASS, 'Usuarios');
+    return $consulta->fetchAll(PDO::FETCH_CLASS, 'Articulos');
 }
    
 public function TodosLosArticulos()
@@ -43,12 +47,12 @@ public function TodosLosArticulos()
 
 
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("select * from `usuarios`");
+    $consulta = $objAccesoDatos->prepararConsulta("select * from `articulo`");
     
    
     $consulta->execute();
 
-    return $consulta->fetchAll(PDO::FETCH_CLASS,'Usuarios');
+    return $consulta->fetchAll(PDO::FETCH_CLASS,'Articulos');
 }
 
     
@@ -57,11 +61,11 @@ public function EliminarArticulo($art)
 
 
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("DELETE FROM `Articulos` WHERE `idArticulo` = $art->idArticulo  ");
+    $consulta = $objAccesoDatos->prepararConsulta("DELETE FROM `articulo` WHERE `idArticulo` = $art->idArticulo  ");
   
     $consulta->execute();
 
-    return $consulta->fetchAll(PDO::FETCH_CLASS, 'Usuarios');
+    return $consulta->fetchAll(PDO::FETCH_CLASS, 'Articulos');
 }
 
 

@@ -1,20 +1,20 @@
 		<header>
 			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 				<div class="container">
-					<a class="navbar-brand" href="#">Segundo Parcial</a>
+					<a class="navbar-brand" href="#">SwapArea</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarCollapse">
 						<ul class="navbar-nav mr-auto">
 							<li class="nav-item active">
-								<a class="nav-link" href="index.php"><i class="fa fa-home"></i> Inicio <span class="sr-only">(current)</span></a>
+								<a class="nav-link" href="index.php"><i class="fa fa-home"></i> Inicio <span class="sr-only"></span></a>
 							</li>
 							<li class="nav-item active">
-								<a class="nav-link" href="peliculas.php"><i class="fa fa-film"></i> Peliculas</a>
+								<a class="nav-link" href="peliculas.php"><i class="fa fa-film"></i> articulos</a>
 							</li>
 							<li class="nav-item active">
-								<a class="nav-link" href="contactos.php"><i class="fa fa-comments"></i> Contactos</a>
+								<a class="nav-link" href="contactos.php"><i class="fa fa-comments"></i> Contactenos</a>
 							</li>
 							
 						</ul>

@@ -2,7 +2,7 @@
 <html lang="es">
 
 	<head>
-		<title>Primer Parcial</title>
+		<title>SwapArea</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="addons/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="addons/toastr/toastr.min.css">

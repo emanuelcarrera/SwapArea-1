@@ -1,56 +1,100 @@
+<?php
+require "funciones.php";
+require "head.php";
+require "header.php";
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Inicio | Panel de Control</title>
-	<meta content="width=device-width, initial-scale=1.0" name="viewport" >
-	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+?>	
 
-	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-
-</head>
-<body>
-
-<nav class="navbar navbar-default" role="navigation">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar1">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="index.php" style="font-family: 'Lobster', cursive;">devHuayra</a>
+<!-- Carousel -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+	<ol class="carousel-indicators">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#myCarousel" data-slide-to="1"></li>
+		<li data-target="#myCarousel" data-slide-to="2"></li>
+	</ol>
+	<div class="carousel-inner">
+		<div class="carousel-item active">
+			<img src="images/carousel1.jpg">
+			<div class="container">
+				<div class="carousel-caption text-left">
+					<h1>Las mejores clasificaciones de las mejores peliculas</h1>
+					<p>Las mas nuevas y vistas</p>
+					<p><a class="btn btn-lg btn-primary" href="peliculas.php" role="button"><i class="fa fa-check"></i> Descubri mas</a></p>
+				</div>
+			</div>
 		</div>
-		<div class="collapse navbar-collapse" id="navbar1">
-			<ul class="nav navbar-nav navbar-right">
-				<?php if (isset($_SESSION['usr_id'])) { ?>
-				<li><p class="navbar-text">Logeado como <i class="btn btn-danger btn-xs" ><b><?php echo $_SESSION['usr_name']; ?></b></i></p></li>
-				<li><a href="logout.php">Log Out</a></li>
-				<?php } else { ?>
-				<li><a href="login.php">Login</a></li>
-				<li><a href="register.php">Registro</a></li>
-				<?php } ?>
-			</ul>
+		<div class="carousel-item">
+			<img src="images/carousel2.jpg">
+			<div class="container">
+				<div class="carousel-caption">
+					<h1>Podes contactarte con nosotros</h1>
+					<p>Si no encontras la pelicula que buscas escribinos que podemos subirla para vos</p>
+					<p><a class="btn btn-lg btn-success" href="contactos.php" role="button"><i class="fa fa-search"></i>Contactanos</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<img src="images/carousel3.jpg">
+			<div class="container">
+				<div class="carousel-caption text-right">
+					<h1>Mira las mejores criticas</h1>
+					<p>Tenemos los mejores criticos del mercado analizando todo para vos!</p>
+					<p><a class="btn btn-lg btn-warning" href="index.php" role="button"><i class="fa fa-image"></i>Ingresa</a></p>
+				</div>
+			</div>
 		</div>
 	</div>
-</nav>
+	<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	</a>
+</div> <!-- /#myCarousel -->
 
 <div class="container">
 
-      <!--Componente principal de un mensaje de primario o llamado a la acción -->
-      <div class="jumbotron">
-        <h1>Navbar example</h1>
-        <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-        <p>To see the difference between static and fixed top navbars, just scroll.</p>
-        <p>
-          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs »</a>
-        </p>
-      </div>
+	<div class="row featurette">
+		<div class="col-md-7">
+			<h2 class="featurette-heading">Los clasicos de siempre<span class="text-muted"> Como nunca los viste antes</span></h2>
+			<p class="lead">No solo vas a encontrar el analisis de las peliculas nuevas si no tambien de las mejores peliculas de la historia</p>
+		</div>
+		<div class="col-md-5">
+			<img src="images/p1.jpg" height="230px">
+		</div>
+	</div>
 
-    </div>
+	<hr class="featurette-divider">
 
-<script src="js/jquery-1.10.2.js"></script>
-<script src="js/bootstrap.min.js"></script>
-</body>
-</html>
+	<div class="row featurette">
+		<div class="col-md-6 order-md-2">
+			<h2 class="featurette-heading">Lo nuevo<span class="text-muted"> Primero que todo</span></h2>
+			<p class="lead">Antes de que la pelicula se estrene lee los comentarios</p>
+		</div>
+		<div class="col-md-6 order-md-1">
+			<img src="images/p2.jpg" height="230px" >
+		</div>
+	</div>
+
+	<hr class="featurette-divider">
+
+	<div class="row featurette">
+		<div class="col-md-7">
+			<h2 class="featurette-heading">Todas las semanas<span class="text-muted"> novedades y contenido nuevo</span></h2>
+			<p class="lead">Estamos constantemente subiendo material nuevo para vos!</p>
+		</div>
+		<div class="col-md-5">
+			<img src="images/p3.jpg" height="230px">
+		</div>
+	</div>
+
+	<hr class="featurette-divider">
+    <!-- /END THE FEATURETTES -->
+
+</div> <!-- /.container -->
+
+<?php
+require "footer.php";
+?>

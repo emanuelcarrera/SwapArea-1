@@ -1,4 +1,5 @@
 		<header>
+	
 			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 				<div class="container">
 					<a class="navbar-brand" href="#">SwapArea</a>
@@ -18,13 +19,15 @@
 							</li>
 							
 						</ul>
-						<?php if ($_SESSION["log"]): ?>
+						
+						    <div id="div1" style="visibility: hidden;">
 							<span class="usuario-logueado"><i class="fa fa-user"></i> Bienvenido </span>
 							<a href="logout.php" class="btn btn-danger"><i class="fa fa-unlock-alt"></i> Salir</a>
-						<?php else: ?>
+	                        </div>
+							<div id=div2>
 							<a href="login.php" class="btn btn-primary"><i class="fa fa-unlock-alt"></i> Ingresar</a>
-						<?php endif; ?>
-
+	                        </div>
+	
 					</div>
 				</div>
 			</nav>

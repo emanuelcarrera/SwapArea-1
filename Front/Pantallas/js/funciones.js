@@ -1,9 +1,5 @@
 addEventListener('load',inicializarEventos,false);
 
-function inicializarEventos()
-{
-  cargarPagina('pagina2.php'); 
-}
 
 function presionEnlace(e)
 {
@@ -41,7 +37,7 @@ function procesarEventos()
   } 
   else 
   {
-    detalles.innerHTML = '<img src="../cargando.gif">';
+    detalles.innerHTML = '<img src="../../cargando.gif">';
   }
 }
 

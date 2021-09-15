@@ -1,5 +1,6 @@
 addEventListener("load", load)
 var servidor = "http://localhost:777";
+
 //var servidor = "https://edi3carreraback.herokuapp.com";
 
 

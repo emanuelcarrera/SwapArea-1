@@ -63,6 +63,7 @@ $app->group('/Articulo', function (RouteCollectorProxy $group) {
     $group->post('/Baja', \ArticulosController::class . ':Baja' );
     $group->post('/Modificacion', \ArticulosController::class . ':Modificacion' );
     $group->POST('/Listar', \ArticulosController::class . ':Listar' );
+    $group->POST('/GuardarImagen', \ArticulosController::class . ':GuardarImagen' );
 });
 
 $app->run();

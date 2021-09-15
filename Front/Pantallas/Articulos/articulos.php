@@ -1,77 +1,7 @@
 <?php
-require "funciones.php";
-$articulos = miQuery("SELECT * FROM articulos");
-
-?>
-
-<?php 
-
-//open connection to mysql db
-$connection = mysqli_connect("127.0.0.1","root","","practicapro") or die("Error " . mysqli_error($connection));
-
-$sql = "select * from articulos";
-    $result = mysqli_query($connection, $sql) or die("Error in Selecting " . mysqli_error($connection));
-
-
-
-
-
-    
-   // $json_string = json_encode($articulos);
-    //$file = 'articulos.json';
-    //file_put_contents($file, $json_string);
-
-    
-   $emparray = array();
-      while($row =mysqli_fetch_assoc($result))
-      {
-      
-
-         $id=$row['id'];
-         $nombre=$row['nombre'];
-         $valor=$row['valor'];
-         $calificacion=$row['calificacion'];
-         $clasificacion=$row['clasificacion'];
-         $foto=$row['foto'];
-         $descripcion=$row['descripcion'];
-   
-
-         $articulos[] = array('id'=> $id, 'nombre'=> $nombre,  'valor'=> $valor, 'calificacion'=> $calificacion,
-                        'descripcion'=> $descripcion, 'clasificacion'=> $clasificacion, 'foto'=> $foto);
-
-      }
-      
-
-
- ?>
-
-<?php
-$datos_articulos = file_get_contents("articulos.json");
-$json_articulos = json_decode($datos_articulos, true);
-
-foreach ($json_articulos as $jarticulos) {
-    
-  //  echo $jarticulos."<br>";
-}
-
-
-?>
-
-<?php
 require "head.php";
 require "header.php";
 ?>	
-
-<?php if (isset($_GET["borrar"])): ?>
-<script>
-   toastr.success('El articulo #<?php echo $_GET["borrar"] ?> fue eliminado con éxito...', 'articulo eliminado');
-</script>  
-<?php endif; ?>
-<?php if (isset($_GET["alta"])): ?>
-<script>
-   toastr.success('Se creo correctamente el articulo', 'Articulo creado');
-</script>  
-<?php endif; ?>
 <main role="main">
 
    <div class="album py-5 bg-light">

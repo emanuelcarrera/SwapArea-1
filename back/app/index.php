@@ -62,8 +62,11 @@ $app->group('/Articulo', function (RouteCollectorProxy $group) {
     $group->post('/Alta', \ArticulosController::class . ':Alta' );
     $group->post('/Baja', \ArticulosController::class . ':Baja' );
     $group->post('/Modificacion', \ArticulosController::class . ':Modificacion' );
-    $group->POST('/Listar', \ArticulosController::class . ':Listar' );
+    $group->GET('/ListarAusuario/{IDU}[/]', \ArticulosController::class . ':ListarAusuario' );
     $group->POST('/GuardarImagen', \ArticulosController::class . ':GuardarImagen' );
+    $group->GET('/GetArticulo/{IDA}[/]', \ArticulosController::class . ':GetArticulo' );
+
+    
 });
 
 $app->run();

@@ -14,7 +14,7 @@ public function GuardarImagen($request, $response, $args){
     //$response ->getBody()->Write(json_encode($partes));
     $extension = explode('/', $partes[0]);
     $imagen_base64 = base64_decode($partes[1]);
-    $archivo = $direccion . uniqid() . "." . $extension[1];
+    $archivo = '..\..\..\back\app\fotos\\' . uniqid() . "." . $extension[1];
     $response ->getBody()->Write(json_encode($archivo));
     file_put_contents($archivo ,$imagen_base64 );
 
@@ -38,7 +38,10 @@ public function Alta($request, $response, $args){
     //$response ->getBody()->Write(json_encode($partes));
     $extension = explode('/', $partes[0]);
     $imagen_base64 = base64_decode($partes[1]);
-    $archivo = $direccion . uniqid() . "." . $extension[1];
+    $partefinala =  uniqid() . "." . $extension[1];
+    $archivo = $direccion . $partefinala;
+
+    
     $response ->getBody()->Write(json_encode($archivo));
     file_put_contents($archivo ,$imagen_base64 );
 
@@ -46,7 +49,7 @@ public function Alta($request, $response, $args){
     $Art->idUsuario =  $listaDeParametros['idUsuario'];
     $Art->Nombre =  $listaDeParametros['Nombre'];
     $Art->Descripcion =  $listaDeParametros['Descripcion'];
-    $Art->foto =  json_encode($archivo);
+    $Art->foto =  "../../../back/app/fotos/" . $partefinala;
     $Art->Valor =  $listaDeParametros['Valor'];
     $Art->Clasificacion =  $listaDeParametros['Clasificacion'];
     $Art->CrearArticulo($Art);
@@ -59,9 +62,9 @@ public function Baja($request, $response, $args){
 
     $Art=  new Articulos();
     $listaDeParametros = $request->getParsedBody();
-    $Art->idArticulo =  $listaDeParametros['idArticulo'];
-
-    $Art->EliminarArticulo($Art);
+    //$Art->idArticulo =  (int)$listaDeParametros['idArticulo'];
+    $idA =  (int)$listaDeParametros['idArticulo'];
+    $Art->EliminarArticulo($idA);
     $response->getBody()->Write("Eliminado");
     return $response;
 }
@@ -70,13 +73,10 @@ public function Modificacion($request, $response, $args){
 
     $Art=  new Articulos();
 
-
-
     $listaDeParametros = $request->getParsedBody();
     $Art->idArticulo =  $listaDeParametros['idArticulo'];
     $Art->Nombre =  $listaDeParametros['Nombre'];
     $Art->Descripcion =  $listaDeParametros['Descripcion'];
-    $Art->foto =  $listaDeParametros['foto'];
     $Art->Valor =  $listaDeParametros['Valor'];
     $Art->Clasificacion =  $listaDeParametros['Clasificacion'];
     $Art->UpdateArticulo($Art);
@@ -86,15 +86,29 @@ public function Modificacion($request, $response, $args){
 
     return $response;
 }
-public function Listar($request, $response, $args){
+public function ListarAusuario($request, $response, $args){
 
    $Art=  new Articulos();
-   $arrayUsuarios = $usr->TodosLosUsaurios();
+   $listaDeParametros = $request->getParsedBody();
+   $idUsuario =  (int)$args['IDU'];
+   $arrayUsuarios = $Art->ListarAUsuario($idUsuario);
    $response ->getBody()->Write(json_encode($arrayUsuarios));
  
 
   return $response->withHeader('Content-Type', 'application/json');
 }
+
+public function GetArticulo($request, $response, $args){
+
+    $Art=  new Articulos();
+    $listaDeParametros = $request->getParsedBody();
+    $idA =  (int)$args['IDA'];
+    $Articulo = $Art->GetArticulo($idA );
+    $response ->getBody()->Write(json_encode($Articulo));
+  
+   return $response->withHeader('Content-Type', 'application/json');
+ }
+ 
 
 
 

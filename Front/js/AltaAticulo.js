@@ -48,6 +48,8 @@ function subir_imagenes() {
 
      }
      var a =fileReader.readAsDataURL(fileToLoad);
+     
+           alert("Se creo correctamente");
    }
    //var blobURL = window.createBlobURL(fileObj);
    

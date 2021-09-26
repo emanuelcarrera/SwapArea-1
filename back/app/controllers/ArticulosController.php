@@ -98,6 +98,17 @@ public function ListarAusuario($request, $response, $args){
   return $response->withHeader('Content-Type', 'application/json');
 }
 
+public function Buscar($request, $response, $args){
+
+    $Art=  new Articulos();
+    $Busca =  $args['Busca'];
+    $arrayUsuarios = $Art->Buscar($Busca);
+    $response ->getBody()->Write(json_encode($arrayUsuarios));
+  
+ 
+   return $response->withHeader('Content-Type', 'application/json');
+ }
+
 public function GetArticulo($request, $response, $args){
 
     $Art=  new Articulos();

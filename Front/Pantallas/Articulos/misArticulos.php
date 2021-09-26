@@ -28,4 +28,4 @@ require "../header.php";
 <div id="lista" class="row">
 </body>
 
-<script src="../..\js/misArticulos.js"></script>
+<script src="../../js/misArticulos.js"></script>

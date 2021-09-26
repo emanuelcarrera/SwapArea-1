@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Inicio de session</title>
-	<meta content="width=device-width, initial-scale=1.0" name="viewport" >
-	<link rel="stylesheet" href="../../css/bootstrap.min.css" type="text/css" />
-
-	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-
-
-</head>
 <?php
 require "../head.php";
 require "../header.php";
 ?>	
-<body>
 
 
 

@@ -10,6 +10,7 @@ class Usuarios {
     public $Mail; 
     public $Edad; 
     public $dni; 
+    public $foto; 
     public $Telefono; 
     public $id_Monedero; 
     public $id_tx; 
@@ -29,13 +30,27 @@ public function CrearUsuario($usr)
 }
 
 
-public function UpdateUsuario($usr)
+public function UpdateUsuario($usr, $id)
+{
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("UPDATE `usuarios` 
+    SET `nombre` = '$usr->Nombre' ,
+    `Apellido` = '$usr->Apellido',
+    `edad` = $usr->Edad,
+    `Mail` =  '$usr->Mail',
+    `Telefono` =  '$usr->Telefono' 
+    WHERE `idUsuario` = $id");
+    
+    $consulta->execute();
+    return $consulta->fetchAll(PDO::FETCH_CLASS, 'Usuarios');
+}
+
+
+public function GetDatosUsuario($usr)
 {
 
-
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("UPDATE `usuarios` SET `nombreUsuario` =  '$usr->nombreUsuario'  , `pass` = '$usr->pass' , `nombre` = '$usr->nombre' , `Apellido` = '$usr->papellido', `edad` = $usr->edad  ,`Descripcion` = '$usr->Descripcion' WHERE `idUsuario` = $usr->idUsuario");
-    
+    $consulta = $objAccesoDatos->prepararConsulta("SELECT * from `usuarios`  WHERE `idUsuario` = $usr->idUsuario");
    
     $consulta->execute();
 
@@ -47,7 +62,7 @@ public function TodosLosUsaurios()
 
 
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("select * from `usuarios`");
+    $consulta = $objAccesoDatos->prepararConsulta("SELECT * from `usuarios`");
     
     // $this->autor;
     $consulta->execute();
@@ -112,6 +127,27 @@ public function Login($usr)
        return "0";
     }
     
+}
+public function UpdatePass($usr,$id)
+{
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("UPDATE `usuarios` 
+    SET `Contraseña` = '$usr->Contraseña' 
+    WHERE `idUsuario` = $id;");
+    $usr->Nombre = $consulta;
+    $consulta->execute();
+    return $consulta->fetchAll(PDO::FETCH_CLASS, 'Usuarios');
+}
+
+public function GuardarFoto($usr,$id)
+{
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("UPDATE `usuarios` 
+    SET `foto` = '$usr->foto' 
+    WHERE `idUsuario` = $id ");
+    
+    $consulta->execute();
+    return $consulta->fetchAll(PDO::FETCH_CLASS, 'Usuarios');
 }
 
 

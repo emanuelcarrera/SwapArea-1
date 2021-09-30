@@ -87,8 +87,6 @@ function borrar(id){
   //envio el mensaje    
   xmlhttp.send(obje);
 
-
-  
 }
 
 function Editar(id){

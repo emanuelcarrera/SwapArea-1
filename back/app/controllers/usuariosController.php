@@ -41,16 +41,15 @@ public function Modificacion($request, $response, $args){
 
     
     $listaDeParametros = $request->getParsedBody();
-    $usr->idUsuario =  $listaDeParametros['idUsuario'];
-    $usr->nombreUsuario =  $listaDeParametros['NUsuario'];
-    $usr->Contraseña =   password_hash($listaDeParametros['pass'], PASSWORD_DEFAULT);
-    $usr->nombre =  $listaDeParametros['Nombre'];
-    $usr->papellido =  $listaDeParametros['Apellido'];
-    $usr->edad =  $listaDeParametros['Edad'];
-    $usr->Descripcion =  $listaDeParametros['Descripcion'];
-    $usr->UpdateUsuario($usr);
+    $id =  $listaDeParametros['IdUsuario'];
+    $usr->Nombre =  $listaDeParametros['Nombre'];
+    $usr->Apellido =  $listaDeParametros['Apellido'];
+    $usr->Edad =  $listaDeParametros['edad'];
+    $usr->Telefono =  $listaDeParametros['telefono'];
+    $usr->Mail =  $listaDeParametros['email'];
+    $usr->UpdateUsuario($usr,$id);
     $response->getBody()->Write("Modificado");
-    
+
 
     return $response;
 }
@@ -63,6 +62,18 @@ public function Listar($request, $response, $args){
 
   return $response->withHeader('Content-Type', 'application/json');
 }
+
+public function GetDatosUsuario($request, $response, $args){
+
+    $usr=  new Usuarios();
+    $usr->idUsuario = $args['idUsuario']; 
+
+    $arrayUsuarios = $usr->GetDatosUsuario($usr);
+    $response ->getBody()->Write(json_encode($arrayUsuarios));
+  
+ 
+   return $response->withHeader('Content-Type', 'application/json');
+ }
 
 public function Login($request, $response, $args){
      
@@ -97,6 +108,67 @@ public function Login($request, $response, $args){
 
     
 }
+
+
+
+public function ValidadPass($request, $response, $args){
+     
+    $usr=  new Usuarios();
+    $listaDeParametros = $request->getParsedBody();
+    $id  =  $args['id'];
+    //$listaDeParametros = $request->getParsedBody();
+    $usr->nombreUsuario = $args['nombreUsuario'];
+    $passold = $args['passold'];
+    $pass =  $args['pass'];
+    
+
+    $Contraseñahash = $usr->ObetenerPass($usr);
+    
+    if(password_verify($args['passold'], $Contraseñahash))
+    {
+        $usr->Contraseña =  password_hash($pass, PASSWORD_BCRYPT);
+        $usr->UpdatePass($usr,$id);
+    
+        
+    }
+
+    $response ->getBody()->Write(json_encode($usr));
+
+    return $response->withHeader('Content-Type', 'application/json');
+    
+}
+
+
+
+public function GuardarFoto($request, $response, $args){
+
+
+    $usr=  new Usuarios();
+
+
+    $listaDeParametros = $request->getParsedBody();
+    $id =  $listaDeParametros['idUsuario'];
+    $img = $listaDeParametros['archivo'];
+    
+    //$response ->getBody()->Write(json_encode($img));
+    $direccion = dirname(__DIR__) . '\fotos\\';
+    $partes = explode(";base64,", $img); 
+    
+    //$response ->getBody()->Write(json_encode($partes));
+    $extension = explode('/', $partes[0]);
+    $imagen_base64 = base64_decode($partes[1]);
+    $partefinala =  uniqid() . "." . $extension[1];
+    $archivo = $direccion . $partefinala; 
+    $response ->getBody()->Write(json_encode($archivo));
+    file_put_contents($archivo ,$imagen_base64 );
+
+    $usr->foto =  "../../../back/app/fotos/" . $partefinala;
+    $usr->GuardarFoto($usr,$id);
+    $response->getBody()->Write("Creado");
+
+    return $response ;
+}
+
 
 
 

@@ -55,6 +55,19 @@ public function TodosLosArticulos()
 }
 
 
+public function Buscar($Busca)
+{
+
+
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("select * from `articulo` where `Nombre` like '%$Busca%' or  `Descripcion` like '%$Busca%'");
+    
+   
+    $consulta->execute();
+
+    return $consulta->fetchAll(PDO::FETCH_CLASS,'Articulos');
+}
+
 public function ListarAUsuario($idUsuario)
 {
     $objAccesoDatos = AccesoDatos::obtenerInstancia();

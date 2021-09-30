@@ -1,5 +1,5 @@
 var servidor = "http://localhost:777";
-
+addEventListener("load", load)
 setArticulo();
 
 function load() {

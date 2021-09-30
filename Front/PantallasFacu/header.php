@@ -18,12 +18,12 @@
 							</li>
 							
 						</ul>
-						<?php if ($_SESSION["log"]): ?>
+						<?php //if ($_SESSION["log"]): ?>
 							<span class="usuario-logueado"><i class="fa fa-user"></i> Bienvenido </span>
 							<a href="logout.php" class="btn btn-danger"><i class="fa fa-unlock-alt"></i> Salir</a>
-						<?php else: ?>
+						<?php //else: ?>
 							<a href="login.php" class="btn btn-primary"><i class="fa fa-unlock-alt"></i> Ingresar</a>
-						<?php endif; ?>
+						<?php //endif; ?>
 
 					</div>
 				</div>

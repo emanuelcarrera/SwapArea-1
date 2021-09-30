@@ -1,45 +1,15 @@
 <?php
 
-$_SESSION["log"]      = TRUE;
-$_SESSION["usuario"]  = "mariano@gmail.com";
-$_SESSION["permisos"] = array(1,2,3,4);
+//$_SESSION["log"]      = TRUE;
+//$_SESSION["usuario"]  = "mariano@gmail.com";
+//$_SESSION["permisos"] = array(1,2,3,4);
 
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Inicio de session</title>
-	<meta content="width=device-width, initial-scale=1.0" name="viewport" >
-	<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" />
-
-	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-	<script src="..\js/Login.js"></script>
-
-</head>
-<body>
-
-<nav class="navbar navbar-default" role="navigation">
-	<div class="container-fluid">
-		<!-- add header -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar1">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="index.php" style="font-family: 'Lobster', cursive;">devHuayra</a>
-		</div>
-		<!-- menu items -->
-		<div class="collapse navbar-collapse" id="navbar1">
-			<ul class="nav navbar-nav navbar-right">
-				<li class="active"><a href="login.php">Login</a></li>
-				<li><a href="register.php">Registro</a></li>
-			</ul>
-		</div>
-	</div>
-</nav>
+<?php
+require "head.php";
+require "header.php";
+?>	
 
 <div class="container">
 	<div class="row">
@@ -73,6 +43,11 @@ $_SESSION["permisos"] = array(1,2,3,4);
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4 text-center">	
 		No tienes cuenta? <a href="register.php">Regitrate aqui</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4 text-center">	
+		olvidaste tu contraseña? <a href="recupero.php">Recuperala</a>
 		</div>
 	</div>
 </div>

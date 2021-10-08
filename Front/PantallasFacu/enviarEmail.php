@@ -18,7 +18,7 @@ $result = $conexion->query($sqlvaluser);
 
 $row = mysqli_fetch_array($result);
 $existe = mysqli_num_rows($result);
-$passUser = $row['Contrasenia'];
+$passUser = md5($row['Contrasenia']);
 
 if ($existe>0) {
 
@@ -26,15 +26,20 @@ if ($existe>0) {
 $mail = new PHPMailer(true);
 
 try {
-    $mail->SMTPDebug = 2;                    
+
+	$mail->SMTPDebug = 0;                    
     $mail->isSMTP();                                            //Envia mail usando SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Servidor SMTP de la casilla de mail desde donde se va a enviar el correo
     $mail->SMTPAuth   = true;                                   //Habilita autenticación SMTP
     $mail->Username   = 'swaparea21@gmail.com';                     //Casilla de email desde donde se va a enviar el correo
     $mail->Password   = 'EmaFacu21';                               //Contraseña de la casilla de mail
-    $mail->SMTPSecure = 'tls';
-    //$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
+    //$mail->SMTPSecure = 'tls';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
     $mail->Port       = 465;                                    //Puerto TCP por el cual se realiza la conexión
+
+
+
+    
 
     //Destinatarios del mail
     $mail->setFrom('swaparea21@gmail.com', 'SwapArea'); //Casilla desde donde se enviará el email
@@ -50,8 +55,8 @@ try {
     //Content
     $mail->isHTML(true);                                  
 	$mail->CharSet = 'UTF-8';
-    $mail->Subject = "Gestión de transportes - Recuperación de contraseña"; 
-    $mail->Body    = "Estimado usuario, recibimos su solicitud para recuperar su contraseña de acceso al sistema de Gestión de Transportes. A continuación, le compartimos su contraseña para ingresar al sistema: <b>$passUser</b>";
+    $mail->Subject = "SwapArea Recupero de contraseña"; 
+    $mail->Body    = "Estimado usuario, recibimos su solicitud para recuperar su contraseña de acceso a SwapArea. A continuación, le compartimos su contraseña para ingresar al sistema: <b>$passUser</b>";
     //$mail->AltBody = 'este es el cuerpo para enviar mails en formato plano no HTML';
 
     $mail->send(); 

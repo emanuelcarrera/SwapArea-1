@@ -47,6 +47,12 @@ require "header.php";
                                     <span class="ql_top"></span>
                                     <span class="ql_bottom"></span>
                                 </a>
-                                    <a href="enviarSolicitud.php" class="btn btn-primary"> Enviar</a>
-                                
+                                    <form action="enviarSolicitud.php" method="post">
+                                     <input type="text" name="mailLaboral" placeholder="Email" id="mailLaboral" required>
+                                     <button id="BotonLogin">Mail intercambio</button>
+                                     
+                                    <div id="msjError"></div>
+                                    </form>
+
+                                    
 </div>

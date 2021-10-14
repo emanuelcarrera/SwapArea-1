@@ -12,20 +12,21 @@
 					<div class="product col-md-3 service-image-left">
                     
 						<center>
-							<img id="item-display" src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt=""></img>
+							<img src="imagenes/logo.jpg" alt="Imagen"></img>
 						</center>
 					</div>
 					
 					<div class="container service1-items col-sm-2 col-md-2 pull-left">
 						<center>
 							<a id="item-1" class="service1-item">
-								<img src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt=""></img>
+								<img src="imagenes/logo.jpg" alt=""></img>
+
 							</a>
 							<a id="item-2" class="service1-item">
-								<img src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt=""></img>
+								<img src="imagenes/logo.jpg" alt=""></img>
 							</a>
 							<a id="item-3" class="service1-item">
-								<img src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt=""></img>
+								<img src="imagenes/logo.jpg" alt=""></img>
 							</a>
 						</center>
 					</div>
@@ -40,9 +41,12 @@
 					<div class="product-stock">In Stock</div>
 					<hr>
 					<div class="btn-group cart">
-						<button type="button" class="btn btn-success">
+						<a href="intercambio.php">
+						<button type="button" class="btn btn-success" href="intercambio.php">
+							<a href="intercambio.php">
 							Intercambiar
 						</button>
+						</a>
 					</div>
 					<div class="btn-group wishlist">
 						<button type="button" class="btn btn-danger">

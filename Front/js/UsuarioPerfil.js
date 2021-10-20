@@ -1,5 +1,7 @@
 var servidor = "http://localhost:777";
-
+let $departamento = document.getElementById('departamento');
+let $provincia = document.getElementById('provincia');
+//let $distrito = document.getElementById('distrito');
 addEventListener("load", load);
 function $(valor) {
     return document.getElementById(valor);
@@ -10,9 +12,41 @@ function load() {
    $("btnEnviar").addEventListener("click",Modificar);
    $("btnSubirFoto").addEventListener("click",subir_imagenes);
    $("btnpass").addEventListener("click",cambio_pass);
+   $("guardarDomiciclio").addEventListener("click",AltaDomicilio);
+   
    GETUsuarios();
+   cargarProvincias();
 }
 
+function cargarProvincias() {
+
+    var xmlhttp = new XMLHttpRequest();
+   
+    xmlhttp.open("GET", servidor + '/Usuarios/GetProvinvias', true);
+    xmlhttp.onreadystatechange = function () {
+        //Veo si llego la respuesta del servidor
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+            //Reviso si la respuesta es correcta
+            
+            if (xmlhttp.status == 200) {
+                var json = JSON.parse(xmlhttp.responseText);
+                let template = '<option class="form-control" selected disabled>-- Seleccione --</option>';
+                json.forEach(respuesta => {
+                    template += `<option class="form-control" value="${respuesta.id}">${respuesta.nombre}</option>`;
+                })
+                $provincia.innerHTML = template;
+
+                //GETDomicilio();
+            }
+            else {
+                alert("ocurrio un error");
+            }
+        }
+    }
+
+    xmlhttp.send();
+
+}
 
 function GETUsuarios(){
 
@@ -182,9 +216,113 @@ function subir_imagenes() {
        }
     }
 
-  
+   
 
   }
+
+
+  function cargarDistritos(sendDatos) {
+    var xmlhttp = new XMLHttpRequest();
+    var url = servidor + '/Usuarios/Getciudades/'+sendDatos.toString();
+    xmlhttp.open("GET", servidor + '/Usuarios/Getciudades/'+sendDatos.toString(), true);
+    xmlhttp.onreadystatechange = function () {
+        //Veo si llego la respuesta del servidor
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+            //Reviso si la respuesta es correcta
+            
+            if (xmlhttp.status == 200) {
+                var json = JSON.parse(xmlhttp.responseText);
+                let template = '<option class="form-control" selected disabled>-- Seleccione --</option>';
+                json.forEach(respuesta => {
+                    template += `<option class="form-control" value="${respuesta.id}">${respuesta.nombre}</option>`;
+                })
+                $departamento.innerHTML = template;
+            }
+            else {
+                alert("ocurrio un error");
+            }
+        }
+    }
+
+    xmlhttp.send();
+}
+
+  $provincia.addEventListener('change', () => {
+
+    const sendDatos = $provincia.value
+
+    
+    cargarDistritos(sendDatos);
+});
+
+function AltaDomicilio(){
+    var xmlhttp = new XMLHttpRequest();
+    var fileContent = new FormData();
+    xmlhttp.open("POST", servidor + '/Usuarios/AltaDomicilio', true);
+    xmlhttp.onreadystatechange = function () {
+        //Veo si llego la respuesta del servidor
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+            //Reviso si la respuesta es correcta
+            
+            if (xmlhttp.status == 200) {
+                
+
+
+            }
+            else {
+                alert("ocurrio un error");
+            }
+        }
+    }
+
+    fileContent.append("IdUsuario", localStorage.getItem('id'));
+    fileContent.append("Direccion", document.getElementById("dimicilio").value);
+    fileContent.append("id_ciudad", $departamento.value);
+   
+    xmlhttp.send(fileContent);
+   
+    alert("Se modifico correctamente");
+
+}
+
+
+function GETDomicilio(){
+
+    var xmlhttp = new XMLHttpRequest();
+   
+    xmlhttp.open("GET", servidor + '/Usuarios/getDomicilio/'+localStorage.getItem('id'), true);
+    xmlhttp.onreadystatechange = function () {
+        //Veo si llego la respuesta del servidor
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+            //Reviso si la respuesta es correcta
+            
+            if (xmlhttp.status == 200) {
+                
+                var json = JSON.parse(xmlhttp.responseText);
+                var template = ``;
+                json.map(function(Respuesta){
+
+                    document.getElementById("Direccion").value =  Respuesta.Direccion;
+                    cargarDistritos(Respuesta.id_ciudad);
+                    document.getElementById('departamento').getElementsByTagName('option')[Respuesta.id_ciudad].selected = 'selected';
+                    document.getElementById('provincia').getElementsByTagName('option')[Respuesta.id_Provincia].selected = 'selected';
+
+                });
+                
+                console.log(template);
+
+
+
+            }
+            else {
+                alert("ocurrio un error");
+            }
+        }
+    }
+
+    xmlhttp.send();
+
+}
 
 
 

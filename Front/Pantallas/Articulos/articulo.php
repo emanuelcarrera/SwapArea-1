@@ -30,12 +30,11 @@ require "../header.php";
 				</div>
 					
 				<div class="col-md-7">
-					<div class="product-title">Corsair GS600 600 Watt PSU</div>
-					<div class="product-desc">The Corsair Gaming Series GS600 is the ideal price/performance choice for mid-spec gaming PC</div>
+					<div class="product-title">Nombre :<label id="lblnombre"> </div>
 					<div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
 					<hr>
-					<div class="product-price">$ 1234.00</div>
-					<div class="product-stock">In Stock</div>
+					<div class="product-price">Valor : $<label id="lblvalor"> </label></div>
+					
 					<hr>
 					<div class="btn-group cart">
 						<button type="button" class="btn btn-success">
@@ -63,15 +62,10 @@ require "../header.php";
 						<div class="tab-pane fade in active" id="service-one">
 						 
 							<section class="container product-info">
-								DescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcionDescripcion
+								
 
 								<h3>Descripcion</h3>
-								<li>Descripcion</li>
-								<li>Descripcion</li>
-								<li>Descripcion</li>
-								<li>Descripcion</li>
-								<li>Descripcion</li>
-								<li>Descripcion</li>
+                                <label id="lbldescripcion"> </label>
 							</section>
 										  
 						</div>
@@ -101,3 +95,5 @@ require "../header.php";
 		</div>
 	</div>
 </div>
+
+<script src="../..\js/VerArticulo.js"></script>

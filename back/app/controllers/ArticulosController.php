@@ -109,6 +109,18 @@ public function Buscar($request, $response, $args){
    return $response->withHeader('Content-Type', 'application/json');
  }
 
+
+ public function TodosLosArticulos($request, $response, $args){
+
+    $Art=  new Articulos();
+    $arrayUsuarios = $Art->TodosLosArticulos();
+    $response ->getBody()->Write(json_encode($arrayUsuarios));
+  
+ 
+   return $response->withHeader('Content-Type', 'application/json');
+ }
+
+
 public function GetArticulo($request, $response, $args){
 
     $Art=  new Articulos();

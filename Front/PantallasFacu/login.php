@@ -10,6 +10,8 @@
 require "head.php";
 require "header.php";
 ?>	
+<br>
+<br>
 
 <div class="container">
 	<div class="row">

@@ -169,7 +169,54 @@ public function GuardarFoto($request, $response, $args){
     return $response ;
 }
 
+public function GetProvinvias($request, $response, $args)
+{      $usr=  new Usuarios();
+    
+       $arrayZona = $usr->GetProvinvias();
+       $response ->getBody()->Write(json_encode($arrayZona));
+     
+    
+      return $response->withHeader('Content-Type', 'application/json');
+}
 
+
+public function GetCiudades($request, $response, $args)
+{      $usr=  new Usuarios();
+       $id  =  $args['idciudad'];
+       $arrayZona = $usr->Getciudades($id);
+       $response ->getBody()->Write(json_encode($arrayZona));
+     
+    
+      return $response->withHeader('Content-Type', 'application/json');
+}
+
+
+public function AltaDomicilio($request, $response, $args){
+
+    $usr=  new Usuarios();    
+    $listaDeParametros = $request->getParsedBody();
+    $idU = $listaDeParametros['IdUsuario'];
+    $dir = $listaDeParametros['Direccion'];
+    $idc = $listaDeParametros['id_ciudad'];
+
+    $usr->AltaDomicilio($idU,$dir ,$idc);
+    $response->getBody()->Write("Modificado");
+
+
+    return $response;
+}
+
+
+public function getDomicilio($request, $response, $args)
+{      
+       $usr=  new Usuarios();
+       $id  =  $args['id'];
+       $arrayZona = $usr->getDomicilio($id);
+       $response ->getBody()->Write(json_encode($arrayZona));
+     
+    
+      return $response->withHeader('Content-Type', 'application/json');
+}
 
 
 }

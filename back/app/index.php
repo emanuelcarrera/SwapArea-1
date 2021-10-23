@@ -57,7 +57,11 @@ $app->group('/Usuarios', function (RouteCollectorProxy $group) {
     $group->get('/GetDatosUsuario/{idUsuario}[/]', \usuariosController::class . ':GetDatosUsuario' );
     $group->POST('/GuardarFoto', \usuariosController::class . ':GuardarFoto' );
     $group->get('/ValidadPass/{nombreUsuario}/{passold}/{pass}/{id}[/]', \usuariosController::class . ':ValidadPass' );
-
+    $group->get('/GetProvinvias', \usuariosController::class . ':GetProvinvias' );
+    $group->get('/Getciudades/{idciudad}', \usuariosController::class . ':Getciudades' );
+    $group->POST('/AltaDomicilio', \usuariosController::class . ':AltaDomicilio' );
+    $group->get('/getDomicilio/{id}', \usuariosController::class . ':getDomicilio' );
+   
     
 });
 
@@ -71,6 +75,7 @@ $app->group('/Articulo', function (RouteCollectorProxy $group) {
     $group->POST('/GuardarImagen', \ArticulosController::class . ':GuardarImagen' );
     $group->GET('/GetArticulo/{IDA}[/]', \ArticulosController::class . ':GetArticulo' );
     $group->GET('/Buscar/{Busca}[/]', \ArticulosController::class . ':Buscar' );
+    $group->GET('/TodosLosArticulos', \ArticulosController::class . ':TodosLosArticulos' );
 
     
 });

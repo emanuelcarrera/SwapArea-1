@@ -151,19 +151,12 @@
                <h2></h2>
                
                <hr>
-                  <form class="form" action="##" method="post" id="registrationForm">
+                 
                       <div class="form-group">
                           
                           <div class="col-xs-6">
-                              <label for="first_name"><h4>Calle</h4></label>
-                              <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Calle" title="enter your first name if any.">
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          
-                          <div class="col-xs-6">
-                            <label for="last_name"><h4>Altura</h4></label>
-                              <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Altura" title="enter your last name if any.">
+                              <label for="first_name"><h4>Calle y numero</h4></label>
+                              <input type="text" class="form-control" name="first_name" id="dimicilio" placeholder="Calle" title="enter your first name if any.">
                           </div>
                       </div>
           
@@ -171,29 +164,22 @@
                           
                           <div class="col-xs-6">
                               <label for="phone"><h4>Ciudad</h4></label>
-                              <input type="text" class="form-control" name="phone" id="phone" placeholder="Ciudad" title="enter your phone number if any.">
+                              <select class="custom-select form-control" id="departamento">
+                              </select>
                           </div>
                       </div>
           
                       <div class="form-group">
                           <div class="col-xs-6">
                              <label for="mobile"><h4>Provincia</h4></label>
-                              <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Provencia" title="enter your mobile number if any.">
+                             <select class="custom-select form-control" id="provincia">
+                             </select>
+                    </select>
                           </div>
                       </div>
-                      <div class="form-group">
+
                           
-                          <div class="col-xs-6">
-                              <label for="email"><h4>Pais</h4></label>
-                              <input type="email" class="form-control" name="email" id="email" placeholder="Pais" title="enter your email.">
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          
-                          <div class="col-xs-6">
-                              <label for="email"><h4>DNI</h4></label>
-                              <input type="email" class="form-control" id="location" placeholder="DNI" title="enter a location">
-                          </div>
+
                       </div>
                       <div class="form-group">
                           
@@ -202,11 +188,11 @@
                       <div class="form-group">
                            <div class="col-xs-12">
                                 <br>
-                              	<button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                               	<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                              	<button class="btn btn-lg btn-success" id="guardarDomiciclio" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                               	
                             </div>
                       </div>
-              	</form>
+              	
                
              </div><!--/tab-pane-->
            

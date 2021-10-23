@@ -1,4 +1,5 @@
 <?php
+
 class Usuarios {
 
     public $idUsuario; 
@@ -149,6 +150,60 @@ public function GuardarFoto($usr,$id)
     $consulta->execute();
     return $consulta->fetchAll(PDO::FETCH_CLASS, 'Usuarios');
 }
+
+public function GetProvinvias()
+{
+
+
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("select id_Provincia as id, nombreProvincia as nombre FROM `provincias`");
+  
+    $consulta->execute();
+
+    return $consulta->fetchAll();
+}
+
+public function Getciudades($id)
+{
+
+
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("select id_ciudad as id, nombreCiuadad as nombre FROM `ciudades` where `id_Provincia`= $id ");
+  
+    $consulta->execute();
+
+    return $consulta->fetchAll();
+}
+
+
+public function AltaDomicilio($idU,$dir ,$idc)
+{
+
+
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO `domicilios`( `Direccion`, `id_ciudad`, `idUsuario`) VALUES ('$dir', $idc,$idU )");
+  
+    $consulta->execute();
+
+    return $consulta->fetchAll();
+}
+
+public function getDomicilio($id)
+{
+
+
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("SELECT dom.Direccion,dom.id_ciudad,ciu.id_Provincia,ciu.nombreCiuadad FROM `domicilios` as dom 
+    join `ciudades` as ciu on dom.id_ciudad = ciu.id_ciudad
+    where dom.idUsuario = $id
+    order by id_Domicilio DESC
+    LIMIT 1");
+  
+    $consulta->execute();
+
+    return $consulta->fetchAll();
+}
+
 
 
 }

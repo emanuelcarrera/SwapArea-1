@@ -9,6 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="addons/fa/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/styleIntercambio.css">
+		<link rel="stylesheet" href="css/stylemailEnviado.css">
 		<script src="js/jquery-3.4.1.min.js"></script>
 		<script src="js/funciones.js"></script>
 		<script src="addons/bootstrap/js/bootstrap.min.js"></script>
@@ -27,3 +28,4 @@
 	</head>
 
 	<body>
+		

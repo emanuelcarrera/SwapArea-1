@@ -2,8 +2,6 @@
 require "head.php";
 require "header.php";
 ?>  
-<br>
-<br>
 
 
 <form action="enviarEmail.php" method="post">

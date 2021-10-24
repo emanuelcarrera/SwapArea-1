@@ -8,7 +8,7 @@ require 'PHPMailer/Exception.php';
 require 'PHPMailer/PHPMailer.php';
 require 'PHPMailer/SMTP.php';
 
-include_once "login.php";
+include_once "mailEnviado.php";
 
 $mailLaboral = $_POST["mailLaboral"]; 
 

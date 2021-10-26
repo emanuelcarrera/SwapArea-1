@@ -11,14 +11,19 @@ require "header.php";
       <!--Componente principal de un mensaje de primario o llamado a la acción -->
       <div class="jumbotron">
         <h1>SWAPAREA</h1>
-        <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-        <p>To see the difference between static and fixed top navbars, just scroll.</p>
-        <p>
-          <img src="imagenes/logo.jpg" alt="Imagen">
-        </p>
+         <img src="imagenes/logo.jpg" alt="Imagen">
+         <img src="imagenes/logo.jpg" alt="Imagen">
+
+        
+      </div>
+      <div class ="jumbotron">
+        <h2>Que desea hacer?</h2>
+        <a class="nav-link" href="articulos.php"><i class="fa fa-film"></i> Ver articulos?</a>
+        <a class="nav-link" href="compraMoneda.php"><i class="fa fa-coins"></i> Comprar monedas?</a>
+        <a class="nav-link" href="perfilUsuario.php"><i class="fa fa-user"></i> Ver tu perfil?</a>
       </div>
 
-    </div>
+</div>
 
 
 </body>

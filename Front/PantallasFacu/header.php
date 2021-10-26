@@ -11,7 +11,10 @@
 								<a class="nav-link" href="index.php"><i class="fa fa-home"></i> Inicio <span class="sr-only"></span></a>
 							</li>
 							<li class="nav-item active">
-								<a class="nav-link" href="articulos.php"><i class="fa fa-film"></i> articulos</a>
+								<a class="nav-link" href="articulos.php"><i class="fa fa-film"></i> Articulos</a>
+							</li>
+							<li class="nav-item active">
+								<a class="nav-link" href="compraMoneda.php"><i class="fa fa-coins"></i> Monedas</a>
 							</li>
 							<li class="nav-item active">
 								<a class="nav-link" href="contactos.php"><i class="fa fa-comments"></i> Contactenos</a>
@@ -19,7 +22,7 @@
 							
 						</ul>
 						<?php //if ($_SESSION["log"]): ?>
-							<span class="usuario-logueado"><i class="fa fa-user"></i> Bienvenido </span>
+							<span class="usuario-logueado"><a class="nav-link" href="perfilUsuario.php"><i class="fa fa-user"></i> Bienvenido </span>
 							<a href="logout.php" class="btn btn-danger"><i class="fa fa-unlock-alt"></i> Salir</a>
 						<?php //else: ?>
 							<a href="login.php" class="btn btn-primary"><i class="fa fa-unlock-alt"></i> Ingresar</a>

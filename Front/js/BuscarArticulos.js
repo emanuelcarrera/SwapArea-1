@@ -1,5 +1,5 @@
 //addEventListener("load", load)
-var servidor = "http://localhost:777";
+var servidor = "https://backpracticapro.herokuapp.com";
 function load() {   
 
     $("btnEnviar").addEventListener("click",Buscar);

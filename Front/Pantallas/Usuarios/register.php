@@ -134,7 +134,7 @@ require "../header.php";
     </div>
   </div>
 </div>
-
+<script src="../../js/Usuarios.js"></script>
 <script>
 	//Modal terminos y condiciones
 	$('#TernimosCondiciones').on('shown.bs.modal', function () {

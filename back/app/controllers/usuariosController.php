@@ -154,7 +154,6 @@ public function GuardarFoto($request, $response, $args){
     $direccion = dirname(__DIR__) . '\fotos\\';
     $partes = explode(";base64,", $img); 
     
-    //$response ->getBody()->Write(json_encode($partes));
     $extension = explode('/', $partes[0]);
     $imagen_base64 = base64_decode($partes[1]);
     $partefinala =  uniqid() . "." . $extension[1];
@@ -217,6 +216,37 @@ public function getDomicilio($request, $response, $args)
     
       return $response->withHeader('Content-Type', 'application/json');
 }
+
+public function AltaSolicitud($request, $response, $args){
+
+    $usr=  new Usuarios();
+    $listaDeParametros = $request->getParsedBody();
+    $idArticulo = $listaDeParametros['idArticulo']; 
+    $dueno = $listaDeParametros['idDueno']; 
+    $ofertante = $listaDeParametros['idUsuario']; 
+    $oferta = $listaDeParametros['idoferta']; 
+    $monto = $listaDeParametros['monto']; 
+    $comentario = $listaDeParametros['comentario']; 
+    
+    $arrayUsuarios = $usr->AltaSolicitud($idArticulo,$dueno,$ofertante,$oferta,$monto,$comentario);
+  
+    $response ->getBody()->Write(json_encode($listaDeParametros));
+   return $response->withHeader('Content-Type', 'application/json');
+ }
+
+ public function CompraMoneda($request, $response, $args){
+
+    $usr=  new Usuarios();
+    $listaDeParametros = $request->getParsedBody();
+
+    $idU = $listaDeParametros['idU'];
+    $cantidad = $listaDeParametros['cantidad'];
+    $usr->CompraMoneda($idU,$cantidad);
+     
+    $response ->getBody()->Write(json_encode($listaDeParametros));
+    return $response->withHeader('Content-Type', 'application/json');
+ }
+
 
 
 }

@@ -1,16 +1,20 @@
-//addEventListener("load", load)
-//var servidor = "http://localhost:777";
-var servidor = "https://backpracticapro.herokuapp.com/";
+var servidor = "http://localhost:777";
 
 
 
-ListarUsuarios();
+GETDomicilio();
+function $(valor) {
+    return document.getElementById(valor);
+}
 
-function ListarUsuarios(){
+
+
+
+function GETDomicilio(){
 
     var xmlhttp = new XMLHttpRequest();
    
-    xmlhttp.open("GET", servidor + '/Articulo/ListarAusuario/'+localStorage.getItem('id'), true);
+    xmlhttp.open("GET", servidor + '/Usuarios/getDomicilio/'+localStorage.getItem('id'), true);
     xmlhttp.onreadystatechange = function () {
         //Veo si llego la respuesta del servidor
         if (xmlhttp.readyState == XMLHttpRequest.DONE) {
@@ -20,25 +24,26 @@ function ListarUsuarios(){
                 
                 var json = JSON.parse(xmlhttp.responseText);
                 var template = ``;
-                json.map(function(Articulos){
+                json.map(function(Respuesta){
 
-                     template +=`
-                     <div class="col-sm-3">
 
-                     <img src=${Articulos.foto} >
-                     <h2>Nombre: ${Articulos.Nombre}</h2>
-                     <br>
-                     <strong>Descripcion: ${Articulos.Descripcion}</strong>
-                     <br>
-                     <strong>Valor: ${Articulos.Valor}</strong>
-                     <br>
-                     <input type="button" onclick="Editar(${Articulos.idArticulo})" value="Editar" class="btn btn-primary" />
-                     <br>
-                     <input type="button" onclick="borrar(${Articulos.idArticulo})" value="Borrar" class="btn btn-primary" />
-                     </div>
-                    
+                    template +=`
+                    <div  style="padding: 10px 50px 20px;  margin-top: 4em; border-style: inset;">
 
-                     `;
+ 
+                    <strong>Calle: ${Respuesta.Direccion}</h2>
+                    <br>
+                    <strong>Ciudad: ${Respuesta.nombreCiuadad}</strong>
+                    <br>
+                    <strong>Provincia : ${Respuesta.nombreProvincia}</strong>
+                    <br>
+                    <strong>Pais : Argentina</strong>
+                    </div>
+                  
+
+                    `;
+
+
 
                 });
                 
@@ -55,10 +60,6 @@ function ListarUsuarios(){
 
     xmlhttp.send();
 
-}
-
-function $(valor) {
-    return document.getElementById(valor);
 }
 
 
@@ -97,6 +98,3 @@ function Editar(id){
 
 
 }
-
-
-

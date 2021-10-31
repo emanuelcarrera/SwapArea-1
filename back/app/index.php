@@ -61,7 +61,10 @@ $app->group('/Usuarios', function (RouteCollectorProxy $group) {
     $group->get('/Getciudades/{idciudad}', \usuariosController::class . ':Getciudades' );
     $group->POST('/AltaDomicilio', \usuariosController::class . ':AltaDomicilio' );
     $group->get('/getDomicilio/{id}', \usuariosController::class . ':getDomicilio' );
-   
+    $group->POST('/AltaSolicitud', \usuariosController::class . ':AltaSolicitud' );
+    $group->POST('/CompraMoneda', \usuariosController::class . ':CompraMoneda' );
+
+    
     
 });
 
@@ -69,6 +72,7 @@ $app->group('/Usuarios', function (RouteCollectorProxy $group) {
 
 $app->group('/Articulo', function (RouteCollectorProxy $group) {
     $group->post('/Alta', \ArticulosController::class . ':Alta' );
+    $group->post('/AltaAngular', \ArticulosController::class . ':AltaAngular' );
     $group->post('/Baja', \ArticulosController::class . ':Baja' );
     $group->post('/Modificacion', \ArticulosController::class . ':Modificacion' );
     $group->GET('/ListarAusuario/{IDU}[/]', \ArticulosController::class . ':ListarAusuario' );

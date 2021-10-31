@@ -22,6 +22,26 @@ public function GuardarImagen($request, $response, $args){
 
 }
 
+public function AltaAngular($request, $response, $args){
+
+
+    $Art=  new Articulos();
+    file_get_contents("php://input");
+    $listaDeParametros = json_decode(file_get_contents("php://input"));
+
+    $Art->idUsuario =  $listaDeParametros->idUsuario;
+    $Art->Nombre =  $listaDeParametros->nombre;
+    $Art->Descripcion =  $listaDeParametros->descripcion;
+    $Art->Valor =  $listaDeParametros->valor;
+    $Art->Clasificacion =  $listaDeParametros->calificacion;
+
+    
+    $Art->CrearArticuloAngular($Art);
+    $response->getBody()->Write(json_encode($listaDeParametros));
+
+    return $response->withHeader('Content-Type', 'application/json');
+}
+
 public function Alta($request, $response, $args){
 
 
@@ -130,8 +150,10 @@ public function GetArticulo($request, $response, $args){
     $response ->getBody()->Write(json_encode($Articulo));
   
    return $response->withHeader('Content-Type', 'application/json');
+
  }
  
+
 
 
 

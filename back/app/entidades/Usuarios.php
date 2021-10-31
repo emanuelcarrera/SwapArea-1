@@ -13,9 +13,10 @@ class Usuarios {
     public $dni; 
     public $foto; 
     public $Telefono; 
-    public $id_Monedero; 
+    public $Moneda; 
     public $id_tx; 
     public $id_Domicilio;
+
 
     
 public function CrearUsuario($usr)
@@ -23,10 +24,18 @@ public function CrearUsuario($usr)
 
 
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO `usuarios`( `Nombre`, `Apellido`, `NombreUsuario`, `Contraseña`,`Mail`, `Edad`, `dni`, `Telefono`) VALUES ('$usr->Nombre','$usr->Apellido','$usr->NombreUsuario','$usr->Contraseña','$usr->Mail',$usr->Edad,$usr->dni,$usr->Telefono)");
+    $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO 
+    `usuarios`( `Nombre`, `Apellido`, `NombreUsuario`, `Contraseña`,`Mail`, `Edad`, `dni`, `Telefono`)
+     VALUES ('$usr->Nombre','$usr->Apellido','$usr->NombreUsuario','$usr->Contraseña','$usr->Mail',$usr->Edad,$usr->dni,$usr->Telefono);
+     ");
   
     $consulta->execute();
 
+    $consulta = $objAccesoDatos->prepararConsulta("
+    SELECT @SomeVariable;
+    set  @SomeVariable = (select `idUsuario` from `usuarios` where `NombreUsuario` = '$usr->NombreUsuario');
+    INSERT INTO `monedero` (`idUsuario`, `Monto`) VALUES (@SomeVariable,0);  ");
+    $consulta->execute();
     return $consulta->fetchAll(PDO::FETCH_CLASS, 'Usuarios');
 }
 
@@ -193,14 +202,45 @@ public function getDomicilio($id)
 
 
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("SELECT dom.Direccion,dom.id_ciudad,ciu.id_Provincia,ciu.nombreCiuadad FROM `domicilios` as dom 
+    $consulta = $objAccesoDatos->prepararConsulta("SELECT dom.Direccion,dom.id_ciudad,ciu.id_Provincia,ciu.nombreCiuadad, pro.nombreProvincia FROM `domicilios` as dom 
     join `ciudades` as ciu on dom.id_ciudad = ciu.id_ciudad
-    where dom.idUsuario = $id
-    order by id_Domicilio DESC
-    LIMIT 1");
+    join `provincias` as pro on ciu.id_Provincia = pro.id_Provincia
+    where dom.idUsuario = $id");
   
     $consulta->execute();
 
+    return $consulta->fetchAll();
+}
+
+
+public function AltaSolicitud($idArticulo,$dueno,$ofertante,$oferta,$monto,$comentario)
+{
+
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO `solicitudes` (`id_Artuculo`, `dueno`, `ofertante`, `id_Articulo_oferta`, `monto`, `comentario`) 
+    VALUES ($idArticulo,$dueno,$ofertante,$oferta,$monto,'$comentario');"); 
+    $consulta->execute();
+
+    $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM `solicitudes` WHERE 1");
+    $consulta->execute();
+    return $consulta->fetchAll();
+
+}
+
+public function CompraMoneda($idU, $cantidad)
+{ 
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("UPDATE `monedero` 
+    SET `Monto` =  `Monto` +  $cantidad
+    WHERE `idUsuario` = $idU ");
+
+
+    $consulta->execute();
+
+    $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO `historialmoneda`(`idUsuario`, `monto`, `fecha`) 
+    VALUES ($idU,$cantidad, now())");
+
+    $consulta->execute();
     return $consulta->fetchAll();
 }
 

@@ -21,6 +21,14 @@ public function CrearArticulo($art)
 
     return $consulta->fetchAll(PDO::FETCH_CLASS, 'Articulos');
 }
+public function CrearArticuloAngular($art)
+{
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO `articulo` (`idUsuario`,`Nombre`,`Descripcion`,`Valor`,`Clasificacion`) VALUES ( $art->idUsuario, '$art->Nombre', '$art->Descripcion','$art->Valor','$art->Clasificacion');"); 
+    $consulta->execute();
+    return $consulta->fetchAll(PDO::FETCH_CLASS, 'Articulos');
+}
+
 
 
 public function UpdateArticulo($art)
@@ -102,6 +110,7 @@ public function EliminarArticulo($idA)
 
     return $consulta->fetchAll(PDO::FETCH_CLASS, 'Articulos');
 }
+
 
 
 

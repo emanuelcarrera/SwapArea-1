@@ -141,3 +141,4 @@ require "../header.php";
 	  $('#myInput').focus()
 	})
 </script>
+<script src="../../js/Usuarios.js"></script>

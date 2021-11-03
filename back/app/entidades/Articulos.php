@@ -28,7 +28,21 @@ public function CrearArticuloAngular($art)
     $consulta->execute();
     return $consulta->fetchAll(PDO::FETCH_CLASS, 'Articulos');
 }
+public function UpdateAngular($art)
+{
 
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("UPDATE `articulo` 
+    SET `Nombre`='$art->Nombre',
+    `Descripcion`='$art->Descripcion',
+    `Valor`='$art->Valor'
+    WHERE `idArticulo` = $art->idArticulo");
+    
+    $consulta->execute();
+
+    return $consulta->fetchAll(PDO::FETCH_CLASS, 'Articulos');
+}
+   
 
 
 public function UpdateArticulo($art)

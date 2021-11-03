@@ -1,3 +1,7 @@
+<?php
+require "../head.php";
+require "../header.php";
+?>	
 
 
 <head>
@@ -8,10 +12,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<?php
-require "head.php";
-require "header.php";
-?>  
+
 
 <hr>
 <div class="container bootstrap snippet">
@@ -60,10 +61,10 @@ require "header.php";
               </ul>
 
               
-          
+          <div class="tab-content">
             <div class="tab-pane active" id="home">
                 <hr>
-                  <form class="form" action="##" method="post" id="registrationForm">
+                  
                       <div class="form-group">
                           
                           <div class="col-xs-6">
@@ -101,16 +102,24 @@ require "header.php";
                           </div>
                       </div>
 
-                     
-                      
+                      </div>
+                      <div class="form-group">
+                           <div class="col-xs-12">
+                                <br>
+                              	<button class="btn btn-lg btn-success" id="btnEnviar"  type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Guardar Cambios</button>
+                               
+                            </div>
+                      </div>
                       <div>
+
+                      <div class="tab-pane" >
                       <div class="form-group">
                           
                           <div class="col-xs-6">
                               <label for="password"><h4>Password Actual</h4></label>
                               <input type="password" class="form-control" name="password" id="passwordold" placeholder="password" title="enter your password.">
                           </div>
-                      </div>
+                     
                       <div class="form-group">
                           
                           <div class="col-xs-6">
@@ -120,7 +129,7 @@ require "header.php";
                       </div>
                       <div class="form-group">
                           
-                          <div class="col-xs-6">
+                     <div class="col-xs-6">
                             <label for="password2"><h4>Verify</h4></label>
                               <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
                           </div>
@@ -131,16 +140,18 @@ require "header.php";
                                 <br>
                       <button class="btn btn-lg btn-success" id="btnpass"  type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Cambiar Contraseña</button>
                    
-                     </div>
-                    </div>
+                        </div>
+                        </div>
 
+                       </div>
+</div>    
 
-                 	</form>
-              
+                  	
+          </div>
               <hr>
               
              </div><!--/tab-pane-->
-             
+             <div class="tab-pane" id="messages">
                
                <h2></h2>
                
@@ -168,27 +179,24 @@ require "header.php";
                              <label for="mobile"><h4>Provincia</h4></label>
                              <select class="custom-select form-control" id="provincia">
                              </select>
-                    </select>
+                      </select>
                           </div>
                       </div>
 
-                          
-
-                      </div>
-                      <div class="form-group">
-                          
-                          
-                      </div>
                       <div class="form-group">
                            <div class="col-xs-12">
                                 <br>
-                              	<button class="btn btn-lg btn-success" id="guardarDomiciclio" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                              	<button class="btn btn-lg btn-success" id="guardarDomiciclio" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Añadir domicilio</button>
                                	
                             </div>
                       </div>
+                      </div>
+   
+
+
               	
                
-             
+           
            
     <?php 
 //require "footer.php";

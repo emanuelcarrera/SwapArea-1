@@ -1,6 +1,6 @@
 //addEventListener("load", load)
-//var servidor = "http://localhost:777";
-var servidor = "https://backpracticapro.herokuapp.com/";
+var servidor = "http://localhost:777";
+//var servidor = "https://backpracticapro.herokuapp.com/";
 
 
 
@@ -25,7 +25,7 @@ function ListarUsuarios(){
                      template +=`
                      <div class="col-sm-3">
 
-                     <img src=${Articulos.foto} >
+                     <img width="200" height="100" src=${Articulos.foto} >
                      <h2>Nombre: ${Articulos.Nombre}</h2>
                      <br>
                      <strong>Descripcion: ${Articulos.Descripcion}</strong>
@@ -87,6 +87,13 @@ function borrar(id){
 
   //envio el mensaje    
   xmlhttp.send(obje);
+
+}
+
+function  Nuevo(){
+
+    window.location.href = "/SwapArea/SwapArea/Front/PANTALLAS/Articulos/altaArticulos.php";
+
 
 }
 

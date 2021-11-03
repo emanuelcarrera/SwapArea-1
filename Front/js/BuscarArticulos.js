@@ -1,5 +1,7 @@
 //addEventListener("load", load)
-var servidor = "https://backpracticapro.herokuapp.com";
+//var servidor = "https://backpracticapro.herokuapp.com";
+
+var servidor = "http://localhost:777";
 function load() {   
 
     $("btnEnviar").addEventListener("click",Buscar);
@@ -25,13 +27,7 @@ function Listar(){
             if (xmlhttp.status == 200) {
                 
                 var json = JSON.parse(xmlhttp.responseText);
-                var template = `<DIV>
-                <form class="form" action="##" method="post" id="registrationForm">
-                <input  class="form-control" id="txtBuscar" placeholder="Buscar" title="enter a location">
-                <button class="btn btn-lg btn-success" id="btnEnviar"  type="button" onclick="Buscar()"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                </form>
-                </DIV>
-                </BR>`;
+                var template = ``;
                 json.map(function(Articulos){
 
                      template +=`
@@ -39,7 +35,7 @@ function Listar(){
 
                      <div class="col-sm-3">
 
-                     <img src=${Articulos.foto} >
+                     <img  width="200" height="100" src=${Articulos.foto} >
                      <h2>Nombre: ${Articulos.Nombre}</h2>
                      <br>
                      <strong>Descripcion: ${Articulos.Descripcion}</strong>
@@ -86,19 +82,13 @@ function Buscar(){
             if (xmlhttp.status == 200) {
                 
                 var json = JSON.parse(xmlhttp.responseText);
-                var template = `<DIV>
-                <form class="form" action="##" method="post" id="registrationForm">
-                <input  class="form-control" id="txtBuscar" placeholder="Buscar" title="enter a location">
-                <button class="btn btn-lg btn-success" id="btnEnviar"  type="button" onclick="Buscar()"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                </form>
-                </DIV>
-                </BR>`;
+                var template = ``;
                 json.map(function(Articulos){
 
                      template +=`
                      <div class="col-sm-3">
 
-                     <img src=${Articulos.foto} >
+                     <img width="200" height="100" src=${Articulos.foto} >
                      <h2>Nombre: ${Articulos.Nombre}</h2>
                      <br>
                      <strong>Descripcion: ${Articulos.Descripcion}</strong>

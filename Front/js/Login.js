@@ -1,6 +1,6 @@
 addEventListener("load", load)
 var servidor = "http://localhost:777";
-//var servidor = "https://edi3carreraback.herokuapp.com";
+//var servidor = "https://backpracticapro.herokuapp.com/";
 
 
 
@@ -48,7 +48,7 @@ function Login(){
                     setLog();
                     if(!(id  == "0") )
                     {
-                       window.location.href = "../Pantallas/index.php";
+                       window.location.href = "../Articulos/BuscarArticulos.php";
                     }
                 }
 

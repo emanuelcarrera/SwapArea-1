@@ -247,7 +247,27 @@ public function AltaSolicitud($request, $response, $args){
     return $response->withHeader('Content-Type', 'application/json');
  }
 
-
+public function getHistorialMoneda($request, $response, $args)
+ {
+    $usr=  new Usuarios();
+    $id =  $args['idU'];
+    $historial = $usr->getHistorialMoneda($id);
+    $response ->getBody()->Write(json_encode($historial));
+  
+ 
+   return $response->withHeader('Content-Type', 'application/json');
+ }
+ 
+ public function getmontoMoneda($request, $response, $args)
+ {
+    $usr=  new Usuarios();
+    $id =  $args['idU'];
+    $historial = $usr->getmontoMoneda($id);
+    $response ->getBody()->Write(json_encode($historial));
+  
+ 
+   return $response->withHeader('Content-Type', 'application/json');
+ }
 
 }
 

@@ -49,7 +49,7 @@ function Login(){
                     //setLog();
                     if(!(id  == "0") )
                     {
-                       window.location.href = "../Pantallas/index.php";
+                       window.location.href = "../Articulos/BuscarArticulos.php";
                     }
                 }
 

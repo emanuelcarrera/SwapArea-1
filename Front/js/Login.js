@@ -1,6 +1,7 @@
 addEventListener("load", load)
-var servidor = "http://localhost:777";
+//var servidor = "http://localhost:777";
 //var servidor = "https://edi3carreraback.herokuapp.com";
+var servidor = "https://backpracticapro.herokuapp.com";
 
 
 
@@ -45,7 +46,7 @@ function Login(){
     
                     id = localStorage.getItem('id')
 
-                    setLog();
+                    //setLog();
                     if(!(id  == "0") )
                     {
                        window.location.href = "../Pantallas/index.php";

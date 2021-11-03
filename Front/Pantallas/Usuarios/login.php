@@ -46,4 +46,4 @@ require "../header.php";
 </html>
 
 <script src="../..\js/Login.js"></script>
-<script src="../..\js/Header.js"></script>
+<!--<script src="../..\js/Header.js"></script>-->

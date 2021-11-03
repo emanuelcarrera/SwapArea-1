@@ -56,7 +56,10 @@ try {
     $mail->isHTML(true);                                  
 	$mail->CharSet = 'UTF-8';
     $mail->Subject = "SwapArea Recupero de contraseña"; 
-    $mail->Body    = "Estimado usuario, recibimos su solicitud para recuperar su contraseña de acceso a SwapArea. A continuación, le compartimos su contraseña para ingresar al sistema: <b>$passUser</b>";
+    $mail->Body    = 'Estimado usuario, recibimos su solicitud para recuperar su contraseña de acceso a SwapArea. Para recuperarla por favor ingrese al siguiente link
+    	<a class="nav-link" href="nuevaPass.php"><i class="fa fa-user"></i> Ver tu perfil?</a>
+
+     <button href="nuevaPass.php">>Recuperar pass</button>';
     //$mail->AltBody = 'este es el cuerpo para enviar mails en formato plano no HTML';
 
     $mail->send(); 

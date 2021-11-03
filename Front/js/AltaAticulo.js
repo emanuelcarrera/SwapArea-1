@@ -1,7 +1,7 @@
 
 addEventListener("load", load)
-//var servidor = "http://localhost:777";
-var servidor = "https://backpracticapro.herokuapp.com";
+var servidor = "http://localhost:777";
+//var servidor = "https://backpracticapro.herokuapp.com";
 function $(valor) {
     return document.getElementById(valor);
 }

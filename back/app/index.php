@@ -63,8 +63,8 @@ $app->group('/Usuarios', function (RouteCollectorProxy $group) {
     $group->get('/getDomicilio/{id}', \usuariosController::class . ':getDomicilio' );
     $group->POST('/AltaSolicitud', \usuariosController::class . ':AltaSolicitud' );
     $group->POST('/CompraMoneda', \usuariosController::class . ':CompraMoneda' );
-
-    
+    $group->get('/getHistorialMoneda/{idU}', \usuariosController::class . ':getHistorialMoneda' );
+    $group->get('/getmontoMoneda/{idU}', \usuariosController::class . ':getmontoMoneda' );
     
 });
 
@@ -73,6 +73,8 @@ $app->group('/Usuarios', function (RouteCollectorProxy $group) {
 $app->group('/Articulo', function (RouteCollectorProxy $group) {
     $group->post('/Alta', \ArticulosController::class . ':Alta' );
     $group->post('/AltaAngular', \ArticulosController::class . ':AltaAngular' );
+    $group->post('/BajaAngular', \ArticulosController::class . ':BajaAngular' );
+    $group->post('/EditAngular', \ArticulosController::class . ':EditAngular' );
     $group->post('/Baja', \ArticulosController::class . ':Baja' );
     $group->post('/Modificacion', \ArticulosController::class . ':Modificacion' );
     $group->GET('/ListarAusuario/{IDU}[/]', \ArticulosController::class . ':ListarAusuario' );

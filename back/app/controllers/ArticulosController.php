@@ -30,13 +30,49 @@ public function AltaAngular($request, $response, $args){
     $listaDeParametros = json_decode(file_get_contents("php://input"));
 
     $Art->idUsuario =  $listaDeParametros->idUsuario;
-    $Art->Nombre =  $listaDeParametros->nombre;
-    $Art->Descripcion =  $listaDeParametros->descripcion;
-    $Art->Valor =  $listaDeParametros->valor;
-    $Art->Clasificacion =  $listaDeParametros->calificacion;
+    $Art->Nombre =  $listaDeParametros->Nombre;
+    $Art->Descripcion =  $listaDeParametros->Descripcion;
+    $Art->Valor =  $listaDeParametros->Valor;
 
     
     $Art->CrearArticuloAngular($Art);
+    $response->getBody()->Write(json_encode($listaDeParametros));
+
+    return $response->withHeader('Content-Type', 'application/json');
+}
+
+public function EditAngular($request, $response, $args){
+
+
+    $Art=  new Articulos();
+    file_get_contents("php://input");
+    $listaDeParametros = json_decode(file_get_contents("php://input"));
+
+    $Art->idArticulo = $listaDeParametros->idArticulo;
+    $Art->idUsuario =  $listaDeParametros->idUsuario;
+    $Art->Nombre =  $listaDeParametros->Nombre;
+    $Art->Descripcion =  $listaDeParametros->Descripcion;
+    $Art->Valor =  $listaDeParametros->Valor;
+
+    
+    $Art->UpdateAngular($Art);
+    $response->getBody()->Write(json_encode($listaDeParametros));
+
+    return $response->withHeader('Content-Type', 'application/json');
+}
+
+public function BajaAngular($request, $response, $args){
+
+
+    $Art=  new Articulos();
+    file_get_contents("php://input");
+    $listaDeParametros = json_decode(file_get_contents("php://input"));
+
+  
+
+
+    
+    $Art->EliminarArticulo($listaDeParametros->idArticulo);
     $response->getBody()->Write(json_encode($listaDeParametros));
 
     return $response->withHeader('Content-Type', 'application/json');

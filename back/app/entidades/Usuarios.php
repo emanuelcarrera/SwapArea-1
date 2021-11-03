@@ -244,6 +244,25 @@ public function CompraMoneda($idU, $cantidad)
     return $consulta->fetchAll();
 }
 
+public function  getHistorialMoneda($idU)
+{
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("select * FROM `historialmoneda` where `idUsuario`= $idU ");
+  
+    $consulta->execute();
+
+    return $consulta->fetchAll();
+}
+
+public function  getmontoMoneda($idU)
+{
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("select * FROM `monedero` where `idUsuario`= $idU ");
+  
+    $consulta->execute();
+
+    return $consulta->fetchAll();
+}
 
 
 }

@@ -16,7 +16,9 @@ require("connection.php");
 $mailLaboral = $_POST["mailLaboral"]; 
 $nuevaPass = $_POST["Pass"];
 
-$sqlvaluser = ("UPDATE usuarios SET Contraseña ='$nuevaPass' WHERE Mail = '$mailLaboral'");
+$pasHash =  password_hash($nuevaPass, PASSWORD_DEFAULT);
+
+$sqlvaluser = ("UPDATE usuarios SET Contraseña ='$pasHash' WHERE Mail = '$mailLaboral'");
 
 $result = $conexion->query($sqlvaluser);
  ?>

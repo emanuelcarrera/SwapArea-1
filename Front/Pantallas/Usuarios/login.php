@@ -3,7 +3,7 @@ require "../head.php";
 require "../header.php";
 ?>	
 
-
+<br>
 
 <div class="container">
 	<div class="row">
@@ -27,7 +27,7 @@ require "../header.php";
 
 					<div class="form-group">
 						<input type="button" id="btnEnviar" value="Iniciar Sesion" class="btn btn-primary" />
-						<input type="reset" value="Limpiar" class="btn btn-default" >
+						<input type="button" value="recuperar" class="btn btn-default" onClick=" window.location.href='recupero.php' ">
 					</div>
 				</fieldset>
 		

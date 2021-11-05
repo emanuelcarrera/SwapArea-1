@@ -15,7 +15,7 @@ require "../header.php";
 </br>
 </br>
 <fieldset>
-    <div>
+    <div class="col-md-6">
 	<div class="form-group">
       <input type="file" id="archivo" name="archivo" accept=".jpg, .jpeg, .png" multiple="">
 
@@ -57,3 +57,6 @@ require "../header.php";
 </body>
 </html>
 <script src="../..\js/EditarArticulo.js"></script>
+<?php
+require "footer.php";
+?>

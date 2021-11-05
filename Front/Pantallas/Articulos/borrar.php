@@ -24,9 +24,9 @@ if (!isset($_POST["borrar"])) {
 ?>
 
 <?php
-require "head.php";
-require "header.php";
-?> 
+require "../head.php";
+require "../header.php";
+?>    
 
 <main role="main">
 

@@ -13,7 +13,7 @@ public function Alta($request, $response, $args){
     $usr->Nombre =  $listaDeParametros['Nombre'];
     $usr->Apellido =  $listaDeParametros['Apellido'];
     $usr->NombreUsuario =  $listaDeParametros['NombreUsuario'];
-    $usr->Contraseña =  password_hash($listaDeParametros['Contrasenia'], PASSWORD_BCRYPT);
+    $usr->Contraseña =  password_hash($listaDeParametros['Contrasenia'], PASSWORD_DEFAULT);
     $usr->Mail =  $listaDeParametros['Mail'];
     $usr->Edad =  $listaDeParametros['Edad'];
     $usr->dni =  $listaDeParametros['dni'];

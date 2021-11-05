@@ -8,18 +8,13 @@ require "../header.php";
 <body>
 </br>
 </br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+
 <fieldset>
-    <div>
-	<div class="form-group">
+    <div class="col-md-6">
+	<div class="form-group" >
       <input type="file" id="archivo" name="archivo" accept=".jpg, .jpeg, .png" multiple="">
 
-    </DIV>	
+    </div>	
 
 	  <div class="form-group">
                         <label for="nombre">Nombre:</label>
@@ -50,11 +45,12 @@ require "../header.php";
 
 
   
-</div>
 
 </body>
 </html>
 <script src="../..\js/AltaAticulo.js"></script>
 
 
-
+<?php
+require "footer.php";
+?>

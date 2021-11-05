@@ -1,7 +1,7 @@
 <?php
-require "head.php";
-require "header.php";
-?>	
+require "../head.php";
+require "../header.php";
+?> 	
 <main role="main">
 
    <div class="album py-5 bg-light">

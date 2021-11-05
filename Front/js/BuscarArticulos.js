@@ -124,7 +124,7 @@ function Buscar(){
 function Ver(id){
 
     sessionStorage.setItem('idArticulo', id);
-    window.location.href = "/SwapArea/SwapArea/Front/PANTALLAS/Articulos/Articulo.php";
+    window.location.href = "/SwapArea-1/Front/Pantallas/Articulos/Articulo.php";
 
 
 }

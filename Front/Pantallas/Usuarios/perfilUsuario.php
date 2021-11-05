@@ -192,14 +192,13 @@ require "../header.php";
                       </div>
                       </div>
    
-
+ </div>
 
               	
-               
+ </div>               
+ </div>           
            
-           
-    <?php 
-//require "footer.php";
- ?>    
+  
  
  <script src="../../js/UsuarioPerfil.js"></script>
+

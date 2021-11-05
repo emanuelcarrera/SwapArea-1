@@ -18,3 +18,8 @@ require "../header.php";
 </body>
 
 <script src="../../js/Domicilios.js"></script>
+
+<?php
+require "../footer.php";
+
+?>	

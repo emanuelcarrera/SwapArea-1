@@ -19,3 +19,7 @@ require "../header.php";
 </body>
 
 <script src="../../js/HistorialMoneda.js"></script>
+
+<?php
+require "../footer.php";
+?>

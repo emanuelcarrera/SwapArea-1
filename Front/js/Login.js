@@ -45,7 +45,7 @@ function Login(){
     
                     id = localStorage.getItem('id')
 
-                    setLog();
+                    
                     if(!(id  == "0") )
                     {
                        window.location.href = "../Articulos/BuscarArticulos.php";

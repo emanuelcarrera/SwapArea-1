@@ -4,8 +4,10 @@ require "../header.php";
 ?>	
 
 
-
+<br>
    
+   <div class="col-md-12">
+     
    
       <ul>
       	<li class="item-content item-input">
@@ -71,8 +73,13 @@ require "../header.php";
       </ul>
 
   </div>
+ </div>
 </div>
-
+<div class="col-md-6">
+  <h5>Queres saber cuantas monedas compraste??</h5>
+  
+  <input  class="btn btn-primary" type="button" value="Ir a historial" onClick=" window.location.href='historialmoneda.php' ">
+</div>
 <script src="../../js/CompraMoneda.js"></script>
 
 <?php 

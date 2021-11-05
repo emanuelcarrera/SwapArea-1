@@ -6,13 +6,14 @@ require "../header.php";
 
 
 <body>
-</br>
-</br>
-</br>
-<DIV>
+<br>
+
+<br>
+<div class="col-md-6">
                 <form class="form" action="##" method="post" id="registrationForm">
                 <input  class="form-control" id="txtBuscar" placeholder="Buscar" title="enter a location">
-                <button class="btn btn-lg btn-success" id="btnEnviar"  type="button" onclick="Buscar()"><i class="fa fa-search"></i>Buscar</button>
+                <br>
+                <button class="btn btn-success" id="btnEnviar"  type="button" onclick="Buscar()"><i class="fa fa-search"></i>Buscar</button>
                 </form>
                 
 </br>

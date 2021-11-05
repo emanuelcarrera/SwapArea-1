@@ -80,7 +80,7 @@ function AltaUsuario(){
     obje.append("Mail", $("txtEmail").value );
     obje.append("Edad", $("txtEdad").value );
     obje.append("dni", $("txtDni").value );
-    obje.append("Contraseña", $("txtpass").value );
+    obje.append("Contrasenia", $("txtpass").value );
     obje.append("Telefono", $("txtTelefono").value );
     //envio el mensaje    
     xmlhttp.send(obje);

@@ -92,7 +92,7 @@ function borrar(id){
 
 function  Nuevo(){
 
-    window.location.href = "/SwapArea/SwapArea/Front/PANTALLAS/Articulos/altaArticulos.php";
+    window.location.href = "/SwapArea-1/Front/Pantallas/Articulos/altaArticulos.php";
 
 
 }
@@ -100,7 +100,7 @@ function  Nuevo(){
 function Editar(id){
 
     sessionStorage.setItem('idArticulo', id);
-    window.location.href = "/SwapArea/SwapArea/Front/PANTALLAS/Articulos/editar.php";
+    window.location.href = "/SwapArea-1/Front/Pantallas/Articulos/editar.php";
 
 
 }

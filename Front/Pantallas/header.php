@@ -23,6 +23,9 @@
 								<a class="nav-link" href="../Usuarios/domicilios.php"> Mis Direcciones</a>
 							</li>
 							<li class="nav-item active">
+								<a class="nav-link" href="../solicitudes/listadosolicitudes.php"> Solicitudes</a>
+							</li>
+							<li class="nav-item active">
 								<a class="nav-link" href="../contactos.php"><i class="fa fa-comments"></i> Contactenos</a>
 							</li>
 							

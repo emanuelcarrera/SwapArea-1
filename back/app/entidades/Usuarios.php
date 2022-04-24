@@ -39,6 +39,18 @@ public function CrearUsuario($usr)
     return $consulta->fetchAll(PDO::FETCH_CLASS, 'Usuarios');
 }
 
+public function AltaAngular($usr)
+{
+
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO `usuarios`( `NombreUsuario`, `Contraseña`,`Mail`)
+     VALUES ('$usr->Nombre','$usr->Contraseña','$usr->Mail'); ");
+     $consulta->execute();
+     return $consulta->fetchAll(PDO::FETCH_CLASS, 'Usuarios');
+  
+}
+
+
 
 public function UpdateUsuario($usr, $id)
 {
@@ -69,12 +81,10 @@ public function GetDatosUsuario($usr)
    
 public function TodosLosUsaurios()
 {
-
-
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
     $consulta = $objAccesoDatos->prepararConsulta("SELECT * from `usuarios`");
     
-    // $this->autor;
+
     $consulta->execute();
 
     return $consulta->fetchAll(PDO::FETCH_CLASS,'Usuarios');
@@ -97,7 +107,7 @@ public function ObetenerPass($usr)
 {
 
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("SELECT `Contraseña` FROM `usuarios` WHERE `nombreUsuario` = '$usr->nombreUsuario' ");
+    $consulta = $objAccesoDatos->prepararConsulta("SELECT `Contraseña` FROM `usuarios` WHERE `NombreUsuario` = '$usr->nombreUsuario' ");
     
     // $this->autor;
     $consulta->execute();
@@ -263,7 +273,17 @@ public function  getmontoMoneda($idU)
 
     return $consulta->fetchAll();
 }
+public function ValidarNombre($Nombre)
+{
 
+
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("select COUNT(*) as valid from `usuarios`  WHERE `NombreUsuario` = '$Nombre'");
+  
+    $consulta->execute();
+
+    return $consulta->fetchAll();
+}
 
 }
 

@@ -79,60 +79,23 @@ public function Login($request, $response, $args){
      
     $usr=  new Usuarios();
 
-
-
-    //$listaDeParametros = $request->getParsedBody();
-
     $usr->nombreUsuario = $args['nombreUsuario'];
-
     $usr->Contraseña =  $args['pass'];
-
-       
-
-    $Contraseñahash = $usr->ObetenerPass($usr);
-
-   
-
-
-
-    if(password_verify($args['pass'], $Contraseñahash))
-
+    $Contrasenahash = $usr->ObetenerPass($usr);
+    
+    if(password_verify($args['pass'], $Contrasenahash))
     {
-
         $usr->Contraseña = "";
-
         $LisatU = $usr->Login($usr);  
-
-        //$response->getBody()->Write($id);
-
         $response ->getBody()->Write(json_encode($LisatU));
-
-       
-
-    }
-
-    else
-
-    {
-
-
-
+    
+    } else {
         $usr->idUsuario = "0";
-
         $response ->getBody()->Write(json_encode( $usr));
 
-
-
     }
-
-   
-
-
-
     return $response->withHeader('Content-Type', 'application/json');
 
-
-    
 }
 
 

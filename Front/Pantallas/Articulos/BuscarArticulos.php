@@ -9,7 +9,7 @@ require "../header.php";
 <br>
 
 <br>
-<div class="col-md-6">
+<div class="col-md-12">
                 <form class="form" action="##" method="post" id="registrationForm">
                 <input  class="form-control" id="txtBuscar" placeholder="Buscar" title="enter a location">
                 <br>

@@ -17,6 +17,10 @@ require __DIR__ . '/controllers/usuariosController.php';
 require __DIR__ . '/entidades/Usuarios.php';
 require __DIR__ . '/entidades/Articulos.php';
 require __DIR__ . '/controllers/ArticulosController.php';
+require __DIR__ . '/entidades/Comentarios.php';
+require __DIR__ . '/controllers/ComentariosController.php';
+require __DIR__ . '/entidades/Solicitudes.php';
+require __DIR__ . '/controllers/SolicitudesController.php';
 
 
 
@@ -65,10 +69,24 @@ $app->group('/Usuarios', function (RouteCollectorProxy $group) {
     $group->POST('/CompraMoneda', \usuariosController::class . ':CompraMoneda' );
     $group->get('/getHistorialMoneda/{idU}', \usuariosController::class . ':getHistorialMoneda' );
     $group->get('/getmontoMoneda/{idU}', \usuariosController::class . ':getmontoMoneda' );
+    $group->POST('/AltaUsuarioAngular', \usuariosController::class . ':AltaUsuarioAngular' );
+    $group->get('/ValidarNombre/{nombre}', \usuariosController::class . ':ValidarNombre' );
+
     
 });
+$app->group('/Comentarios', function (RouteCollectorProxy $group) {
+    $group->post('/Comentar', \ComentariosControlller::class . ':Comentar' );
+    $group->get('/getComentariosByArticulo/{IDA}', \ComentariosControlller::class . ':getComentariosByArticulo' );
+});
 
-
+$app->group('/Solicitudes', function (RouteCollectorProxy $group) {
+    $group->post('/CompraArticulo', \SolicitudesControlller::class . ':CompraArticulo' );
+    $group->post('/solicitudIntercambio', \SolicitudesControlller::class . ':solicitudIntercambio' );
+    $group->get('/Aceptarsolicitud/{id}', \SolicitudesControlller::class . ':Aceptarsolicitud' );
+    $group->post('/Rechazarsolicitud', \SolicitudesControlller::class . ':Rechazarsolicitud' );
+    $group->get('/solicitudbyUsusario/{IDU}', \SolicitudesControlller::class . ':solicitudbyUsusario' );
+    $group->get('/OfertasbyUsusario/{IDU}', \SolicitudesControlller::class . ':OfertasbyUsusario' );
+});
 
 $app->group('/Articulo', function (RouteCollectorProxy $group) {
     $group->post('/Alta', \ArticulosController::class . ':Alta' );

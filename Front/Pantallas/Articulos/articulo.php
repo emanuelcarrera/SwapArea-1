@@ -2,11 +2,17 @@
 require "../head.php";
 require "../header.php";
 ?>	
+
+<head>
+
+</head>
+
 <div class="container-fluid">
     <div class="content-wrapper">	
 		<div class="item-container">	
 			<div class="container">	
 				<div class="col-md-12">
+				<br>		  <br>		  <br>		  <br>		 
 					<div class="product col-md-3 service-image-left">
                     
 						<center>
@@ -31,69 +37,47 @@ require "../header.php";
 					
 				<div class="col-md-7">
 					<div class="product-title">Nombre :<label id="lblnombre"> </div>
-					<div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
-					<hr>
-					<div class="product-price">Valor : $<label id="lblvalor"> </label></div>
 					
 					<hr>
+					<div class="product-price">Valor : $<label id="lblvalor"> </label></div>
+					<hr>
+					<div class="product-drecipction">Descripcion : <label id="lbldescripcion"> </label></div>
+					<hr>
 					<div class="btn-group cart">
-						<button type="button" class="btn btn-success">
+						<button type="button" id="btnintercambio" class="btn btn-success">
 							Intercambiar
 						</button>
+
 					</div>
 					<div class="btn-group wishlist">
-						<button type="button" class="btn btn-danger">
+						<button type="button" id="btncomprar" class="btn btn-danger">
 							Comprar 
 						</button>
 					</div>
 				</div>
 			</div> 
 		</div>
-		<div class="container-fluid">		
-			<div class="col-md-12 product-info">
-					<ul id="myTab" class="nav nav-tabs nav_tabs">
-						
-						<li class="active"><a href="#service-one" data-toggle="tab">Descripcion</a></li>
-						<li><a href="#service-two" data-toggle="tab">Comentarios</a></li>
-						
-						
-					</ul>
-				<div id="myTabContent" class="tab-content">
-						<div class="tab-pane fade in active" id="service-one">
-						 
-							<section class="container product-info">
-								
+		<br>		  <br>		  <br>
+		<hr>
+	      <a>Comentarios </a>
+		  <br>
+          <textarea id="textcomentario" ></textarea>
+		  <br>
+		  <button type="button" class="btn btn-success" onclick="comentar()" >
+							Comentar
+		   </button>
+		   <br>
 
-								<h3>Descripcion</h3>
-                                <label id="lbldescripcion"> </label>
-							</section>
-										  
-						</div>
-					<div class="tab-pane fade" id="service-two">
-						
-						<section class="container">
-								<section class="container product-info">
-								ComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentariosComentarios
-
-								<h3>Comentarios</h3>
-								<li>Comentarios</li>
-								<li>Comentarios</li>
-								<li>Comentarios</li>
-								<li>Comentarios</li>
-								<li>Comentarios</li>
-								<li>Comentarios</li>
-							</section>
-						</section>
-						
-					</div>
-					<div class="tab-pane fade" id="service-three">
-												
-					</div>
-				</div>
-				<hr>
+		<div id="comentarios" class="row">
 			</div>
 		</div>
+
+		
 	</div>
 </div>
 
+
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../..\js/VerArticulo.js"></script>

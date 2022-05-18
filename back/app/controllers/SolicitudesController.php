@@ -7,7 +7,7 @@ class SolicitudesControlller{
         $Soli=  new Solicitudes();
 
         $listaDeParametros = $request->getParsedBody();
-        $Soli->id_Artuculo =  $listaDeParametros['id_Artuculo'];
+        $Soli->id_Articulo =  $listaDeParametros['id_Artuculo'];
         $Soli->ofertante =  $listaDeParametros['ofertante'];
         $Soli->monto =  $listaDeParametros['monto'];
         $Soli->Comprar($Soli);
@@ -41,7 +41,7 @@ class SolicitudesControlller{
         $Soli=  new Solicitudes();
 
         $listaDeParametros = $request->getParsedBody();
-        $Soli->id_Artuculo =  $listaDeParametros['id_Artuculo'];
+        $Soli->id_Articulo =  $listaDeParametros['id_Articulo'];
         $Soli->ofertante =  $listaDeParametros['ofertante'];
         $Soli->monto =  $listaDeParametros['monto'];
         $Soli->id_Articulo_oferta  =  $listaDeParametros['id_Articulo_oferta'];
@@ -52,7 +52,22 @@ class SolicitudesControlller{
         
         return $response ;
     }
+    public function AltaSolicitud($request, $response, $args){
 
+        $Soli=  new Solicitudes();
+        $listaDeParametros = $request->getParsedBody();
+        $idArticulo = (int)$listaDeParametros['idArticulo']; 
+        $ofertante = (int)$listaDeParametros['idUsuario']; 
+        $oferta = (int)$listaDeParametros['idoferta']; 
+        $monto = (int)$listaDeParametros['monto']; 
+        $comentario = $listaDeParametros['comentario']; 
+        
+        $arrayUsuarios = $Soli->AltaSolicitud($idArticulo,$ofertante,$oferta,$monto,$comentario);
+      
+        $response ->getBody()->Write(json_encode($listaDeParametros));
+       return $response->withHeader('Content-Type', 'application/json');
+     }
+    
     public function solicitudbyUsusario($request, $response, $args){
 
         $Soli=  new Solicitudes();

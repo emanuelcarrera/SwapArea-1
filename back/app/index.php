@@ -21,7 +21,8 @@ require __DIR__ . '/entidades/Comentarios.php';
 require __DIR__ . '/controllers/ComentariosController.php';
 require __DIR__ . '/entidades/Solicitudes.php';
 require __DIR__ . '/controllers/SolicitudesController.php';
-
+require __DIR__ . '/entidades/Chat.php';
+require __DIR__ . '/controllers/ChatController.php';
 
 
 // Instantiate App
@@ -65,7 +66,6 @@ $app->group('/Usuarios', function (RouteCollectorProxy $group) {
     $group->get('/Getciudades/{idciudad}', \usuariosController::class . ':Getciudades' );
     $group->POST('/AltaDomicilio', \usuariosController::class . ':AltaDomicilio' );
     $group->get('/getDomicilio/{id}', \usuariosController::class . ':getDomicilio' );
-    $group->POST('/AltaSolicitud', \usuariosController::class . ':AltaSolicitud' );
     $group->POST('/CompraMoneda', \usuariosController::class . ':CompraMoneda' );
     $group->get('/getHistorialMoneda/{idU}', \usuariosController::class . ':getHistorialMoneda' );
     $group->get('/getmontoMoneda/{idU}', \usuariosController::class . ':getmontoMoneda' );
@@ -79,6 +79,12 @@ $app->group('/Comentarios', function (RouteCollectorProxy $group) {
     $group->get('/getComentariosByArticulo/{IDA}', \ComentariosControlller::class . ':getComentariosByArticulo' );
 });
 
+$app->group('/Chat', function (RouteCollectorProxy $group) {
+    $group->post('/Chatear', \ChatControlller::class . ':Chatear' );
+    $group->get('/getChat/{IDA}', \ChatControlller::class . ':getChat' );
+    $group->get('/getIdChat/{IDA}/{IDA2}', \ChatControlller::class . ':getIdChat' );
+    
+});
 $app->group('/Solicitudes', function (RouteCollectorProxy $group) {
     $group->post('/CompraArticulo', \SolicitudesControlller::class . ':CompraArticulo' );
     $group->post('/solicitudIntercambio', \SolicitudesControlller::class . ':solicitudIntercambio' );
@@ -86,6 +92,7 @@ $app->group('/Solicitudes', function (RouteCollectorProxy $group) {
     $group->post('/Rechazarsolicitud', \SolicitudesControlller::class . ':Rechazarsolicitud' );
     $group->get('/solicitudbyUsusario/{IDU}', \SolicitudesControlller::class . ':solicitudbyUsusario' );
     $group->get('/OfertasbyUsusario/{IDU}', \SolicitudesControlller::class . ':OfertasbyUsusario' );
+    $group->POST('/AltaSolicitud', \SolicitudesControlller::class . ':AltaSolicitud' );
 });
 
 $app->group('/Articulo', function (RouteCollectorProxy $group) {

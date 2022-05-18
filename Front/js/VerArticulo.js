@@ -151,26 +151,33 @@ function CompraArticulo(){
     
 }
 
-//var evento = document.getElementById("btnintercambio")
-//evento.addEventListener("click", function(){
-//    Swal.fire({
-//        title: '¿Esta seguro?',
-//        input: 'list',
-//        showDenyButton: true,
-//        showCancelButton: false,
-//        confirmButtonText: 'Si',
-//        denyButtonText: `No`,
-//        confirmButtonColor: '#28a745',
-//      }).then((result) => {
+var evento = document.getElementById("btnintercambio")
+evento.addEventListener("click", function(){
+    Swal.fire({
+        title: '¿Esta seguro?',
+        input: 'list',
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: 'Si',
+        denyButtonText: `No`,
+        confirmButtonColor: '#28a745',
+      }).then((result) => {
 
-//        if (result.isConfirmed) {
+        if (result.isConfirmed) {
            
-          
+            Ver(sessionStorage.getItem('idArticulo'));
+        } 
+      })})
 
-//        } 
-//      })})
 
+function Ver(id){
 
+        sessionStorage.setItem('idArticulo', id);
+        window.location.href = "/SwapArea/SwapArea/Front/Pantallas/solicitudes/crearsolicitud.php";
+    
+    
+    }
+    
 var evento = document.getElementById("btncomprar")
 evento.addEventListener("click", function(){
     Swal.fire({

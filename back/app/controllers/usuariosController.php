@@ -206,22 +206,6 @@ public function getDomicilio($request, $response, $args)
       return $response->withHeader('Content-Type', 'application/json');
 }
 
-public function AltaSolicitud($request, $response, $args){
-
-    $usr=  new Usuarios();
-    $listaDeParametros = $request->getParsedBody();
-    $idArticulo = $listaDeParametros['idArticulo']; 
-    $dueno = $listaDeParametros['idDueno']; 
-    $ofertante = $listaDeParametros['idUsuario']; 
-    $oferta = $listaDeParametros['idoferta']; 
-    $monto = $listaDeParametros['monto']; 
-    $comentario = $listaDeParametros['comentario']; 
-    
-    $arrayUsuarios = $usr->AltaSolicitud($idArticulo,$dueno,$ofertante,$oferta,$monto,$comentario);
-  
-    $response ->getBody()->Write(json_encode($listaDeParametros));
-   return $response->withHeader('Content-Type', 'application/json');
- }
 
  public function CompraMoneda($request, $response, $args){
 

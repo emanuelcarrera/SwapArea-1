@@ -80,6 +80,8 @@ function solicitudbyUsusario(){
                         <a>${Solicitudes.NombreUsuario}</a>
                         <br>
                           <img src="${Solicitudes.foto}" width="100" height="100" class="rounded-circle" alt="avatar">
+                        <br>
+                          <button onclick="Chatear(${Solicitudes.dueno})" > Chatear</button>  
 
                      </td>
                      </table>
@@ -184,7 +186,8 @@ function OfertasbyUsusario(){
                         <a>${Solicitudes.NombreUsuario}</a>
                         <br>
                           <img src="${Solicitudes.foto}" width="100" height="100" class="rounded-circle" alt="avatar">
-
+                          <br>
+                          <button onclick="Chatear(${Solicitudes.dueno})" > Chatear</button>  
                      </td>
                      </table>
                      <br>`
@@ -218,6 +221,33 @@ function OfertasbyUsusario(){
 
 }
 
+
+function Chatear(idotrousuario)
+{
+
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.open("GET", servidor + '/Chat/getIdChat/'+localStorage.getItem('id')+'/'+idotrousuario);
+    xmlhttp.onreadystatechange = function () {
+        //Veo si llego la respuesta del servidor
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+            //Reviso si la respuesta es correcta
+            
+            if (xmlhttp.status == 200) {
+                var json = JSON.parse(xmlhttp.responseText);
+                json.map(function(id){
+                    sessionStorage.setItem('idChat', id.id_um);
+                    window.location.href = "/SwapArea/SwapArea/Front/Pantallas/Chat/Chat.php";
+                });
+            }
+            else {
+                alert("ocurrio un error");
+            }
+        }
+    }
+    xmlhttp.send();
+
+}
 
 function AceptarSolicitud(id){
     Swal.fire({

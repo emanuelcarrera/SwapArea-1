@@ -223,19 +223,7 @@ public function getDomicilio($id)
 }
 
 
-public function AltaSolicitud($idArticulo,$dueno,$ofertante,$oferta,$monto,$comentario)
-{
 
-    $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO `solicitudes` (`id_Artuculo`, `dueno`, `ofertante`, `id_Articulo_oferta`, `monto`, `comentario`) 
-    VALUES ($idArticulo,$dueno,$ofertante,$oferta,$monto,'$comentario');"); 
-    $consulta->execute();
-
-    $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM `solicitudes` WHERE 1");
-    $consulta->execute();
-    return $consulta->fetchAll();
-
-}
 
 public function CompraMoneda($idU, $cantidad)
 { 

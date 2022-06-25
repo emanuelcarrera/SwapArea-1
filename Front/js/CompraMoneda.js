@@ -37,13 +37,18 @@ function Comprar(){
     if(document.getElementById("Tarjeta").value === null || document.getElementById("Tarjeta").value  === "")
     {
         valido =1;
-        alert("Numero de tarjeta obligatorio");
+
+        Swal.fire({
+            title: 'Numero de tarjeta obligatorio',
+          })
     }
      
     if(document.getElementById("nombre").value === null || document.getElementById("nombre").value === "")
     {
         valido =1;
-        alert("Nombre en la tarjeta obligatorio");
+        Swal.fire({
+            title: 'Nombre en la tarjeta obligatorio',
+          })
     }
 
 
@@ -53,11 +58,14 @@ function Comprar(){
         valido =1;
         if(document.getElementById("CVV").value === null || document.getElementById("CVV").value === "")
         {
-    
-            alert("CVV obligatorio");
+            Swal.fire({
+                title: 'CVV obligatorio',
+              })
         }else
         {
-        alert("CVV obligatorio");
+            Swal.fire({
+                title: 'CVV obligatorio',
+              })
         }
 
 
@@ -68,22 +76,19 @@ function Comprar(){
     {
         valido =1;
         document.getElementById("Vto").style.visibility = "visible"; 
-
-        alert("Fecha de vencimiento obligatorio");
+        Swal.fire({
+            title: 'Fecha de vencimiento obligatorio',
+          })
     }
 
-//    if(Date(document.getElementById("Vto").value).getDate() < Date().getDate())
-//    {
-//        valido =1;
-//        alert("Tarjeta vencida");
-
-//    }
 
 
     if($("cantidad").value === null || $("cantidad").value === "")
     {
         valido =1;
-        alert("Cantidad obligatorio");
+        Swal.fire({
+            title: 'Cantidad obligatorio',
+          })
     }
 
 
@@ -94,9 +99,19 @@ function Comprar(){
     fileContent.append("cantidad", document.getElementById("cantidad").value); 
     xmlhttp.send(fileContent);
    
-    alert("Compra realizada");
+    Swal.fire({
+        title: 'Se realizo la compra de moneda',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#28a745',
+      }).then((result) => {
 
-    window.location.href = "../Moneda/historialMoneda.php";
+        if (result.isConfirmed) {
+           
+            window.location.href = "../Moneda/historialMoneda.php";
+
+        } 
+      })
+
     }
 
 }

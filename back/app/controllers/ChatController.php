@@ -51,7 +51,17 @@ class ChatControlller{
 
 
 
+    public function GetUsuariosChats($request, $response, $args){
 
+        $usr=  new Usuarios();
+        $usr->idUsuario = $args['idUsuario']; 
+    
+        $arrayUsuarios = $usr->GetUsuariosChats($usr->idUsuario);
+        $response ->getBody()->Write(json_encode($arrayUsuarios));
+      
+     
+       return $response->withHeader('Content-Type', 'application/json');
+     }
 
 
 }

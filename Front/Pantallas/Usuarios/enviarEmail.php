@@ -31,8 +31,8 @@ try {
     $mail->isSMTP();                                            //Envia mail usando SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Servidor SMTP de la casilla de mail desde donde se va a enviar el correo
     $mail->SMTPAuth   = true;                                   //Habilita autenticación SMTP
-    $mail->Username   = 'swaparea21@gmail.com';                     //Casilla de email desde donde se va a enviar el correo
-    $mail->Password   = 'EmaFacu21';                               //Contraseña de la casilla de mail
+    $mail->Username   = 'CARRERAE@itbeltran.com.ar';                     //Casilla de email desde donde se va a enviar el correo
+    $mail->Password   = 'Brujeria2';                               //Contraseña de la casilla de mail
     //$mail->SMTPSecure = 'tls';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
     $mail->Port       = 465;                                    //Puerto TCP por el cual se realiza la conexión
@@ -42,7 +42,7 @@ try {
     
 
     //Destinatarios del mail
-    $mail->setFrom('swaparea21@gmail.com', 'SwapArea'); //Casilla desde donde se enviará el email
+    $mail->setFrom('CARRERAE@itbeltran.com.ar', 'SwapArea'); //Casilla desde donde se enviará el email
     $mail->addAddress($mailLaboral);     //Casilla Destino a la que se enviará el email
     //$mail->addReplyTo('info@example.com', 'Information');
     //$mail->addCC('cc@example.com');

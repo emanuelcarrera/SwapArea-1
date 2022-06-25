@@ -42,8 +42,10 @@ xmlhttp.onreadystatechange = function () {
 
 
  xmlhttp.send(fileContent);
+ Swal.fire({
+    title: 'Se modifico correctament',
+  })
 
- alert("Se modifico correctamente");
 
 
 }
@@ -68,7 +70,7 @@ function setArticulo(){
                 template +=`
                 <div class="col-sm-3">
 
-                <img src=${Articulos.foto} >   
+                <img src=${Articulos.foto}  width="200" height="100">   
                 `;
                 Articulos.foto
                 document.getElementById("nombre").value =  Articulos.Nombre;

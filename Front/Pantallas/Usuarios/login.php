@@ -1,6 +1,6 @@
 <?php
 require "../head.php";
-require "../header.php";
+
 ?>	
 
 <br>
@@ -46,4 +46,5 @@ require "../header.php";
 </html>
 
 <script src="../..\js/Login.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!--<script src="../..\js/Header.js"></script>-->

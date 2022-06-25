@@ -34,7 +34,7 @@ function ListarUsuarios(){
                      <br>
                      <input type="button" onclick="Editar(${Articulos.idArticulo})" value="Editar" class="btn btn-primary" />
                      <br>
-                     <input type="button" onclick="borrar(${Articulos.idArticulo})" value="Borrar" class="btn btn-primary" />
+                     <input type="button" onclick="AceptarBorrar(${Articulos.idArticulo})" value="Borrar" class="btn btn-primary" />
                      </div>
                     
 
@@ -60,6 +60,24 @@ function ListarUsuarios(){
 function $(valor) {
     return document.getElementById(valor);
 }
+
+function AceptarBorrar(id){
+    Swal.fire({
+        title: '¿Esta seguro?',
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: 'Si',
+        denyButtonText: `No`,
+        confirmButtonColor: '#28a745',
+      }).then((result) => {
+
+        if (result.isConfirmed) {
+           
+            borrar(id);
+
+        } 
+      })}
+
 
 
 function borrar(id){
@@ -91,8 +109,8 @@ function borrar(id){
 }
 
 function  Nuevo(){
-
-    window.location.href = "/SwapArea-1/Front/Pantallas/Articulos/altaArticulos.php";
+   // /SwapArea/SwapArea/Front/PANTALLAS/Articulos/misArticulos.php
+    window.location.href = "/SwapArea/SwapArea/Front/Pantallas/Articulos/altaArticulos.php";
 
 
 }
@@ -100,7 +118,7 @@ function  Nuevo(){
 function Editar(id){
 
     sessionStorage.setItem('idArticulo', id);
-    window.location.href = "/SwapArea-1/Front/Pantallas/Articulos/editar.php";
+    window.location.href = "/SwapArea/SwapArea/Front/Pantallas/Articulos/editar.php";
 
 
 }

@@ -16,7 +16,7 @@ require "../header.php";
 					<div class="product col-md-3 service-image-left">
                     
 						<center>
-							<img id="item-display" src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt=""></img>
+							<img id="item-display" src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt=""  width="400" height="200"></img>
 						</center>
 					</div>
 					
@@ -75,8 +75,6 @@ require "../header.php";
 		
 	</div>
 </div>
-
-
 
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -19,9 +19,16 @@ public function Alta($request, $response, $args){
     $usr->dni =  $listaDeParametros['dni'];
     $usr->Telefono =  $listaDeParametros['Telefono'];
     $usr->CrearUsuario($usr);
-    $response->getBody()->Write("Usuario Creado");
+    $LisatU = $usr->Login($usr);  
+    $Email  = $usr->GetMail($LisatU[0]->idUsuario);
     
-    return $response ;
+    $mail= new Emails();
+    $mail->EnviarMail( $Email[0]->Mail ,"Usuario Creado","SWAPAREA ALTA DE USUARIO" );
+
+
+    $response ->getBody()->Write(json_encode( $Email ));
+    
+    return $response;
 }
 
 public function Baja($request, $response, $args){
@@ -79,7 +86,7 @@ public function Login($request, $response, $args){
      
     $usr=  new Usuarios();
 
-    $usr->nombreUsuario = $args['nombreUsuario'];
+    $usr->NombreUsuario = $args['nombreUsuario'];
     $usr->Contraseña =  $args['pass'];
     $Contrasenahash = $usr->ObetenerPass($usr);
     
@@ -216,6 +223,10 @@ public function getDomicilio($request, $response, $args)
     $cantidad = $listaDeParametros['cantidad'];
     $usr->CompraMoneda($idU,$cantidad);
      
+    $Email  = $usr->GetMail($idU);
+    $mail= new Emails();
+    $mail->EnviarMail( $Email[0]->Mail ,"Sa sumaron ".$cantidad." moneedas a su cuenta" ,"Compra de moneda swaparea" );
+
     $response ->getBody()->Write(json_encode($listaDeParametros));
     return $response->withHeader('Content-Type', 'application/json');
  }
@@ -241,6 +252,17 @@ public function getHistorialMoneda($request, $response, $args)
  
    return $response->withHeader('Content-Type', 'application/json');
  }
+ public function GetUsuariosbyName($request, $response, $args)
+ {
+    $usr=  new Usuarios();
+    $Nombre =  $args['nombre'];
+    $Usuarios = $usr->GetUsuariosbyName($Nombre);
+    $response ->getBody()->Write(json_encode($Usuarios));
+  
+ 
+   return $response->withHeader('Content-Type', 'application/json');
+ }
+
 
 }
 

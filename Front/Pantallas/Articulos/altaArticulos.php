@@ -49,7 +49,7 @@ require "../header.php";
 </body>
 </html>
 <script src="../..\js/AltaAticulo.js"></script>
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <?php
 require "footer.php";

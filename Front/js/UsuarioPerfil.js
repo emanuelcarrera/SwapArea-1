@@ -123,8 +123,10 @@ function Modificar(){
     fileContent.append("telefono", document.getElementById("mobile").value);
    
     xmlhttp.send(fileContent);
-   
-    alert("Se modifico correctamente");
+
+    Swal.fire({
+        title: 'Se modifico correctamente',
+      })
 
 }
 
@@ -147,11 +149,16 @@ function cambio_pass(){
                 var json = JSON.parse(xmlhttp.responseText);
                 if(json.Contraseña != null)
                 {
-                    alert("Se modifico correctamente");
+                    Swal.fire({
+                        title: 'Se modifico correctamente',
+                      })
                 }
                 else
                 {
-                    alert("La contraseñas actual no coinciden");
+
+                    Swal.fire({
+                        title: 'La contraseñas actual no coinciden',
+                      })
                 }
 
             } else {
@@ -162,7 +169,10 @@ function cambio_pass(){
     xmlhttp.send();
    
   }else{
-    alert("La contraseñas no coinciden");
+
+    Swal.fire({
+        title: 'La contraseñas no coinciden',
+      })
   }
 
 }
@@ -280,8 +290,10 @@ function AltaDomicilio(){
     fileContent.append("id_ciudad", $departamento.value);
    
     xmlhttp.send(fileContent);
-   
-    alert("Se modifico correctamente");
+
+    Swal.fire({
+        title: 'Se modifico correctamente',
+      })
 
 }
 

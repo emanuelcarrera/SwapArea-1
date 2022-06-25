@@ -16,3 +16,4 @@ require "../header.php";
 </body>
 
 <script src="../../js/misArticulos.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

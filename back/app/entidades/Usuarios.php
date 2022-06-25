@@ -107,7 +107,7 @@ public function ObetenerPass($usr)
 {
 
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("SELECT `Contraseña` FROM `usuarios` WHERE `NombreUsuario` = '$usr->nombreUsuario' ");
+    $consulta = $objAccesoDatos->prepararConsulta("SELECT `Contraseña` FROM `usuarios` WHERE `NombreUsuario` = '$usr->NombreUsuario' ");
     
     // $this->autor;
     $consulta->execute();
@@ -132,7 +132,7 @@ public function Login($usr)
 {
 
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("SELECT `idUsuario` FROM `usuarios` WHERE `nombreUsuario` = '$usr->nombreUsuario' ");  
+    $consulta = $objAccesoDatos->prepararConsulta("SELECT `idUsuario` FROM `usuarios` WHERE `NombreUsuario` = '$usr->NombreUsuario' ");  
     // $this->autor;idUsuario
     $consulta->execute();
     $filas = $consulta->rowCount();     
@@ -271,6 +271,45 @@ public function ValidarNombre($Nombre)
     $consulta->execute();
 
     return $consulta->fetchAll();
+}
+
+
+public function GetUsuariosChats($usr)
+{
+
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("SELECT * from `usuarios` 
+     WHERE `idUsuario` in (select id_Usuario2 FROM `usuariosmensajes` 
+      WHERE ($usr = id_usuario )) or `idUsuario` in (select  id_usuario FROM `usuariosmensajes` 
+      WHERE ($usr = id_Usuario2))");
+   
+    $consulta->execute();
+
+    return $consulta->fetchAll(PDO::FETCH_CLASS, 'Usuarios');
+}
+
+
+public function GetUsuariosbyName($nombre)
+{
+
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("SELECT * from `usuarios` 
+     WHERE Nombre like '%$nombre%' ");
+   
+    $consulta->execute();
+
+    return $consulta->fetchAll(PDO::FETCH_CLASS, 'Usuarios');
+}
+
+public function GetMail($id)
+{
+
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("SELECT `Mail` FROM `usuarios` where `idUsuario` = $id ");
+
+    $consulta->execute();
+ 
+    return $consulta->fetchAll(PDO::FETCH_CLASS, 'Usuarios');
 }
 
 }

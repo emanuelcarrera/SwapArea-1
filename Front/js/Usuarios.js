@@ -33,43 +33,55 @@ function AltaUsuario(){
                 
             }
             else {
-                alert("ocurrio un error");
+                Swal.fire({
+                    title: 'ocurrio un error',
+                  })
             }
         }
     }
      
     if($("txtNombreUsuario").value === null || $("txtNombreUsuario").value === "")
     {
-
-        alert("Nombre de usuario Obligatorio");
+        Swal.fire({
+            title: 'Nombre de usuario Obligatorio',
+          })
     }
     else if ($("txtpass").value === null || $("txtpass").value === "") {
         
-        
-        alert("contraseña Obligatoria");
+        Swal.fire({
+            title: 'Contraseña Obligatoria',
+          })
     } 
     else if ($("txtpass").value != $("txtpass2").value) {
         
-        
-        alert("Las contraseñas no coinciden");
+        Swal.fire({
+            title: 'Las contraseñas no coinciden',
+          })
     } 
     else if ($("txtNombre").value === null || $("txtNombre").value === "") {
-
-        alert("Nombre Obligatorio");
-        
+        Swal.fire({
+            title: 'Nombre Obligatorio',
+          })
     } 
     else if ($("txtApellido").value === null || $("txtApellido").value === "") {
-        
-        alert("Apellido Obligatorio");
+        Swal.fire({
+            title: 'Apellido Obligatorio',
+          })
     } 
     else if ($("txtEdad").value === null || $("txtEdad").value === "") {
-        alert("edad Obligatorio");
+        Swal.fire({
+            title: 'Edad Obligatorio',
+          })
     } 
     else if ($("txtDni").value === null || $("txtDni").value === "") {
-        alert("Descripcion Obligatorio");
+        Swal.fire({
+            title: 'Descripcion Obligatorio',
+          })
     } 
     else if ($("txtTelefono").value === null || $("txtTelefono").value === "") {
-        alert("Telefono Obligatorio");
+        Swal.fire({
+            title: 'Telefono Obligatorio',
+          })
     } 
     else{
 
@@ -84,7 +96,9 @@ function AltaUsuario(){
     obje.append("Telefono", $("txtTelefono").value );
     //envio el mensaje    
     xmlhttp.send(obje);
-    alert("Usuario creado");
+    Swal.fire({
+        title: 'Usuario creado',
+      })
 
     $("txtNombre").value = "";
     $("txtApellido").value = "";

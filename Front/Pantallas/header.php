@@ -26,7 +26,10 @@
 								<a class="nav-link" href="../solicitudes/listadosolicitudes.php"> Solicitudes</a>
 							</li>
 							<li class="nav-item active">
-								<a class="nav-link" href="../contactos.php"><i class="fa fa-comments"></i> Contactenos</a>
+								<a class="nav-link" href="../Chat/BuscarUsuario.php"><i class="fa fa-comments"></i> Chats</a>
+							</li>
+							<li class="nav-item active">
+								<a class="nav-link" href="../contactos.php">Contactenos</a>
 							</li>
 							
 						</ul>

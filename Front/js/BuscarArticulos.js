@@ -29,7 +29,8 @@ function Listar(){
                 var json = JSON.parse(xmlhttp.responseText);
                 var template = ``;
                 json.map(function(Articulos){
-
+                    if (Articulos.foto == null)
+                    { Articulos.foto  = "../imagenes/logo.jpg";  }
                      template +=`
                       
 
@@ -85,6 +86,8 @@ function Buscar(){
                 var template = ``;
                 json.map(function(Articulos){
 
+                    if (Articulos.foto == null)
+                    { Articulos.foto  = "../imagenes/logo.jpg";  }
                      template +=`
                      <div class="col-sm-3">
 

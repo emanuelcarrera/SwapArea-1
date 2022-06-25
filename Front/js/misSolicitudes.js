@@ -187,7 +187,7 @@ function OfertasbyUsusario(){
                         <br>
                           <img src="${Solicitudes.foto}" width="100" height="100" class="rounded-circle" alt="avatar">
                           <br>
-                          <button onclick="Chatear(${Solicitudes.dueno})" > Chatear</button>  
+                          <button onclick="Chatear(${Solicitudes.ofertante})" > Chatear</button>  
                      </td>
                      </table>
                      <br>`

@@ -81,7 +81,7 @@ require "../header.php";
   <input  class="btn btn-primary" type="button" value="Ir a historial" onClick=" window.location.href='historialmoneda.php' ">
 </div>
 <script src="../../js/CompraMoneda.js"></script>
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php 
     require "../footer.php";
  ?>

@@ -35,7 +35,9 @@ function Login(){
                 var json = JSON.parse(xmlhttp.responseText);
                 if(json.idUsuario == "0")
                 {
-                    alert("usuario o contraseña incorrectos")
+                    Swal.fire({
+                        title: 'Usuario o contraseña incorrectos',
+                      })
                 }
                 else
                 {

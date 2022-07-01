@@ -7,43 +7,48 @@ use PHPMailer\PHPMailer\Exception;
 
 class EmailController{
 
-    public function EnviarMail($request, $response, $args){
 
-        $mail = new PHPMailer(true);
-    
-        try {
-           // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-            $mail->isSMTP();
-            $mail->Host = 'smtp-mail.outlook.com';
-            $mail->SMTPAuth = true;
-            $mail->Username = 'CARRERAE@itbeltran.com.ar';
-            $mail->Password = 'Brujeria2';
-            //$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->SMTPSecure = 'tls';
-            $mail->Port = 587;
-        
-            $mail->setFrom('CARRERAE@itbeltran.com.ar');//correo de envio
-            $mail->addAddress('emanueljcarrera@gmail.com', 'Receptor');// correo destino
-        
-            //$mail->addAttachment('docs/dashboard.png', 'Dashboard.png');
-        
-            $mail->isHTML(true);
-            $mail->Subject = 'Prueba desde GMAIL'; //titulo del mail
-            $mail->Body = 'Hola, <br/>Esta es una prueba desde <b>Gmail</b>.';
-            $mail->send();
-    
-    
-            $response->getBody()->Write('Correo enviado');
-            
-    
-        } catch (Exception $e) {
-            $response->getBody()->Write($mail->ErrorInfo); 
-        }
+    public function RecuperoPass($request, $response, $args){
+
+
+        $listaDeParametros = $request->getParsedBody();
+        $email = $listaDeParametros['MAIL'];
+        $token = uniqid();
+        $mail= new Emails();
+        $response = $mail->RecuperoPass($email,$token);
     
 
+        $response ->getBody()->Write($token);
+  
             
         return $response ;
     }
+
+
+    public function GetValidarToken($request, $response, $args){
+
+
+        $listaDeParametros = $request->getParsedBody();
+        $token = $args['token'];
+        $pass = $args['pass'];
+        $mail= new Emails();
+        $valid = $mail->GetValidarToken($token);
+
+       if($valid = "1")
+       {
+        $usr=  new Usuarios();
+        $listaDeParametros = $request->getParsedBody();
+    
+        $pass2 = password_hash($pass, PASSWORD_BCRYPT);;
+        $usr->CambioPass($pass2,$token );
+       }
+         
+
+        $response ->getBody()->Write(json_encode($valid ));
+        return $response->withHeader('Content-Type', 'application/json');
+    }
+
+
 
 
 }

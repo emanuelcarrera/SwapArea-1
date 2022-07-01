@@ -84,7 +84,9 @@ $app->group('/Comentarios', function (RouteCollectorProxy $group) {
 });
 
 $app->group('/Emails', function (RouteCollectorProxy $group) {
-    $group->post('/EnviarMail', \EmailController::class . ':EnviarMail' );
+    $group->post('/RecuperoPass', \EmailController::class . ':RecuperoPass' );
+    $group->get('/GetValidarToken/{token}/{pass}', \EmailController::class . ':GetValidarToken' );
+    
 });
 
 $app->group('/Chat', function (RouteCollectorProxy $group) {

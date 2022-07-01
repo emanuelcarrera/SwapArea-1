@@ -263,7 +263,17 @@ public function getHistorialMoneda($request, $response, $args)
    return $response->withHeader('Content-Type', 'application/json');
  }
 
+ public function CambioPass($request, $response, $args){
 
+    $usr=  new Usuarios();
+    $listaDeParametros = $request->getParsedBody();
+
+    $pass = $listaDeParametros['pass'];
+    $usr->CambioPass($pass);
+     
+
+    return $response->withHeader('Content-Type', 'application/json');
+ }
 }
 
 

@@ -1,19 +1,15 @@
-<?php
-require "../head.php";
-require "../header.php";
-require("connection.php");
-?>  
+
 <br>
 <br>
 
 <div class="col-md-6">
-    <form action="passcambiada.php" method="post">
-    <input type="text" name="mailLaboral" placeholder="Email" id="mailLaboral" required>
-    <input type="text" name="Pass" placeholder="Ingrese nueva pass" id="Pass" required>
-    <input type="text" name="Passbis" placeholder="Vuelva ingresar la nueva pass" id="Pass" required>
-    <button href="login.php" id="BotonLogin">Recuperar pass</button>
+
+    <input type="text" name="lblToken" placeholder="Token" id="lblToken" >
+    <input type="password" name="Pass" placeholder="Ingrese nueva pass" id="Pass" >
+    <input type="password" name="Passbis" placeholder="Vuelva ingresar la nueva pass" id="Pass2" >
+    <button href="login.php" id="BotonLogin" onclick="validarPass()">Recuperar pass</button>
     <div id="msjError"></div>
-  </form>
+
 </div>
 
 
@@ -27,6 +23,6 @@ require("connection.php");
   <br>
   <br>
   
-<?php 
-require "../footer.php";
- ?>
+
+<script src="../..\js/RecuperoPass.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> 

@@ -312,6 +312,19 @@ public function GetMail($id)
     return $consulta->fetchAll(PDO::FETCH_CLASS, 'Usuarios');
 }
 
+
+public function CambioPass($pass,$token)
+{
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("UPDATE `usuarios` 
+    SET `Contraseña` = '$pass' 
+    WHERE token = '$token';");
+
+    $consulta->execute();
+    return $consulta->fetchAll(PDO::FETCH_CLASS, 'Usuarios');
+}
+
+
 }
 
 

@@ -61,7 +61,7 @@ require "../header.php";
 		<hr>
 	      <a>Comentarios </a>
 		  <br>
-          <textarea id="textcomentario" ></textarea>
+          <textarea id="textcomentario" class="form-control" ></textarea>
 		  <br>
 		  <button type="button" class="btn btn-success" onclick="comentar()" >
 							Comentar

@@ -325,6 +325,51 @@ public function CambioPass($pass,$token)
 }
 
 
+public function ValidarNombreUusario($nombre)
+{
+
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("SELECT NombreUsuario
+    FROM `usuarios` where `NombreUsuario` = '$nombre'  ");
+
+    $consulta->execute();
+
+    $filas = $consulta->rowCount();     
+    if($filas>0)
+    {
+       return "1";
+       
+    }
+    else
+    {
+       return "0";
+    }
+ 
+}
+
+public function ValidarMail($mail)
+{
+
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("SELECT `Mail`
+    FROM `usuarios` where  `Mail`= '$mail' ");
+   $consulta->execute();
+    $filas = $consulta->rowCount();     
+    if($filas>0)
+   {
+      return "1";
+   
+    }
+     else
+    {
+           return "0";
+    }
+}
+
+
+
+
+
 }
 
 

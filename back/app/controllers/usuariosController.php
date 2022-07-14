@@ -274,6 +274,28 @@ public function getHistorialMoneda($request, $response, $args)
 
     return $response->withHeader('Content-Type', 'application/json');
  }
+
+ public function ValidarNombreMail($request, $response, $args){
+
+    $usr=  new Usuarios();
+
+    $listaDeParametros = $request->getParsedBody();
+    
+    $nombre = $listaDeParametros['nombre']; 
+    $mail = $listaDeParametros['mail'];
+
+    $usr->NombreUsuario = $usr->ValidarNombreUusario($nombre);
+    $usr->Mail = $usr->ValidarMail($mail);
+    $response ->getBody()->Write(json_encode($usr));
+  
+ 
+   return $response->withHeader('Content-Type', 'application/json');
+ }
+
+
+
+
+
 }
 
 

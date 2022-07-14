@@ -13,10 +13,63 @@ function $(valor) {
 function load() {
     
 
-   $("btnAceptar").addEventListener("click",AltaUsuario);
+   $("btnAceptar").addEventListener("click",ValidarNombreMail);
 
     
 }
+
+
+
+function ValidarNombreMail() {
+
+    var xmlhttp = new XMLHttpRequest();
+   
+    xmlhttp.open("POST", servidor + '/Usuarios/ValidarNombreMail', true);
+    xmlhttp.onreadystatechange = function () {
+        //Veo si llego la respuesta del servidor
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+            //Reviso si la respuesta es correcta
+            
+            if (xmlhttp.status == 200) {
+                var json = JSON.parse(xmlhttp.responseText);
+
+                 if(json.NombreUsuario == "1")
+                 {
+                    Swal.fire({
+                        title: 'Nombre de usuario ya esta siendo usado',
+                      })
+
+                 }
+                 if(json.Mail == "1")
+                 {
+                    Swal.fire({
+                        title: 'El email ya se encutra registrado en la pagina use otro',
+                      })
+
+                 }
+
+                 if(json.NombreUsuario == "0" && json.Mail == "0")
+                 {
+                    AltaUsuario();
+
+                 }
+
+                //GETDomicilio();
+            }
+            else {
+                alert("ocurrio un error");
+            }
+        }
+    }
+
+    var obje = new FormData();
+    obje.append("nombre", $("txtNombreUsuario").value  );
+    obje.append("mail", $("txtEmail").value );
+    xmlhttp.send(obje);
+
+}
+
+
 
 function AltaUsuario(){
 
@@ -29,7 +82,19 @@ function AltaUsuario(){
             //Reviso si la respuesta es correcta
             if (xmlhttp.status == 200) {
                 //alert(xmlhttp.responseText);
-
+                Swal.fire({
+                    title: 'Usuaruario Creado',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#28a745',
+                  }).then((result) => {
+            
+                    if (result.isConfirmed) {
+                       
+                        window.location.href = "../Usuarios/Login.php";
+            
+                    } 
+                  
+                  })
                 
             }
             else {
@@ -96,9 +161,7 @@ function AltaUsuario(){
     obje.append("Telefono", $("txtTelefono").value );
     //envio el mensaje    
     xmlhttp.send(obje);
-    Swal.fire({
-        title: 'Usuario creado',
-      })
+
 
     $("txtNombre").value = "";
     $("txtApellido").value = "";

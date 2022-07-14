@@ -1,3 +1,7 @@
+<?php
+require "../head.php";
+require "../header.php";
+?>	
 
 <div id="chat" style="	height: 300px;
 	width: 200px;
@@ -9,7 +13,7 @@
 
 
           <br>
-          <textarea id="textcomentario" ></textarea>
+          <textarea id="textcomentario" class="form-control"></textarea>
 		  <br>
 		  <button type="button" class="btn btn-success" onclick="comentar()" >
 							Comentar

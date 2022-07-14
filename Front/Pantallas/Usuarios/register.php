@@ -1,6 +1,6 @@
 <?php
 require "../head.php";
-require "../header.php";
+
 ?>	
 
 
@@ -66,17 +66,7 @@ require "../header.php";
 					</div> 
 
 					
-					<div class="checkbox">
-					    <label>
-					      <input type="checkbox" name="terminosycond" id="terminosycond" required=""> Acepto todos los 
-					      <!-- Button trigger modal -->
-							<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#TernimosCondiciones">
-							  Terminos y condiciones
-							</button>
-							<br>
-							<span class="text-danger"><?php if (isset($terminosycond_error)) echo $terminosycond_error; ?></span>
-					    </label>
-					</div>
+
 
 					<div class="form-group">
 						<input type="button" id="btnAceptar" name="signup" value="Registrar" class="btn btn-primary" />
@@ -96,50 +86,6 @@ require "../header.php";
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </body>
-</html>
 
-
-<!-- Modal -->
-<div class="modal fade" id="TernimosCondiciones" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">
-        	<b>Terminos y Condiciones </b>
-        </h4>
-      </div>
-      <div class="modal-body">
-        Mediante la simple utilización de devhuayra.com y al contratar cualquiera de los servicios ofrecidos a través de devhuayra.com, el Cliente reconoce haber leído y acepta los términos expuestos en el presente Acuerdo y / o las políticas que formen parte del mismo.
-        <br>
-        <br>
-        <p>
-        	<b>Uso de la cuenta de usuario en devHuayra.com</b>
-        </p>
-		<p>
-			<ul>
-				<li>El usuario de Registros.com se compromete a proporcionar mediante su registro datos veraces, exactos y completos sobre su identidad. También se compromete a revisar periódicamente la información proporcionada y garantiza la validez y la vigencia de los datos asociados tanto a su cuenta de usuario como a los productos y servicios contratados. El incumplimiento de esta condición podrá motivar la cancelación de la cuenta y la denegación al usuario el acceso a los servicios de Registros.com de forma temporal o permanente.</li>
-				<li>Registros.com se reserva el derecho de solicitar la verificación y / o actualización de la información proporcionada por el Cliente, quien deberá responder satisfactoriamente a la petición de Registros.com en el plazo máximo de 5 días laborables. El Cliente entiende y acepta que el no cumplimiento de este requisito constituye una vulneración del presente Acuerdo y puede dar lugar a la cancelación de los productos y/o servicios cont...</li>
-				<br>
-				<a href="#" class="btn btn-default btn-xs">
-					<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Descargar PDF
-				</a>
-			</ul>
-		</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-        <!--button type="button" class="btn btn-primary">Guardar Cambios</button-->
-      </div>
-    </div>
-  </div>
-</div>
-<script src="../../js/Usuarios.js"></script>
-<script>
-	//Modal terminos y condiciones
-	$('#TernimosCondiciones').on('shown.bs.modal', function () {
-	  $('#myInput').focus()
-	})
-</script>
 <script src="../../js/Usuarios.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

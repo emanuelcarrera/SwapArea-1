@@ -24,7 +24,7 @@ function ListarUsusario(){
                         <br>
                           <img src="${usuarios.foto}" width="100" height="100" class="rounded-circle" alt="avatar">
                         <br>
-                          <button onclick="Chatear(${usuarios.idUsuario})" > Chatear</button>  
+                          <button onclick="Chatear(${usuarios.idUsuario})" class="form-control"> Chatear</button>  
 
                      <br>
                      </div>

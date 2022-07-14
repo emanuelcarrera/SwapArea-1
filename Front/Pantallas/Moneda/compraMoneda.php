@@ -54,7 +54,8 @@ require "../header.php";
           <div class="item-inner">
             <div class="item-title item-label">Fecha de vencimiento</div>
             <div class="item-input-wrap">
-              <input id="Vto" type="date" placeholder="MM/AA">
+              <input id="VtoM" type="number" min="0" max="12" placeholder="MM"  >
+              <input id="VtoA" type="number"  min="22" max="99" placeholder="AA" >
               <span class="input-clear-button"></span>
               <label id="lblVto" visible="false" style="visibility:hidden;" > Fecha de vencimiento obligatorio  </label>
             </div>

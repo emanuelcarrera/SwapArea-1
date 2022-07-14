@@ -72,13 +72,45 @@ function Comprar(){
     }
 
    
-    if(document.getElementById("Vto").value === null || document.getElementById("Vto").value === "")
+    if(document.getElementById("VtoA").value === null || document.getElementById("VtoA").value === "" || document.getElementById("VtoM").value === null || document.getElementById("VtoM").value === "")
     {
         valido =1;
-        document.getElementById("Vto").style.visibility = "visible"; 
+        document.getElementById("Vtoa").style.visibility = "visible"; 
         Swal.fire({
             title: 'Fecha de vencimiento obligatorio',
           })
+    }
+    else{
+
+
+
+        var year = new Date().getFullYear().toString().substr(-2)
+
+       if(document.getElementById("VtoA").value < year)
+       {
+          valido =1;
+
+               Swal.fire({
+            title: 'Tarjeta vencida',
+            })
+        }
+        else
+        {
+            if(document.getElementById("VtoA").value = year)
+            {
+
+                var MES = new Date().getMonth().toString()
+                if(document.getElementById("VtoM").value < MES)
+                {
+                   valido =1;
+
+                        Swal.fire({
+                     title: 'Tarjeta vencida',
+                     })
+                 }
+             }
+        }
+        
     }
 
 

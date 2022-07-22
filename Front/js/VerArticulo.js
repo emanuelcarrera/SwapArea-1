@@ -18,12 +18,15 @@ function setArticulo(){
              var template = ``;
              json.map(function(Articulos){
  
-                                
+                
+                 ;
+                 document.getElementById("imgfusu").src = Articulos.Usuariofoto;
                  document.getElementById("item-display").src = Articulos.foto;
                  document.getElementById("lblnombre").innerHTML =  Articulos.Nombre;
                  document.getElementById("lblvalor").innerHTML =  Articulos.Valor;
                  //document.getElementById("clasificacion").innerHTML =  Articulos.Clasificacion;
                  document.getElementById("lbldescripcion").innerHTML =  Articulos.Descripcion;
+                 document.getElementById("nombreusu").innerHTML = Articulos.Usuario;
                  
              });
  
@@ -59,17 +62,19 @@ function setArticulo(){
                 json.map(function(Comentarios){
 
                      template +=`
-                     <div class="col-sm-9">
-                     <hr>
-                     <h10 style="color:blue">${Comentarios.NombreUsuario}</h10>
-                     <h20> ${Comentarios.fecha}  </h20>
+                     <div class="col-12 border border-dark rounded">
+                     <h10 class="card-text font-weight-light" style="color:blue">${Comentarios.NombreUsuario}</h10>
+                     <h20 class="card-text font-weight-light"> ${Comentarios.fecha}  </h20>
                      </br>
-                     <a> ${Comentarios.texto} </a>
-
+                     <a class="card-text font-weight-light"> ${Comentarios.texto} </a>
+                   
                      </div>
+
+                     
                      `;
 
                 });
+                
                 console.log(template);
                 document.getElementById('comentarios').innerHTML=template;
 

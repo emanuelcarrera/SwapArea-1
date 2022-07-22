@@ -188,6 +188,20 @@ public function GetArticulo($request, $response, $args){
    return $response->withHeader('Content-Type', 'application/json');
 
  }
+
+
+
+ public function GetCategorias($request, $response, $args){
+
+    $Art=  new Articulos();
+
+    $Categorias = $Art->GetCategorias();
+    $response ->getBody()->Write(json_encode($Categorias));
+  
+   return $response->withHeader('Content-Type', 'application/json');
+
+ }
+ 
  
 
 

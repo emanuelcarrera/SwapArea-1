@@ -23,20 +23,24 @@ function ListarUsuarios(){
                 json.map(function(Articulos){
 
                      template +=`
-                     <div class="col-sm-3">
+                     <div class="card d-flex align-items-center justify-content-center" style="width: 18rem;" >
 
-                     <img width="200" height="100" src=${Articulos.foto} >
-                     <h2>Nombre: ${Articulos.Nombre}</h2>
+                     <img class="card-img-top"  width="200" height="200" src=${Articulos.foto} >
+                     <div class="card-body" d-flex flex-column align-items-center justify-content-center>
+                     <h2 class="card-title" >${Articulos.Nombre}</h2>
                      <br>
-                     <strong>Descripcion: ${Articulos.Descripcion}</strong>
+                     <strong class="card-text font-weight-light">Descripción: ${Articulos.Descripcion}</strong>
                      <br>
-                     <strong>Valor: ${Articulos.Valor}</strong>
+                     <strong class="card-text font-weight-light">Categoría: ${Articulos.Clasificacion}</strong>
+                     <br>
+                     <strong class="card-text font-weight-light">Valor: ${Articulos.Valor}</strong>
                      <br>
                      <input type="button" onclick="Editar(${Articulos.idArticulo})" value="Editar" class="btn btn-primary" />
                      <br>
-                     <input type="button" onclick="AceptarBorrar(${Articulos.idArticulo})" value="Borrar" class="btn btn-primary" />
+                     <br>
+                     <input type="button" onclick="AceptarBorrar(${Articulos.idArticulo})" value="Borrar" class="btn btn-danger" />
                      </div>
-                    
+                     </div>
 
                      `;
 

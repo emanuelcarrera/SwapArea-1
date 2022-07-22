@@ -34,8 +34,9 @@ require "../header.php";
                         <input type="text" focus class="form-control" name="valor" id="valor"  placeholder="Ingrese el genero...">
                   </div>
                   <div class="form-group">
-                        <label for="clasificacion">clasificacion:</label>
-                        <input type="text" focus class="form-control" name="clasificacion" id="clasificacion"  placeholder="Ingrese la calificacion...">
+                  <label for="clasificacion">Categoria:</label>
+                        <select class="custom-select form-control" id="Categorias">
+                        </select>
                   </div>
                   
                   <div class="form-group">

@@ -7,58 +7,57 @@ require "../header.php";
 
 </head>
 
-<div class="container-fluid">
-    <div class="content-wrapper">	
-		<div class="item-container">	
-			<div class="container">	
-				<div class="col-md-12">
-				<br>		  <br>		  <br>		  <br>		 
-					<div class="product col-md-3 service-image-left">
+<br>		  <br>		  	 
+         <div class="container">
+			 <div class="row">
+                <div class="col-4" > 
+					<div class="service-image-left border border-dark h-100 d-flex align-items-center justify-content-center rounded ">
                     
-						<center>
-							<img id="item-display" src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt=""  width="400" height="200"></img>
-						</center>
-					</div>
+					      <div style="padding:10%;" >
+							<img id="item-display" src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt=""  width="300" height="300" class="rounded" ></img>		
+                          </div>				
+					  </div>
+                  </div>	
+
 					
-					<div class="container service1-items col-sm-2 col-md-2 pull-left">
-						<center>
-							<a id="item-1" class="service1-item">
-								<img src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt=""></img>
-							</a>
-							<a id="item-2" class="service1-item">
-								<img src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt=""></img>
-							</a>
-							<a id="item-3" class="service1-item">
-								<img src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt=""></img>
-							</a>
-						</center>
-					</div>
-				</div>
+				<div class="col-7 border border-dark rounded ">
+					<div  style="padding:2%;">
+
+					<div  >
+				
+                        <br>
+                          <img id="imgfusu" src="" width="50" height="50" class="rounded-circle" alt="avatar">
+						  <label id="nombreusu"></label>
+
+                     </div>
+					 <hr>
+					   <div class="product-title">Nombre :<label class="card-text font-weight-light" id="lblnombre"> </div>
 					
-				<div class="col-md-7">
-					<div class="product-title">Nombre :<label id="lblnombre"> </div>
-					
-					<hr>
-					<div class="product-price">Valor : $<label id="lblvalor"> </label></div>
-					<hr>
-					<div class="product-drecipction">Descripcion : <label id="lbldescripcion"> </label></div>
-					<hr>
-					<div class="btn-group cart">
+				     	<hr>
+				    	<div class="product-price">Valor : $<label class="card-text font-weight-light" id="lblvalor"> </label></div>
+				    	<hr>
+				    	<div class="product-drecipction">Descripción : <label class="card-text font-weight-light" id="lbldescripcion"> </label></div>
+				    	<hr>
+				    	<div class="btn-group cart">
 						<button type="button" id="btnintercambio" class="btn btn-success">
 							Intercambiar
 						</button>
 
-					</div>
-					<div class="btn-group wishlist">
-						<button type="button" id="btncomprar" class="btn btn-danger">
+					    </div>
+				    	<div class="btn-group wishlist">
+						  <button type="button" id="btncomprar" class="btn btn-danger">
 							Comprar 
-						</button>
-					</div>
-				</div>
-			</div> 
-		</div>
+						  </button>
+					    </div>
+                        </div>
+
+			       </div>	
+			    </div>
+	    	</div>
 		<br>		  <br>		  <br>
 		<hr>
+		<div class="container">
+			<div class="col-sm-9">
 	      <a>Comentarios </a>
 		  <br>
           <textarea id="textcomentario" class="form-control" ></textarea>
@@ -66,15 +65,18 @@ require "../header.php";
 		  <button type="button" class="btn btn-success" onclick="comentar()" >
 							Comentar
 		   </button>
+		   <br>	
 		   <br>
-
+		   <div class="container">
+		   
 		<div id="comentarios" class="row">
 			</div>
+			</div>
 		</div>
+		</div>
+		</div>
+		<br>		  <br>
 
-		
-	</div>
-</div>
 
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

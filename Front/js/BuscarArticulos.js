@@ -34,17 +34,23 @@ function Listar(){
                      template +=`
                       
 
-                     <div class="col-sm-3">
+                     <div class="card d-flex align-items-center justify-content-center" style="width: 18rem;" >
 
-                     <img  width="200" height="100" src=${Articulos.foto} >
-                     <h2>Nombre: ${Articulos.Nombre}</h2>
+                     <img class="card-img-top"  width="200" height="200" src=${Articulos.foto} >
+                     <div class="card-body" d-flex flex-column align-items-center justify-content-center>
+                     <h2 class="card-title" >${Articulos.Nombre}</h2>
                      <br>
-                     <strong>Descripcion: ${Articulos.Descripcion}</strong>
+                     <strong class="card-text font-weight-light">Descripción: ${Articulos.Descripcion}</strong>
                      <br>
-                     <strong>Valor: ${Articulos.Valor}</strong>
+                     <strong class="card-text font-weight-light">Categoría: ${Articulos.Clasificacion}</strong>
                      <br>
+                     <strong class="card-text font-weight-light">Valor: ${Articulos.Valor}</strong>
+                     <br>
+                     <div  class="d-flex align-items-center justify-content-center">
                      <input type="button" onclick="Ver(${Articulos.idArticulo})" value="VER" class="btn btn-primary" />
                      <br>
+                     </div>
+                     </div>
                      </div>
 
                     
@@ -72,6 +78,8 @@ function Listar(){
 
 function Buscar(){
 
+    if(document.getElementById('txtBuscar').value != "")
+    {
     var xmlhttp = new XMLHttpRequest();
     
     xmlhttp.open("GET", servidor + '/Articulo/Buscar/'+document.getElementById('txtBuscar').value, true);
@@ -89,18 +97,23 @@ function Buscar(){
                     if (Articulos.foto == null)
                     { Articulos.foto  = "../imagenes/logo.jpg";  }
                      template +=`
-                     <div class="col-sm-3">
+                     <div class="card d-flex align-items-center justify-content-center" style="width: 18rem;" >
 
-                     <img width="200" height="100" src=${Articulos.foto} >
-                     <h2>Nombre: ${Articulos.Nombre}</h2>
+                     <img class="card-img-top"  width="200" height="200" src=${Articulos.foto} >
+                     <div class="card-body" d-flex flex-column align-items-center justify-content-center>
+                     <h2 class="card-title" >${Articulos.Nombre}</h2>
                      <br>
-                     <strong>Descripcion: ${Articulos.Descripcion}</strong>
+                     <strong class="card-text font-weight-light">Descripción: ${Articulos.Descripcion}</strong>
                      <br>
-                     <strong>Valor: ${Articulos.Valor}</strong>
+                     <strong class="card-text font-weight-light">Categoría: ${Articulos.Clasificacion}</strong>
                      <br>
+                     <strong class="card-text font-weight-light">Valor: ${Articulos.Valor}</strong>
                      <br>
+                     <div  class="d-flex align-items-center justify-content-center">
                      <input type="button" onclick="Ver(${Articulos.idArticulo})" value="VER" class="btn btn-primary" />
                      <br>
+                     </div>
+                     </div>
                      </div>
 
                      `;
@@ -122,6 +135,11 @@ function Buscar(){
     }
 
     xmlhttp.send();
+   }
+   else{
+
+    Listar();
+   }
 }
 
 function Ver(id){

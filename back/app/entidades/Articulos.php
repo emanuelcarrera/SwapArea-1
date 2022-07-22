@@ -8,6 +8,8 @@ class Articulos {
     public $Valor;
     public $Calificacion;
     public $Clasificacion;
+    public $Usuario;
+    public $Usuariofoto;
 
 
     
@@ -16,7 +18,7 @@ public function CrearArticulo($art)
 
 
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO `articulo` (`idUsuario`,`Nombre`,`Descripcion`,`foto`,`Valor`,`Clasificacion`) VALUES ( $art->idUsuario, '$art->Nombre', '$art->Descripcion','$art->foto','$art->Valor','$art->Clasificacion');"); 
+    $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO `articulo` (`idUsuario`,`Nombre`,`Descripcion`,`foto`,`Valor`,`idCategoria`) VALUES ( $art->idUsuario, '$art->Nombre', '$art->Descripcion','$art->foto','$art->Valor','$art->Clasificacion');"); 
     $consulta->execute();
 
     return $consulta->fetchAll(PDO::FETCH_CLASS, 'Articulos');
@@ -54,7 +56,7 @@ public function UpdateArticulo($art)
     SET `Nombre`='$art->Nombre',
     `Descripcion`='$art->Descripcion',
     `Valor`='$art->Valor',
-    `Clasificacion`='$art->Clasificacion'
+    `idCategoria`='$art->Clasificacion'
     WHERE `idArticulo` = $art->idArticulo");
     
   
@@ -68,7 +70,8 @@ public function TodosLosArticulos()
 
 
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("select * from `articulo`");
+    $consulta = $objAccesoDatos->prepararConsulta("select a.idArticulo,a.idUsuario,a.Nombre,a.Descripcion,a.foto,a.Valor ,b.Descripcion as Clasificacion 
+    FROM `articulo` as a join categorias as b on b.idCategoria = a.idCategoria ");
     
    
     $consulta->execute();
@@ -82,7 +85,9 @@ public function Buscar($Busca)
 
 
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("select * from `articulo` where `Nombre` like '%$Busca%' or  `Descripcion` like '%$Busca%'");
+    $consulta = $objAccesoDatos->prepararConsulta("select a.idArticulo,a.idUsuario,a.Nombre,a.Descripcion,a.foto,a.Valor ,b.Descripcion as Clasificacion 
+    FROM `articulo` as a join categorias as b on b.idCategoria = a.idCategoria
+     where a.`Nombre` like '%$Busca%' or  a.`Descripcion` like '%$Busca%'");
     
    
     $consulta->execute();
@@ -93,7 +98,8 @@ public function Buscar($Busca)
 public function ListarAUsuario($idUsuario)
 {
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("select * from `articulo` WHERE `idUsuario` = $idUsuario");
+    $consulta = $objAccesoDatos->prepararConsulta("select a.idArticulo,a.idUsuario,a.Nombre,a.Descripcion,a.foto,a.Valor ,b.Descripcion as Clasificacion 
+    FROM `articulo` as a join categorias as b on b.idCategoria = a.idCategoria WHERE `idUsuario` = $idUsuario");
       
     $consulta->execute();
 
@@ -105,7 +111,11 @@ public function GetArticulo($idA)
 
 
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("select * FROM `articulo` WHERE `idArticulo` = $idA");
+    $consulta = $objAccesoDatos->prepararConsulta("SELECT a.`idArticulo`,a.`idUsuario`,a.`Nombre`,
+    a.`Descripcion`,a.`foto`,a.`Valor`,a.`Calificacion`,a.`idCategoria`,
+    u.NombreUsuario as Usuario, u.foto as Usuariofoto
+    FROM `articulo` as a
+    join usuarios as u on a.idUsuario = u.idUsuario WHERE a.`idArticulo` = $idA");
   
     $consulta->execute();
 
@@ -126,6 +136,17 @@ public function EliminarArticulo($idA)
 }
 
 
+public function GetCategorias()
+{
+
+
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("SELECT idCategoria,Descripcion FROM `categorias` ");
+  
+    $consulta->execute();
+
+    return $consulta->fetchAll();
+}
 
 
 

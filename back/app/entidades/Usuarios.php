@@ -245,7 +245,7 @@ public function CompraMoneda($idU, $cantidad)
 public function  getHistorialMoneda($idU)
 {
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("select * FROM `historialmoneda` where `idUsuario`= $idU ");
+    $consulta = $objAccesoDatos->prepararConsulta("select * FROM `historialmoneda` where `idUsuario`= $idU order by fecha");
   
     $consulta->execute();
 

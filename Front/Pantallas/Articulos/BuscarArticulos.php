@@ -19,7 +19,7 @@ require "../header.php";
 </br>
 </br>
 </br>
-<div id="lista" class="row">
+<div id="lista" class="row  h-100 d-flex align-items-center justify-content-center ">
 </body>
 
 

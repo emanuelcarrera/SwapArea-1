@@ -9,10 +9,12 @@ require "../header.php";
 
 </br>
 </br>
+<div class="h-100 d-flex align-items-center justify-content-center">
 <button class="btn btn-success" id="btnpass" onclick="Nuevo()"     type="submit"><i class="fa fa-plus-circle"></i> Nuevo</button>
+</div>
 </br>
 </br>
-<div id="lista" class="row">
+<div id="lista" class="row  h-100 d-flex align-items-center justify-content-center ">
 </body>
 
 <script src="../../js/misArticulos.js"></script>

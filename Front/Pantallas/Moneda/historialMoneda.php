@@ -9,17 +9,31 @@ require "../header.php";
 
 </br>
 </br>
-<div style="text-align: center;">
-<h1 id="hmonto">  </h1>
-</br>
-</br>
-<div id="lista" class="row" style="text-align: center; padding-left: 38%;">
-
+<div  class="row" style="text-align: center;">
+<div class="col-4">
 </div>
+<div class="col-4 border border-dark rounded">
+<h1 class="h1" id="hmonto">  </h1>
+
+<h2 class="h2" id="hmonto2">  </h1>
+</div>
+<div class="col-4">
+</div>
+</div>
+</br>
+</br>
+
+<div  class="row" style="text-align: center;">
+     <div class="col-4">
+      </div>
+       <div id="lista" class="col-4" >
+       </div>
+       <div class="col-4">
+       </div>
+</div>
+</br>
+</br>
 </body>
 
 <script src="../../js/HistorialMoneda.js"></script>
 
-<?php
-require "../footer.php";
-?>

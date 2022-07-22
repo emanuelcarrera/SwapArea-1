@@ -17,8 +17,8 @@ function GetMonto(){
                 var json = JSON.parse(xmlhttp.responseText);
                 var template = ``;
                 json.map(function(moneda){
-                    document.getElementById("hmonto").innerHTML  = "Monto actual : $ "+ moneda.Monto;
-
+                    document.getElementById("hmonto").innerHTML  = "Monto actual  ";
+                    document.getElementById("hmonto2").innerHTML  = "$"+ moneda.Monto;
 
                 });
                 
@@ -52,22 +52,30 @@ function Hostorial(){
                 
                 var json = JSON.parse(xmlhttp.responseText);
                 var template = `
-                <div style="text-align: center;">
-                <table class="w3-table w3-striped w3-border" style="text-align: center; padding-left: 40%;">
+                <div  class="row border border-dark rounded" style="text-align: center;">
+                <table class="table" style="text-align: center; padding-left: 40%;">
                 <tr>
               
-                  <td>Fecha de compra</td>
+                  <td>Fecha </td>
               
                   <td>Cantidad comprada</td>
               
                 </tr>`;
                 json.map(function(moneda){
+                  var fechaformat = new Date(moneda.fecha); 
+                   
+                  var fe = [(fechaformat.getDate()+1).toString().padStart(2, "0"),
+                  fechaformat.getMonth().toString().padStart(2, "0"),
+                  fechaformat.getFullYear()].join('/')
+                  + ' ' + [ fechaformat.getHours().toString().padStart(2, "0"),
+                  fechaformat.getMinutes().toString().padStart(2, "0"),
+                  fechaformat.getSeconds().toString().padStart(2, "0")].join(':'); 
 
                      template +=`
                                          
                 <tr>
               
-                <td>${moneda.fecha} </td>
+                <td>${fe} </td>
             
                 <td>${moneda.monto}</td>
 

@@ -4,28 +4,17 @@ require "../header.php";
 ?>	
 
 
-<head>
-  
-  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-
-
-
-<hr>
 <div class="container bootstrap snippet">
     <div class="row">
   		<div class="col-sm-10"><h1> <label id="lblUser"></label> </h1></div>
-    	<div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="../imagenes/logo.jpg"></a></div>
+    	<div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive rounded-circle" width="100" height="100" src="../imagenes/logo.jpg"></a></div>
     </div>
     <div class="row">
   		<div class="col-sm-3"><!--left col-->
               
 
       <div class="text-center">
-        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" id="foto" class="avatar img-circle img-thumbnail" alt="avatar">
+        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" id="foto" class="avatar img-circle img-thumbnail rounded-circle"  width="200" height="200" alt="avatar">
         <input type="file" id="archivo" class="form-control" >
         <button  id="btnSubirFoto"  class="form-control" type="submit"> Subir foto</button>
       </div></hr><br>
@@ -39,11 +28,6 @@ require "../header.php";
           
         </div><!--/col-3-->
     	<div class="col-sm-9">
-            <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#home">Datos personales</a></li>
-                
-                
-              </ul>
 
               
           <div class="tab-content">

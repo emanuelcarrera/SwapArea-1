@@ -6,7 +6,8 @@ function $(valor) {
     return document.getElementById(valor);
 }
 
-
+let $Categorias = document.getElementById('Categorias');
+cargarCategorias();
 function load() {
     
     //enviarMensajeAlServidor(servidor , cargarOpcionesProvincia); EnviarUsuario
@@ -14,6 +15,36 @@ function load() {
    //$("btnEnviarUsuario").addEventListener("click",AltaUsuario);
 
     
+}
+
+function cargarCategorias() {
+
+  var xmlhttp = new XMLHttpRequest();
+ 
+  xmlhttp.open("GET", servidor + '/Articulo/GetCategorias', true);
+  xmlhttp.onreadystatechange = function () {
+      //Veo si llego la respuesta del servidor
+      if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+          //Reviso si la respuesta es correcta
+          
+          if (xmlhttp.status == 200) {
+              var json = JSON.parse(xmlhttp.responseText);
+              let template = '<option class="form-control" selected disabled> Seleccione </option>';
+              json.forEach(respuesta => {
+                  template += `<option class="form-control" value="${respuesta.idCategoria}">${respuesta.Descripcion}</option>`;
+              })
+              $Categorias.innerHTML = template;
+
+              //GETDomicilio();
+          }
+          else {
+              alert("ocurrio un error");
+          }
+      }
+  }
+
+  xmlhttp.send();
+
 }
 
 function subir_imagenes() {
@@ -40,7 +71,7 @@ function subir_imagenes() {
        fileContent.append("idUsuario", localStorage.getItem('id'));          
        fileContent.append("Nombre", $("nombre").value);
        fileContent.append("Valor", $("valor").value);
-       fileContent.append("Clasificacion", $("clasificacion").value);
+       fileContent.append("Clasificacion",document.getElementById("Categorias").value );
        fileContent.append("Descripcion", $("descripcion").value);
 
 
@@ -51,7 +82,16 @@ function subir_imagenes() {
      
      
      Swal.fire({
-      title: 'Se creo correctamente"',
+      title: 'Se creo correctamente',
+      confirmButtonText: 'OK',
+      confirmButtonColor: '#28a745',
+    }).then((result) => {
+
+      if (result.isConfirmed) {
+         
+          window.location.href = "../Articulos/misArticulos.php";
+
+      } 
     })
    }
    //var blobURL = window.createBlobURL(fileObj);

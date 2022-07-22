@@ -98,8 +98,9 @@ function Comprar(){
         {
             if(document.getElementById("VtoA").value = year)
             {
-
+               
                 var MES = new Date().getMonth().toString()
+                MES = (parseInt(MES) + 1).toString();
                 if(document.getElementById("VtoM").value < MES)
                 {
                    valido =1;

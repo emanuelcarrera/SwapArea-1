@@ -122,6 +122,9 @@ $app->group('/Articulo', function (RouteCollectorProxy $group) {
     $group->GET('/GetArticulo/{IDA}[/]', \ArticulosController::class . ':GetArticulo' );
     $group->GET('/Buscar/{Busca}[/]', \ArticulosController::class . ':Buscar' );
     $group->GET('/TodosLosArticulos', \ArticulosController::class . ':TodosLosArticulos' );
+    $group->GET('/GetCategorias', \ArticulosController::class . ':GetCategorias' );
+
+    
 
     
 });

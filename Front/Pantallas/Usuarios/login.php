@@ -3,17 +3,28 @@ require "../head.php";
 
 ?>	
 
-<br>
 
 <div class="container">
+<div class="row">
+  		<div class="col-sm-10"><h1> <label id="lblUser"></label> </h1></div>
+    	<div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive rounded-circle" width="100" height="100" src="../imagenes/logo.jpg"></a></div>
+    </div>
 	<div class="row">
-		<div class="col-md-4 col-md-offset-4 well">
+	<div class="col-md-4">
+</div>
+		<div class="col-md-4 border border-dark  rounded ">
 
 				<fieldset>
-					<legend>Login</legend>
-					<!--div class="form-group clearfix">
-						<img src="http://www.iconsfind.com/wp-content/uploads/2016/10/20161014_58006bff8b1de.png" alt="" width="200px" class="img-responsive img-circle" style="margin:0 auto">
-					</div-->
+				<br>
+				<div class="row">
+				<div class="col-md-4">
+				</div>
+				<div class="col-md-4">
+					<h3 >Login</h3>
+                </div>
+				<div class="col-md-4">
+				</div>
+				</div>
 
 					<div class="form-group">
 						<label for="name">Nombre de Usuario</label>
@@ -30,15 +41,17 @@ require "../head.php";
 						<input type="button" value="recuperar" class="btn btn-default" onClick=" window.location.href='recupero.php' ">
 					</div>
 				</fieldset>
+				<br>
 		
+				
+		     No tienes cuenta? <a href="register.php">Regitrate aqui</a>
+		</div>
 			<span class="text-danger"><?php if (isset($errormsg)) { echo $errormsg; } ?></span>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-md-4 col-md-offset-4 text-center">	
-		No tienes cuenta? <a href="register.php">Regitrate aqui</a>
-		</div>
-	</div>
+
+	<div class="col-md-4">
+</div>
 </div>
 
 

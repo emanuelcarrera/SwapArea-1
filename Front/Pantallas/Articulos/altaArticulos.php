@@ -10,9 +10,14 @@ require "../header.php";
 </br>
 
 <fieldset>
-    <div class="col-md-6">
-	<div class="form-group" >
-      <input type="file" id="archivo" name="archivo" accept=".jpg, .jpeg, .png" multiple="">
+
+<div class="row">	
+      <div class="col-md-4">
+      </div>	
+    <div class="col-md-4 border border-dark rounded">
+      <br>
+	<div class="form-group " >
+      <input type="file" id="archivo" name="archivo" accept=".jpg, .jpeg, .png" multiple="" class="form-control">
 
     </div>	
 
@@ -27,8 +32,9 @@ require "../header.php";
                         <input type="text" focus class="form-control" name="valor" id="valor"  placeholder="Ingrese el genero...">
                   </div>
                   <div class="form-group">
-                        <label for="clasificacion">clasificacion:</label>
-                        <input type="text" focus class="form-control" name="clasificacion" id="clasificacion"  placeholder="Ingrese la calificacion...">
+                        <label for="clasificacion">Categoria:</label>
+                        <select class="custom-select form-control" id="Categorias">
+                        </select>
                   </div>
                   
                   <div class="form-group">
@@ -40,6 +46,9 @@ require "../header.php";
 				  </div>
 
     </div>
+    <div class="col-md-4">
+      </div>	
+      </div>
 </fieldset>
 
 
@@ -51,6 +60,3 @@ require "../header.php";
 <script src="../..\js/AltaAticulo.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<?php
-require "footer.php";
-?>

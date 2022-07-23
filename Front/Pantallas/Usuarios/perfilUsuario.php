@@ -37,30 +37,30 @@ require "../header.php";
                       <div class="form-group">
                           
                           <div class="col-xs-6">
-                              <label for="first_name"><h4>Nombres</h4></label>
-                              <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
+                              <label for="first_name"><h4>Nombre</h4></label>
+                              <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Nombre" title="enter your first name if any.">
                           </div>
                       </div>
                       <div class="form-group">
                           
                           <div class="col-xs-6">
-                            <label for="last_name"><h4>Apellidos</h4></label>
-                              <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
+                            <label for="last_name"><h4>Apellido</h4></label>
+                              <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Apellido" title="enter your last name if any.">
                           </div>
                       </div>
         
           
                       <div class="form-group">
                           <div class="col-xs-6">
-                             <label for="mobile"><h4>telefono</h4></label>
-                              <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
+                             <label for="mobile"><h4>Telefono</h4></label>
+                              <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Telefono" title="enter your mobile number if any.">
                           </div>
                       </div>
                       <div class="form-group">
                           
                           <div class="col-xs-6">
                               <label for="email"><h4>Email</h4></label>
-                              <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                              <input type="email" class="form-control" name="email" id="email" placeholder="Email" title="enter your email.">
                           </div>
                       </div>
                       <div class="form-group">
@@ -80,27 +80,27 @@ require "../header.php";
                             </div>
                       </div>
                       <div>
-
+                      <hr>
                       <div class="tab-pane" >
                       <div class="form-group">
                           
                           <div class="col-xs-6">
-                              <label for="password"><h4>Password Actual</h4></label>
-                              <input type="password" class="form-control" name="password" id="passwordold" placeholder="password" title="enter your password.">
+                              <label for="password"><h4>Contraseña Actual</h4></label>
+                              <input type="password" class="form-control" name="password" id="passwordold" placeholder="Contraseña" title="enter your password.">
                           </div>
                      
                       <div class="form-group">
                           
                           <div class="col-xs-6">
-                              <label for="password"><h4>Password nueva</h4></label>
-                              <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
+                              <label for="password"><h4>Contraseña nueva</h4></label>
+                              <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña Nueva" title="enter your password.">
                           </div>
                       </div>
                       <div class="form-group">
                           
                      <div class="col-xs-6">
-                            <label for="password2"><h4>Verify</h4></label>
-                              <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
+                            <label for="password2"><h4>Repetir Contraseña nueva</h4></label>
+                              <input type="password" class="form-control" name="password2" id="password2" placeholder="Repetir Contraseña nueva" title="enter your password2.">
                           </div>
                       </div>
                       
@@ -117,13 +117,13 @@ require "../header.php";
 
                   	
           </div>
-              <hr>
+            
               
              </div><!--/tab-pane-->
              
              <div class="tab-pane" id="messages">
                
-               <h2></h2>
+               
                
                <hr>
                  
@@ -137,12 +137,7 @@ require "../header.php";
           
                       <div class="form-group">
                           
-                          <div class="col-xs-6">
-                              <label for="phone"><h4>Ciudad</h4></label>
-                              <select class="custom-select form-control" id="departamento">
-                              </select>
-                          </div>
-                      </div>
+
           
                       <div class="form-group">
                           <div class="col-xs-6">
@@ -152,7 +147,12 @@ require "../header.php";
                       </select>
                           </div>
                       </div>
-
+                      <div class="col-xs-6">
+                              <label for="phone"><h4>Ciudad</h4></label>
+                              <select class="custom-select form-control" id="departamento">
+                              </select>
+                          </div>
+                      </div>
                       <div class="form-group">
                            <div class="col-xs-12">
                                 <br>

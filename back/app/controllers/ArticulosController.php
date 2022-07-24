@@ -114,6 +114,38 @@ public function Alta($request, $response, $args){
     return $response ;
 }
 
+public function SubirImagenArticulo($request, $response, $args){
+
+
+    $Art=  new Articulos();
+
+
+    $listaDeParametros = $request->getParsedBody();
+    $img = $listaDeParametros['archivo'];
+    $Art->idArticulo =  $listaDeParametros['idArticulo'];
+    //$response ->getBody()->Write(json_encode($img));
+    $direccion = dirname(__DIR__) . '\fotos\\';
+    $partes = explode(";base64,", $img); 
+    
+    //$response ->getBody()->Write(json_encode($partes));
+    $extension = explode('/', $partes[0]);
+    $imagen_base64 = base64_decode($partes[1]);
+    $partefinala =  uniqid() . "." . $extension[1];
+    $archivo = $direccion . $partefinala;
+
+    
+    $response ->getBody()->Write(json_encode($archivo));
+    file_put_contents($archivo ,$imagen_base64 );
+
+
+    $Art->foto =  "../../../back/app/fotos/" . $partefinala;
+
+    $Art->SubirImagenArticulo($Art);
+    $response->getBody()->Write("Creado");
+
+    return $response ;
+}
+
 public function Baja($request, $response, $args){
 
     $Art=  new Articulos();
@@ -196,6 +228,17 @@ public function GetArticulo($request, $response, $args){
     $Art=  new Articulos();
 
     $Categorias = $Art->GetCategorias();
+    $response ->getBody()->Write(json_encode($Categorias));
+  
+   return $response->withHeader('Content-Type', 'application/json');
+
+ }
+ 
+ public function GetImagenArticulo($request, $response, $args){
+
+    $Art=  new Articulos();
+    $idA =  (int)$args['IDA'];
+    $Categorias = $Art->GetImagenArticulo($idA );
     $response ->getBody()->Write(json_encode($Categorias));
   
    return $response->withHeader('Content-Type', 'application/json');

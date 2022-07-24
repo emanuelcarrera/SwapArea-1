@@ -4,7 +4,12 @@ require "../header.php";
 ?>	
 
 <head>
-
+<!-- Compiled and minified Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+<!-- Minified JS library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Compiled and minified Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
 </head>
 
 <br>		  <br>		  	 
@@ -13,8 +18,9 @@ require "../header.php";
                 <div class="col-4" > 
 					<div class="service-image-left border border-dark h-100 d-flex align-items-center justify-content-center rounded ">
                     
-					      <div style="padding:10%;" >
-							<img id="item-display" src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt=""  width="300" height="300" class="rounded" ></img>		
+					      
+						  <div id="fotos"> 		
+						
                           </div>				
 					  </div>
                   </div>	
@@ -78,6 +84,18 @@ require "../header.php";
 		<br>		  <br>
 
 
+		<script type="text/javascript">
+// Call carousel manually
+$('#myCarouselCustom').carousel();
 
+// Go to the previous item
+$("#prevBtn").click(function(){
+    $("#myCarouselCustom").carousel("prev");
+});
+// Go to the previous item
+$("#nextBtn").click(function(){
+    $("#myCarouselCustom").carousel("next");
+});
+</script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../..\js/VerArticulo.js"></script>

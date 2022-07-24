@@ -18,11 +18,38 @@ public function CrearArticulo($art)
 
 
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO `articulo` (`idUsuario`,`Nombre`,`Descripcion`,`foto`,`Valor`,`idCategoria`) VALUES ( $art->idUsuario, '$art->Nombre', '$art->Descripcion','$art->foto','$art->Valor','$art->Clasificacion');"); 
+    $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO `articulo` (`idUsuario`,`Nombre`,`Descripcion`,`Valor`,`idCategoria`) 
+    VALUES ( $art->idUsuario, '$art->Nombre', '$art->Descripcion','$art->Valor','$art->Clasificacion');
+    INSERT INTO `fotosariculos`(`idArticulo`, `urlFoto`) VALUES ( @@identity,'$art->foto');
+    "); 
     $consulta->execute();
 
     return $consulta->fetchAll(PDO::FETCH_CLASS, 'Articulos');
 }
+public function SubirImagenArticulo($art)
+{
+
+
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO `fotosariculos`(`idArticulo`, `urlFoto`) VALUES ( $art->idArticulo,'$art->foto');
+    "); 
+    $consulta->execute();
+
+    return $consulta->fetchAll(PDO::FETCH_CLASS, 'Articulos');
+}
+
+public function GetImagenArticulo($id)
+{
+
+
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("SELECT `urlFoto`,`idFotoArticulo`FROM `fotosariculos` WHERE `idArticulo` = $id");
+  
+    $consulta->execute();
+
+    return $consulta->fetchAll();
+}
+
 public function CrearArticuloAngular($art)
 {
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
@@ -70,8 +97,9 @@ public function TodosLosArticulos()
 
 
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("select a.idArticulo,a.idUsuario,a.Nombre,a.Descripcion,a.foto,a.Valor ,b.Descripcion as Clasificacion 
-    FROM `articulo` as a join categorias as b on b.idCategoria = a.idCategoria ");
+    $consulta = $objAccesoDatos->prepararConsulta("select a.idArticulo,a.idUsuario,a.Nombre,a.Descripcion,(SELECT urlFoto from fotosariculos where idArticulo = a.idArticulo LIMIT 1 ) as foto,a.Valor ,b.Descripcion as Clasificacion 
+    FROM `articulo` as a 
+    join categorias as b on b.idCategoria = a.idCategoria ");
     
    
     $consulta->execute();
@@ -85,8 +113,9 @@ public function Buscar($Busca)
 
 
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("select a.idArticulo,a.idUsuario,a.Nombre,a.Descripcion,a.foto,a.Valor ,b.Descripcion as Clasificacion 
-    FROM `articulo` as a join categorias as b on b.idCategoria = a.idCategoria
+    $consulta = $objAccesoDatos->prepararConsulta("select a.idArticulo,a.idUsuario,a.Nombre,a.Descripcion,(SELECT urlFoto from fotosariculos where idArticulo = a.idArticulo LIMIT 1 ) as foto,a.Valor ,b.Descripcion as Clasificacion 
+    FROM `articulo` as a 
+    join categorias as b on b.idCategoria = a.idCategoria
      where a.`Nombre` like '%$Busca%' or  a.`Descripcion` like '%$Busca%'");
     
    
@@ -98,8 +127,10 @@ public function Buscar($Busca)
 public function ListarAUsuario($idUsuario)
 {
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("select a.idArticulo,a.idUsuario,a.Nombre,a.Descripcion,a.foto,a.Valor ,b.Descripcion as Clasificacion 
-    FROM `articulo` as a join categorias as b on b.idCategoria = a.idCategoria WHERE `idUsuario` = $idUsuario");
+    $consulta = $objAccesoDatos->prepararConsulta("select a.idArticulo,a.idUsuario,a.Nombre,a.Descripcion,(SELECT urlFoto from fotosariculos where idArticulo = a.idArticulo LIMIT 1 ) as foto,a.Valor ,b.Descripcion as Clasificacion 
+    FROM `articulo` as a 
+    join categorias as b on b.idCategoria = a.idCategoria 
+    WHERE `idUsuario` = $idUsuario");
       
     $consulta->execute();
 

@@ -123,7 +123,9 @@ $app->group('/Articulo', function (RouteCollectorProxy $group) {
     $group->GET('/Buscar/{Busca}[/]', \ArticulosController::class . ':Buscar' );
     $group->GET('/TodosLosArticulos', \ArticulosController::class . ':TodosLosArticulos' );
     $group->GET('/GetCategorias', \ArticulosController::class . ':GetCategorias' );
-
+    $group->POST('/SubirImagenArticulo', \ArticulosController::class . ':SubirImagenArticulo' );
+    $group->GET('/GetImagenArticulo/{IDA}[/]', \ArticulosController::class . ':GetImagenArticulo' );
+    
     
 
     

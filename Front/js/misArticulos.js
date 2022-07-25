@@ -26,7 +26,7 @@ function ListarUsuarios(){
                      <div class="card d-flex align-items-center justify-content-center" style="width: 18rem;" >
 
                      <img class="card-img-top"  width="200" height="200" src=${Articulos.foto} >
-                     <div class="card-body" d-flex flex-column align-items-center justify-content-center>
+                     <div class="card-body d-flex flex-column align-items-center justify-content-center">
                      <h2 class="card-title" >${Articulos.Nombre}</h2>
                      <br>
                      <strong class="card-text font-weight-light">Descripción: ${Articulos.Descripcion}</strong>

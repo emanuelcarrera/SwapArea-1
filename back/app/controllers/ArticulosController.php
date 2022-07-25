@@ -245,7 +245,16 @@ public function GetArticulo($request, $response, $args){
 
  }
  
- 
+ public function BajaFoto($request, $response, $args){
+
+    $Art=  new Articulos();
+    $listaDeParametros = $request->getParsedBody();
+    //$Art->idArticulo =  (int)$listaDeParametros['idArticulo'];
+    $idA =  (int)$listaDeParametros['idfoto'];
+    $Art->EliminarFoto($idA);
+    $response->getBody()->Write("Eliminado");
+    return $response;
+}
 
 
 

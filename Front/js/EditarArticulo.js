@@ -217,23 +217,13 @@ function subir_imagenes() {
                     });
                 }
                 else{
-                template += `<div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:100%; height:100%;">
+                template += `<div id="myCarousel" class="carousel slide border border-dark rounded" data-ride="carousel" style="width:100%; height:100%;">
                 <!-- Indicators -->
-                <ol class="carousel-indicators">
+                
                   `;
 
-                json.map(function(Articulos){
-                    if (cout === 0){
-                        template +=`<li data-target="#myCarousel" data-slide-to="0" class="active"></li>`;
-                        
-                    }else{
 
-                        template +=`<li data-target="#myCarousel" data-slide-to="${cout}"></li>`;
-                    }
-                    cout++;
-                });
-
-                template +=`</ol> 
+                template +=`
                 <div class="carousel-inner">`;
 
                 var cout = 0;
@@ -242,8 +232,11 @@ function subir_imagenes() {
                      if (cout === 0){
                      template +=`
                      
-                       <div class="item active" >
-                         <img width="100%" height="100%" src="${Articulos.urlFoto}"  >
+                       <div class="item active" style="width:100%; height:100%;">
+                         <img sstyle="width:100%; height:100%;"  src="${Articulos.urlFoto}"  >
+                         <div  class="d-flex flex-column align-items-center justify-content-center" style="padding:2%;">
+                         <input type="button" onclick="AceptarBorrar(${Articulos.idFotoArticulo})" value="Borrar" class="btn btn-danger" />
+                         </div>
                          </div>
                      
                      `;
@@ -251,8 +244,11 @@ function subir_imagenes() {
                      }else
                      {
                         template +=`
-                        <div class="item" >
-                        <img width="100%" height="100%" src="${Articulos.urlFoto}"  >
+                        <div class="item" style="width:100%; height:100%;">
+                        <img style="width:100%; height:100%;" src="${Articulos.urlFoto}"  >
+                        <div  class="d-flex flex-column align-items-center justify-content-center" style="padding:2%;">
+                        <input type="button" onclick="AceptarBorrar(${Articulos.idFotoArticulo})" value="Borrar" class="btn btn-danger" />
+                        </div>
                         </div>`;
                      }
 
@@ -287,4 +283,51 @@ function subir_imagenes() {
     xmlhttp.send();
    }
 
+
+   function AceptarBorrar(id){
+    Swal.fire({
+        title: '¿Esta seguro?',
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: 'Si',
+        denyButtonText: `No`,
+        confirmButtonColor: '#28a745',
+      }).then((result) => {
+
+        if (result.isConfirmed) {
+           
+            borrar(id);
+
+        } 
+      })}
+
+
+      
+function borrar(id){
+
+    var a = id;
+    var xmlhttp = new XMLHttpRequest();
+     
+    xmlhttp.open("POST", servidor + '/Articulo/BajaFoto', true);
+    xmlhttp.onreadystatechange = function () {
+        //Veo si llego la respuesta del servidor
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+            //Reviso si la respuesta es correcta
+            if (xmlhttp.status == 200) {
+                //alert(xmlhttp.responseText);
+  
+                GetImagenes();
+            }
+            else {
+                alert("ocurrio un error");
+            }
+        }
+    }
+    var obje = new FormData();
+    obje.append("idfoto", id);
+  
+    //envio el mensaje    
+    xmlhttp.send(obje);
+  
+  }
  

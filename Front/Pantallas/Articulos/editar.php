@@ -1,18 +1,16 @@
+<!-- Compiled and minified Bootstrap CSS -->
 
+<!-- Minified JS library -->
 <?php
 require "../head.php";
 require "../header.php";
 ?>	
 
-<!-- Compiled and minified Bootstrap CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
-<!-- Minified JS library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- Compiled and minified Bootstrap JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
-<body>
-</br>
-</br>
+
 
 
     <div >
@@ -59,7 +57,7 @@ require "../header.php";
                   </div>
                   <div class="form-group">
                   <label for="clasificacion">Categoria:</label>
-                        <select class="custom-select form-control" id="Categorias">
+                        <select id="Categorias" class="custom-select form-control" style="width:100%; height:100%;" >
                         </select>
                   </div>
                   
@@ -86,8 +84,7 @@ require "../header.php";
 
 
 
-                  </body>
-</html>
+
 <script type="text/javascript">
 // Call carousel manually
 $('#myCarouselCustom').carousel();

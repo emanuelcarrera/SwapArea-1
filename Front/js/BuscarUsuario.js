@@ -64,6 +64,7 @@ function Chatear(idotrousuario)
             if (xmlhttp.status == 200) {
                 var json = JSON.parse(xmlhttp.responseText);
                 json.map(function(id){
+                    sessionStorage.setItem('idusuariochat', idotrousuario);
                     sessionStorage.setItem('idChat', id.id_um);
                     window.location.href = "/SwapArea/SwapArea/Front/Pantallas/Chat/Chat.php";
                 });
@@ -101,7 +102,7 @@ function Buscar(){
                         <br>
                           <img src="${usuarios.foto}" width="100" height="100" class="rounded-circle" alt="avatar">
                         <br>
-                          <button onclick="Chatear(${usuarios.idUsuario})" > Chatear</button>  
+                          <button onclick="Chatear(${usuarios.idUsuario})" class="form-control"> Chatear</button>  
 
                      <br>
                      </div>

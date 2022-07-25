@@ -153,6 +153,17 @@ public function GetArticulo($idA)
     return $consulta->fetchAll(PDO::FETCH_CLASS,'Articulos');
 }
 
+public function EliminarFoto($idA)
+{
+
+
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("DELETE FROM `fotosariculos` WHERE `idFotoArticulo` = $idA");
+  
+    $consulta->execute();
+
+    return $consulta->fetchAll();
+}
     
 public function EliminarArticulo($idA)
 {

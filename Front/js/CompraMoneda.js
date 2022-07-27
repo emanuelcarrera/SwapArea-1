@@ -101,7 +101,7 @@ function Comprar(){
                
                 var MES = new Date().getMonth().toString()
                 MES = (parseInt(MES) + 1).toString();
-                if(document.getElementById("VtoM").value < MES)
+                if( parseInt(document.getElementById("VtoM").value) < parseInt(MES))
                 {
                    valido =1;
 

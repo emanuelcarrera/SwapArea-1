@@ -1,7 +1,7 @@
 <?php
 
-require "head.php";
-require "header.php";
+require "../head.php";
+require "../header.php";
 ?>  
 <style type="text/css">
   iframe {
@@ -60,6 +60,3 @@ require "header.php";
 </div>
 
 <br><br><br><br>
-<?php
-require "footer.php";
-?>

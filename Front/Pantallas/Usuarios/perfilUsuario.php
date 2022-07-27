@@ -18,7 +18,10 @@ require "../header.php";
         <input type="file" id="archivo" class="form-control" >
         <button  id="btnSubirFoto"  class="form-control" type="submit"> Subir foto</button>
       </div></hr><br>
-
+      <input  class="btn btn-primary" type="button" value="Var Monedero " onClick=" window.location.href='../Moneda/historialmoneda.php' ">
+      <br>
+      <br>
+      <input  class="btn btn-primary" type="button" value="Var Direcciones" onClick=" window.location.href='../Usuarios/domicilios.php' ">
                
 
           

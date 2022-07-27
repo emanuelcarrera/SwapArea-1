@@ -23,7 +23,7 @@ function solicitudbyUsusario(){
 
                     template +=`
                     <div  class="col-sm-9" style="padding: 10px 50px 20px;">
-                    <div   style="padding: 10px 50px 20px; with:100%;  margin-top: 4em; border-style: inset;">`
+                    <div class="border border-dark rounded"  style="padding: 10px 50px 20px; with:100%;  margin-top: 4em;">`
                     if(Solicitudes.estado == "0")
                     {
                         template +=`  <a style="color:blue;"> Estado: en espera</a></br>`
@@ -38,53 +38,91 @@ function solicitudbyUsusario(){
                     }
 
                      template +=`
-                     <table style="width: 100%;  border: 1px solid;">
-                     <td  style=" border: 1px solid;">
-                          <a>Mi articulo</a>
-                          <br>
-                          <img width="100" height="100" src=${Solicitudes.FOTO_ART_} >
-                          <br>
-                          <a> ${Solicitudes.NOMBRE_ARt}</a>
+                     <div class="row" >
+                     <div  class="col-sm-4 border border-dark rounded" >
+                     <a class="font-weight-light">Mi articulo</a>
+                       <div class="row" >
+                       <div  class="col-sm-2">
+                       </div> 
+                       <div  class="col-sm-4">
+                          
+                          <br> `
+                          if(Solicitudes.FOTO_ART_ != null){
+                            template += `<img width="100" height="100" src=${Solicitudes.FOTO_ART_} >
+                            <br> `;
+    
+                            }
+                            else
+                            {
+                                template += `<img width="100" height="100" src=../imagenes/logo.jpg"} >
+                                <br> `;
+                            }
+                          template += `
                       
-                     </td>
+                          <a class="font-weight-light"> ${Solicitudes.NOMBRE_ARt}</a>
+                          </div>
+                          </div> 
+                     </div>
 
-                     <td style=" border: 1px solid;"> 
+                     <div  class="col-sm-4 border border-dark rounded"  >
+                           
+                           <a class="font-weight-light">Me ofrecen </a>
                            <br>
-                           <a>Me ofrecen </a>
-                           <br>
-                           <a>Dinero : $ ${Solicitudes.monto} </a>
+                           <a class="font-weight-light">Dinero : $ ${Solicitudes.monto} </a>
+                        
 
                      `
                      if(Solicitudes.ID_ART_OFERTA != null)
                      {
                         template += `
-                        <a>Su articulo</a>
+                        <a class="font-weight-light">Su articulo</a>
                         <br>
-                        <img width="100" height="100" src=${Solicitudes.FOTO_ART_OFERTA} >
+                        `;
+                        if(Solicitudes.FOTO_ART_OFERTA != null){
+                        template += `<img width="100" height="100" src=${Solicitudes.FOTO_ART_OFERTA} >
+                        <br> `;
+
+                        }
+                        else
+                        {
+                            template += `<img width="100" height="100" src=../imagenes/logo.jpg"} >
+                            <br> `;
+                        }
+                        template += `
+                        <a class="font-weight-light"> ${Solicitudes.NOMBRE_ART_OFERTA}</a>
                         <br>
-                        <a> ${Solicitudes.NOMBRE_ART_OFERTA}</a>
+                        <a class="font-weight-light"> Valor: $ ${Solicitudes.VALOR_ART_OFERTA}</a>
                         <br>
-                        <a> Valor: $ ${Solicitudes.VALOR_ART_OFERTA}</a>
-                        <br>
-                        `
+                        `;
 
                      }     
                     
-                     if(Solicitudes.comentario != null)
+                    if(Solicitudes.comentario != null)
                     {
-                        template +=`<a style="margin-top: 4em; border-style: solid;">Cometario :  ${Solicitudes.comentario} </a>`
+                        template +=`<a class="font-weight-light" >Cometario :  ${Solicitudes.comentario} </a>`
                     }
                      template +=
-                     `</td>
-                     <td style=" border: 1px solid;" >
-                        <a>${Solicitudes.NombreUsuario}</a>
+                     `</div>
+                     <div  class="col-sm-4 border border-dark rounded"  >
+                     
+                         <a class="font-weight-light" > Usuario Ofertante</a>
+                          <br>
+                        <a class="font-weight-light" >${Solicitudes.NombreUsuario}</a>
                         <br>
+                        <div class="row" >
+                        <div  class="col-sm-3">
+                        </diV>
+                        <div  class="col-sm-4">
                           <img src="${Solicitudes.foto}" width="100" height="100" class="rounded-circle" alt="avatar">
+                          </diV>
+                          </diV>
+                          <div class="row" >
                         <br>
-                          <button onclick="Chatear(${Solicitudes.dueno})" > Chatear</button>  
-
-                     </td>
-                     </table>
+                          <button class="form-control" onclick="Chatear(${Solicitudes.dueno})" >Contactar</button> 
+                          </diV> 
+                      </diV>
+                     </div>
+                     </div>
                      <br>
                      </div>
                      </div>
@@ -126,7 +164,7 @@ function OfertasbyUsusario(){
                 json.map(function(Solicitudes){
                     template2 +=`
                     <div  class="col-sm-9" style="padding: 10px 50px 20px;">
-                    <div   style="padding: 10px 50px 20px; with:100%;  margin-top: 4em; border-style: inset;">`
+                    <div class="border border-dark rounded"  style="padding: 10px 50px 20px; with:100%;  margin-top: 4em;">`
                     if(Solicitudes.estado == "0")
                     {
                         template2 +=`  <a style="color:blue;"> Estado: en espera</a></br>`
@@ -141,67 +179,105 @@ function OfertasbyUsusario(){
                     }
 
                     template2 +=`
-                     <table style="width: 100%;  border: 1px solid;">
-                     <td  style=" border: 1px solid;">
-                          <a>Mi articulo</a>
-                          <br>
-                          <img width="100" height="100" src=${Solicitudes.FOTO_ART_} >
-                          <br>
-                          <a> ${Solicitudes.NOMBRE_ARt}</a>
-                          <br>
-                          <a> Valor: $ ${Solicitudes.VALOR_ART}</a>
-                      
-                     </td>
+                    <div class="row" >
+                    <div  class="col-sm-4 border border-dark rounded" >
+                    <a class="font-weight-light">Mi articulo</a>
+                      <div class="row" >
+                      <div  class="col-sm-2">
+                      </div> 
+                      <div  class="col-sm-4">
+                         
+                         <br> `
+                         if(Solicitudes.FOTO_ART_ != null){
+                            template2 += `<img width="100" height="100" src=${Solicitudes.FOTO_ART_} >
+                           <br> `;
+   
+                           }
+                           else
+                           {
+                            template2 += `<img width="100" height="100" src=../imagenes/logo.jpg"} >
+                               <br> `;
+                           }
+                           template2 += `
+                     
+                         <a class="font-weight-light"> ${Solicitudes.NOMBRE_ARt}</a>
+                         </div>
+                         </div> 
+                    </div>
 
-                     <td style=" border: 1px solid;"> 
-                           <br>
-                           <a>Me ofrecen </a>
-                           <br>
-                           <a>Dinero : $ ${Solicitudes.monto} </a>
-                           <br>
+                    <div  class="col-sm-4 border border-dark rounded"  >
+                          
+                          <a class="font-weight-light">Me ofrecen </a>
+                          <br>
+                          <a class="font-weight-light">Dinero : $ ${Solicitudes.monto} </a>
+                       
 
-                     `
-                     if(Solicitudes.ID_ART_OFERTA != null)
-                     {
-                        template2 += `
-                        <a>Su articulo</a>
-                        <br>
-                        <img width="100" height="100" src=${Solicitudes.FOTO_ART_OFERTA} >
-                        <br>
-                        <a> ${Solicitudes.NOMBRE_ART_OFERTA}</a>
-                        <br>
-                        <a> Valor: $ ${Solicitudes.VALOR_ART_OFERTA}</a>
-                        <br>
-                        `
-
-                     }     
-                    
-                     if(Solicitudes.comentario != null)
+                    `
+                    if(Solicitudes.ID_ART_OFERTA != null)
                     {
-                        template2 +=`<a style="margin-top: 4em; border-style: solid;">Cometario :  ${Solicitudes.comentario} </a>`
-                    }
+                        template2 += `
+                       <a class="font-weight-light">Su articulo</a>
+                       <br>
+                       `;
+                       if(Solicitudes.FOTO_ART_OFERTA != null){
+                        template2 += `<img width="100" height="100" src=${Solicitudes.FOTO_ART_OFERTA} >
+                       <br> `;
+
+                       }
+                       else
+                       {
+                        template2 += `<img width="100" height="100" src=../imagenes/logo.jpg"} >
+                           <br> `;
+                       }
+                       template2 += `
+                       <a class="font-weight-light"> ${Solicitudes.NOMBRE_ART_OFERTA}</a>
+                       <br>
+                       <a class="font-weight-light"> Valor: $ ${Solicitudes.VALOR_ART_OFERTA}</a>
+                       <br>
+                       `;
+
+                    }     
+                   
+                   if(Solicitudes.comentario != null)
+                   {
+                    template2 +=`<a class="font-weight-light" >Cometario :  ${Solicitudes.comentario} </a>`
+                   }
                     template2 +=
-                     `</td>
-                     <td style=" border: 1px solid;" >
-                        <a>${Solicitudes.NombreUsuario}</a>
-                        <br>
-                          <img src="${Solicitudes.foto}" width="100" height="100" class="rounded-circle" alt="avatar">
-                          <br>
-                          <button onclick="Chatear(${Solicitudes.ofertante})" > Chatear</button>  
-                     </td>
-                     </table>
+                    `</div>
+                    <div  class="col-sm-4 border border-dark rounded"  >
+                    
+                        <a class="font-weight-light" > Usuario Ofertante</a>
+                         <br>
+                       <a class="font-weight-light" >${Solicitudes.NombreUsuario}</a>
+                       <br>
+                       <div class="row" >
+                       <div  class="col-sm-3">
+                       </diV>
+                       <div  class="col-sm-4">
+                         <img src="${Solicitudes.foto}" width="100" height="100" class="rounded-circle" alt="avatar">
+                         </diV>
+                         </diV>
+                         <div class="row" >
+                       <br>
+                         <button class="form-control" onclick="Chatear(${Solicitudes.ofertate})" >Contactar</button> 
+                         </diV> 
+                     </diV>
+                    </div><br>`
+                    if(Solicitudes.estado == "0")
+                    {
+                       template2 +=  `<button class="btn btn-success" type="button" onclick="AceptarSolicitud(${Solicitudes.id_Solicitud})"> Aceptar</button>
+                                      <button class="btn btn-danger" type="button" onclick="RechazarSolicitud(${Solicitudes.id_Solicitud})"> Rechazar</button>`
+                    }
+
+                    template2 +=  `</div>
                      <br>`
 
-                     if(Solicitudes.estado == "0")
-                     {
-                        template2 +=  `<button class="btn btn-success" type="button" onclick="AceptarSolicitud(${Solicitudes.id_Solicitud})"> Aceptar</button>
-                                       <button class="btn btn-danger" type="button" onclick="RechazarSolicitud(${Solicitudes.id_Solicitud})"> Rechazar</button>`
-                     }
 
 
                      template2 +=`</div>
                      </div>
                      <br>
+                     
                      `;
 
                 });

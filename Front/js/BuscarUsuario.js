@@ -19,12 +19,14 @@ function ListarUsusario(){
                     if (usuarios.foto == null)
                     { usuarios.foto  = "../imagenes/logo.jpg";  }
                      template +=
-                     `<div class="col-sm-3">
+                     `<div class="col-sm-2 d-flex align-items-center justify-content-center" >
+                       <div >
                         <a>${usuarios.NombreUsuario}</a>
                         <br>
                           <img src="${usuarios.foto}" width="100" height="100" class="rounded-circle" alt="avatar">
                         <br>
                           <button onclick="Chatear(${usuarios.idUsuario})" class="form-control"> Chatear</button>  
+                          </div>
 
                      <br>
                      </div>
@@ -97,12 +99,14 @@ function Buscar(){
                     if (usuarios.foto == null)
                     { usuarios.foto  = "../imagenes/logo.jpg";  }
                      template +=
-                     `<div class="col-sm-3">
+                     `<div class="col-sm-2 d-flex align-items-center justify-content-center" >
+                       <div >
                         <a>${usuarios.NombreUsuario}</a>
                         <br>
                           <img src="${usuarios.foto}" width="100" height="100" class="rounded-circle" alt="avatar">
                         <br>
                           <button onclick="Chatear(${usuarios.idUsuario})" class="form-control"> Chatear</button>  
+                          </div>
 
                      <br>
                      </div>

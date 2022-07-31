@@ -5,12 +5,12 @@ require "../header.php";
 ?>	
 
 
-<body>
+
+
 </br>
 </br>
 
-<fieldset>
-
+</diV>
 <div class="row">	
       <div class="col-md-4">
       </div>	
@@ -46,17 +46,12 @@ require "../header.php";
 				  </div>
 
     </div>
-    <div class="col-md-4">
-      </div>	
+
       </div>
-</fieldset>
 
 
+</div>
 
-  
-
-</body>
-</html>
 <script src="../..\js/AltaAticulo.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

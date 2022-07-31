@@ -82,19 +82,7 @@ function AltaUsuario(){
             //Reviso si la respuesta es correcta
             if (xmlhttp.status == 200) {
                 //alert(xmlhttp.responseText);
-                Swal.fire({
-                    title: 'Usuaruario Creado',
-                    confirmButtonText: 'OK',
-                    confirmButtonColor: '#28a745',
-                  }).then((result) => {
-            
-                    if (result.isConfirmed) {
-                       
-                        window.location.href = "../Usuarios/Login.php";
-            
-                    } 
-                  
-                  })
+
                 
             }
             else {
@@ -162,7 +150,19 @@ function AltaUsuario(){
     //envio el mensaje    
     xmlhttp.send(obje);
 
+    Swal.fire({
+        title: 'Usuaruario Creado',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#28a745',
+      }).then((result) => {
 
+        if (result.isConfirmed) {
+           
+            window.location.href = "../Usuarios/Login.php";
+
+        } 
+      
+      })
     $("txtNombre").value = "";
     $("txtApellido").value = "";
     $("txtNombreUsuario").value = "";

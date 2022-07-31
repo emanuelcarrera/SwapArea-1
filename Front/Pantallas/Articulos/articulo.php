@@ -1,6 +1,6 @@
 <?php
 require "../head.php";
-require "../header.php";
+
 ?>	
 
 <head>
@@ -11,7 +11,53 @@ require "../header.php";
 <!-- Compiled and minified Bootstrap JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
 </head>
+<header sryle="position:flex;">
+			<nav class="navbar navbar-expand-md navbar-dark navbar-fixed-top bg-dark">
+			<img   width="50" height="50" class="rounded-circle"  src="../imagenes/logo.jpg" >
+				<div class="container">
 
+					<a style="color:white;" >     SwapArea</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+				
+						<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+								<a class="nav-link" href="../Articulos/BuscarArticulos.php"><i class="fa fa-home"></i> Inicio <span class="sr-only"></span></a>
+							</li>
+
+							<li class="nav-item active" id="misarticulos">
+								<a class="nav-link" href="../Articulos/misArticulos.php"><i class="fa fa-cube" aria-hidden="true"></i> Articulos</a>
+							</li>
+							<li class="nav-item active" id="moneda">
+								<a class="nav-link" href="../Moneda/compraMoneda.php"><i class="fa fa-coins"></i> Monedas</a>
+							</li>
+							<li class="nav-item active" id="Solicitudes">
+								<a class="nav-link" href="../solicitudes/listadosolicitudes.php" ><i class="fa fa-handshake"></i> Solicitudes</a>
+							</li>
+							<li class="nav-item active" id="chat">
+								<a class="nav-link" href="../Chat/BuscarUsuario.php"><i class="fa fa-comments"></i> Chats</a>
+							</li>
+							<li class="nav-item active">
+								<a class="nav-link" href="../Contactanos/contactos.php"><i class="fa fa-phone"></i>Contactenos</a>
+							</li>
+				
+						</ul>
+
+						 <a id="perfil" href="../Usuarios/perfilUsuario.php" > <img id="Headerimg" src="" width="50" height="50" class="rounded-circle"  >
+						  <a id="nombreuHeader" class="nav-link" style="color:white;"></a></a>
+
+              <a class="nav-link" style="color:white;"   href="../Usuarios/Login.php" > <label id="log"></label>  <i class="fas fa-sign-out-alt" ></i></a>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+
+<div>
+
+<br>
+<br>
 <br>		  <br>		  	 
          <div class="container">
 			 <div class="row">
@@ -99,3 +145,4 @@ $("#nextBtn").click(function(){
 </script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../..\js/VerArticulo.js"></script>
+<script src="../../js/Header.js"></script>

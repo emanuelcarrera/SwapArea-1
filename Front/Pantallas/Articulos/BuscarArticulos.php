@@ -13,6 +13,11 @@ require "../header.php";
                 <form class="form" action="##" method="post" id="registrationForm">
                 <input  class="form-control" id="txtBuscar" placeholder="Buscar" title="enter a location">
                 <br>
+   
+                 <select class="custom-select" id="Categorias">
+                 </select>
+                 <br>
+                  <br>
                 <button class="btn btn-success" id="btnEnviar"  type="button" onclick="Buscar()"><i class="fa fa-search"></i>Buscar</button>
                 </form>
                 

@@ -21,13 +21,14 @@ function ListarUsuarios(){
                 var json = JSON.parse(xmlhttp.responseText);
                 var template = ``;
                 json.map(function(Articulos){
-
+                    if (Articulos.foto == null)
+                    { Articulos.foto  = "../imagenes/logo.jpg";  }
                      template +=`
                      <div class="card d-flex align-items-center justify-content-center" style="width: 18rem;" >
-
+            
                      <img class="card-img-top"  width="200" height="200" src=${Articulos.foto} >
-                     <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                     <h2 class="card-title" >${Articulos.Nombre}</h2>
+                     <div class="card-body" d-flex flex-column align-items-center justify-content-center>
+                     <h5 class="card-title" >${Articulos.Nombre}</h5>
                      <br>
                      <strong class="card-text font-weight-light">Descripción: ${Articulos.Descripcion}</strong>
                      <br>
@@ -35,13 +36,15 @@ function ListarUsuarios(){
                      <br>
                      <strong class="card-text font-weight-light">Valor: ${Articulos.Valor}</strong>
                      <br>
-                     <input type="button" onclick="Editar(${Articulos.idArticulo})" value="Editar" class="btn btn-primary" />
+                     <div  class="d-flex align-items-center justify-content-center">
+                          <input type="button" onclick="Editar(${Articulos.idArticulo})" value="Editar" class="btn btn-primary" />
                      <br>
+                      <br>
+                    <input type="button" onclick="AceptarBorrar(${Articulos.idArticulo})" value="Borrar" class="btn btn-danger" />
                      <br>
-                     <input type="button" onclick="AceptarBorrar(${Articulos.idArticulo})" value="Borrar" class="btn btn-danger" />
                      </div>
                      </div>
-
+                     </div>
                      `;
 
                 });

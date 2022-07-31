@@ -1,5 +1,9 @@
+
+<script src="../..\js/LogOut.js"></script>
 <?php
+require "../Header.php";
 require "../head.php";
+
 
 ?>	
 

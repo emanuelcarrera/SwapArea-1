@@ -18,8 +18,11 @@ function setArticulo(){
              var template = ``;
              json.map(function(Articulos){
  
-                
-                 ;
+                if(localStorage.getItem('id') === Articulos.idUsuario){
+                 document.getElementById("btnintercambio").hidden = true;
+                 document.getElementById("btncomprar").hidden = true;
+                }
+
                  document.getElementById("imgfusu").src = Articulos.Usuariofoto;
                  //document.getElementById("item-display").src = Articulos.foto;
                  document.getElementById("lblnombre").innerHTML =  Articulos.Nombre;

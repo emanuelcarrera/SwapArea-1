@@ -1,13 +1,19 @@
 <?php
+
 require "../head.php";
 require "../header.php";
+
 ?>	
 
 
+<div>
+
+<br>
+<br>
 <div class="container bootstrap snippet">
     <div class="row">
   		<div class="col-sm-10"><h1> <label id="lblUser"></label> </h1></div>
-    	<div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive rounded-circle" width="100" height="100" src="../imagenes/logo.jpg"></a></div>
+    	<div class="col-sm-2"><img title="profile image" class="img-circle img-responsive rounded-circle" width="100" height="100" src="../imagenes/logo.jpg"></div>
     </div>
     <div class="row">
   		<div class="col-sm-3"><!--left col-->
@@ -18,10 +24,9 @@ require "../header.php";
         <input type="file" id="archivo" class="form-control" >
         <button  id="btnSubirFoto"  class="form-control" type="submit"> Subir foto</button>
       </div></hr><br>
-      <input  class="btn btn-primary" type="button" value="Var Monedero " onClick=" window.location.href='../Moneda/historialmoneda.php' ">
+      <input  class="form-control" type="button" value="Ver Monedero " onClick=" window.location.href='../Moneda/historialmoneda.php' ">
       <br>
-      <br>
-      <input  class="btn btn-primary" type="button" value="Var Direcciones" onClick=" window.location.href='../Usuarios/domicilios.php' ">
+      <input  class="form-control" type="button" value="Ver Direcciones" onClick=" window.location.href='../Usuarios/domicilios.php' ">
                
 
           
@@ -118,6 +123,7 @@ require "../header.php";
                        </div>
 </div>    
 
+
                   	
           </div>
             
@@ -170,8 +176,8 @@ require "../header.php";
               	
  </div>               
  </div>           
-           
   
+
  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
  <script src="../../js/UsuarioPerfil.js"></script>
 

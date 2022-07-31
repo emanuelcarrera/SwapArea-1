@@ -3,70 +3,66 @@ require "../head.php";
 require "../header.php";
 ?>	
 
+<br>
+<br>
 
-<br>
-<br>
-<br>
-<br>
-<div>
-<div class="form-group">
-
-<div class="col-md-7">
-<div class="product col-md-3 service-image-left">
-                    
+<div class="row" style="padding:5%;" >     
+<div class="col-sm-5  border border-dark  rounded"  >    
+<br><br>       
                     <center>
-                        <img id="item-display" src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt=""></img>
+                        <img id="item-display" src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt="" class="border border-dark  rounded" width="200" height="200" ></img>
                     </center>
-                </div>   </div>
+       
                 
-
-                <fieldset>
+                    <br><br>
 
 					<div class="product-title">Nombre :<label id="lblnombre"> </div>
 					
 					<hr>
 					<div class="product-price">Valor : $<label id="lblvalor"> </label></div>
 					<hr>
-					<div class="product-drecipction">Descripcion : <label id="lbldescripcion"> </label></div>
-					<hr>
+					<div class="product-drecipction">Descripción : <label id="lbldescripcion"> </label></div>
+					
                 
+
                     </div>
+                    <div class="col-sm-1">
+                    <br>
+<br><br>
+<br><br>
+<br>       
+						<button type="button" id="btnAceptar" class="btn btn-danger">
+							Enviar
+						</button>
+				
+                    </div>
+<div class="col-sm-5  border border-dark  rounded" >
+  
 
-
-
-                          
-                          <div class="col-xs-6">
-                              <label for="phone"><h4>Mis Articulos para ofrecer</h4></label>
+<br><br>
+                            
+                              <center>
+                            <img id="item-display2" src="../imagenes/logo.jpg"  alt="" class="border border-dark  rounded" width="200" height="200" ></img>
+                           </center>
+                           <br><br>
                               <select class="custom-select form-control" id="misArticulos">
                               </select>
-                          </div>   </div>
+                         
+                          
 
-
-
-                          <br>
-                  <div class="form-group">
-                        <label for="nombre">Monto:</label>
+                              <hr>
+              
+                        
                         <input type="text" focus class="form-control" name="monto" id="txtmonto"  placeholder="Ingrese el monto...">
-                 </div>
-                  <div class="form-group">
-                        <label for="nombre">Comntario:</label>
+                        <hr>
+                        
                         <input type="text" focus class="form-control" name="comentario" id="txtcomentario"  placeholder="Ingrese el comentario...">
-                  </div>
-                  
-</fieldset>
-                  <div class="btn-group wishlist">
-						<button type="button" id="btnAceptar" class="btn btn-danger">
-							Enviar Solicitud 
-						</button>
-					</div>
+          
 
-                          <br>
-                          <br>
-                          <br>
+                        <br>
 
 
-
-
+                    </div>
 
 </div>
 <script src="../../js/CrearSolicitud.js"></script>

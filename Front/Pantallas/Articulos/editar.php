@@ -94,13 +94,13 @@
       <div class="col-md-4 border border-dark rounded">
             
 	  <div class="form-group">
-                        <label for="nombre">Nombre:</label>
+                        <label for="nombre">Nombre articulo:</label>
                         <input type="text" focus class="form-control" name="nombre" id="nombre"  placeholder="Ingrese el titulo...">
                   </div>
                   
 
                   	<div class="form-group">
-                        <label for="valor">Valor:</label>
+                        <label for="valor">Valor articulo:</label>
                         <input type="text" focus class="form-control" name="valor" id="valor"  placeholder="Ingrese el genero...">
                   </div>
                   <div class="form-group">

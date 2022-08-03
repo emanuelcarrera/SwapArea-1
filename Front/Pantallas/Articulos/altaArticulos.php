@@ -22,7 +22,7 @@ require "../header.php";
     </div>	
 
 	  <div class="form-group">
-                        <label for="nombre">Nombre:</label>
+                        <label for="nombre">Nombre articulo:</label>
                         <input type="text" focus class="form-control" name="nombre" id="nombre"  placeholder="Ingrese el titulo...">
                   </div>
                   
@@ -32,7 +32,7 @@ require "../header.php";
                         <input type="text" focus class="form-control" name="valor" id="valor"  placeholder="Ingrese el genero...">
                   </div>
                   <div class="form-group">
-                        <label for="clasificacion">Categoria:</label>
+                        <label for="clasificacion">Categoria articulo:</label>
                         <select class="custom-select form-control" id="Categorias">
                         </select>
                   </div>

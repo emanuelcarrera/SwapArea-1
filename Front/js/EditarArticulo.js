@@ -9,9 +9,7 @@ function load() {
     
     //enviarMensajeAlServidor(servidor , cargarOpcionesProvincia); EnviarUsuario
    //$("btnEnviar").addEventListener("click",Modificar);
-   //$("btnEnviarUsuario").addEventListener("click",AltaUsuario);
-
-    
+   //$("btnEnviarUsuario").addEventListener("click",AltaUsuario); 
 }
 
 function cargarCategorias() {
@@ -74,7 +72,7 @@ xmlhttp.onreadystatechange = function () {
 
  xmlhttp.send(fileContent);
  Swal.fire({
-    title: 'Se modifico correctament',
+    title: 'Se modifico correctamente',
     confirmButtonText: 'OK',
     confirmButtonColor: '#28a745',
   }).then((result) => {
@@ -89,8 +87,6 @@ xmlhttp.onreadystatechange = function () {
 
 
 }
-
-
 
 function setArticulo(){
 
@@ -135,7 +131,6 @@ function setArticulo(){
   xmlhttp.send();
 }
 
-
 function subir_imagenes() {
     
     lista_img = new FormData();
@@ -161,7 +156,7 @@ function subir_imagenes() {
 
        xmlhttp.send(fileContent);
       
-
+       document.getElementById("archivo").value = "";
      }
      var a =fileReader.readAsDataURL(fileToLoad);
      

@@ -134,6 +134,12 @@ function solicitudbyUsusario(){
 
                 });
                 
+                if(template === "")
+                {
+                    template +=`<a class="font-weight-light">No se encontraron solicitudes</a>`
+
+                }
+
                 console.log(template);
                 document.getElementById('lista').innerHTML=template;
 
@@ -161,7 +167,7 @@ function OfertasbyUsusario(){
             //Reviso si la respuesta es correcta
             
             if (xmlhttp.status == 200) {
-                document.getElementById('titulo').innerText = 'Solicitudes que me hicieron a otros usuarios';
+                document.getElementById('titulo').innerText = 'Solicitudes que me hicieron';
                 var json = JSON.parse(xmlhttp.responseText);
                 var template2 = ``;
                 json.map(function(Solicitudes){
@@ -287,6 +293,12 @@ function OfertasbyUsusario(){
 
                 });
                 
+                if(template === "")
+                {
+                    template +=`<a class="font-weight-light">No se encontraron solicitudes</a>`
+
+                }
+
                 console.log(template2);
                 document.getElementById('lista').innerHTML=template2;
 

@@ -56,7 +56,47 @@ function subir_imagenes() {
    var xmlhttp = new XMLHttpRequest();
   
    var fileContent = new FormData();
- 
+   var a = 0;
+   var files = document.getElementById("archivo").files;
+
+   if( document.getElementById("Categorias").value  === "Seleccione")
+   {
+    Swal.fire({
+      title: 'Categoria obligatoria',
+    })
+      a = 1;
+   }
+   if (files.length === 0)  {
+        Swal.fire({
+        title: 'Foto obligatoria',
+      })
+        a = 1;
+      }    
+
+      if ($("nombre").value === null || $("nombre").value === "") {
+        Swal.fire({
+        title: 'Nombre Articulo obligatorio',
+      })
+      a = 1;
+      }          
+
+      if ($("valor").value === null ||$("valor").value === "") {
+        Swal.fire({
+        title: 'Valor del articulo obligatorio',
+      })
+      a = 1;
+      }          
+
+      if ($("descripcion").value === null || $("descripcion").value  === "") {
+        Swal.fire({
+        title: 'Descripcion obligatoria',
+      })
+      a = 1;
+      }          
+
+
+   if (a === 0)
+   {
    var filesSelected = document.getElementById("archivo").files;
    if (filesSelected.length > 0) {
      var fileToLoad = filesSelected[0];
@@ -113,7 +153,7 @@ function subir_imagenes() {
     }
 
   
-
+  }
 
 
   }

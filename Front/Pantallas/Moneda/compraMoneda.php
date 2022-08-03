@@ -80,7 +80,7 @@ require "../header.php";
 </div>
 <div class="col-md-3">
   
-  <input  class="btn btn-primary" type="button" value="Ir a historial" onClick=" window.location.href='historialmoneda.php' ">
+  <input  class="btn btn-primary" type="button" value="Ir a Monedero" onClick=" window.location.href='historialmoneda.php' ">
 </div>
 </div>
 <script src="../../js/CompraMoneda.js"></script>

@@ -13,13 +13,15 @@ require "../header.php";
 </br>
 </br>
 <div class="container" >
-
+<a id="titulo" > </a>
+</br>
+</br>
 <button   class="btn btn-success" id="btnofertas"  type="button" onclick="OfertasbyUsusario()"> Ofertas de otros usuarios</button>
 </br>
 </br>
 <button class="btn btn-success" id="btnsolictud"  type="button" onclick="solicitudbyUsusario()"> Solicitudes que hice</button>
 </br>
-<a id="titulo" > </a>
+
 </div>
 
 </br>

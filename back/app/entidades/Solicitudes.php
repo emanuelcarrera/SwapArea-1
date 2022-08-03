@@ -86,7 +86,7 @@ class Solicitudes {
        join articulo as art1 on soli.id_Artuculo = art1.idArticulo 
        left join articulo as art2 on soli.id_Articulo_oferta = art2.idArticulo
        left join usuarios as usu on soli.dueno = usu.idUsuario
-       where soli.ofertante = $idusuario ");
+       where soli.ofertante = $idusuario order by soli.id_Solicitud desc");
     
       $consulta->execute();
   
@@ -119,7 +119,7 @@ class Solicitudes {
        join articulo as art1 on soli.id_Artuculo = art1.idArticulo 
        left join articulo as art2 on soli.id_Articulo_oferta = art2.idArticulo
        left join usuarios as usu on soli.ofertante = usu.idUsuario
-       where soli.dueno = $idusuario ");
+       where soli.dueno = $idusuario order by soli.id_Solicitud desc ");
     
       $consulta->execute();
   

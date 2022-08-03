@@ -75,8 +75,7 @@ $app->group('/Usuarios', function (RouteCollectorProxy $group) {
     $group->get('/ValidarNombre/{nombre}', \usuariosController::class . ':ValidarNombre' );
     $group->get('/GetUsuariosbyName/{nombre}', \usuariosController::class . ':GetUsuariosbyName' );
     $group->POST('/ValidarNombreMail', \usuariosController::class . ':ValidarNombreMail' );
-    
-    
+    $group->POST('/MailContacto', \usuariosController::class . ':MailContacto' );
     
     
 });

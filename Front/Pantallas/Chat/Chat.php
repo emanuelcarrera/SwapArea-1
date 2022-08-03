@@ -14,8 +14,8 @@ require "../header.php";
                 <h5 id="txtnombre" class="btn btn-xs btn-secondary"  data-abc="true"></h5>
               </div>
 
-<div id="chat" class="ps-container ps-theme-default ps-active-y border border-dark rounded" style="overflow-y: scroll !important; height:400px !important;  background-color: #4d5259;">
-
+<div id="divchat" class="ps-container ps-theme-default ps-active-y border border-dark rounded" style="overflow-y: scroll !important; height:400px !important;  background-color: #4d5259;">
+</div>
 </div>
 
 

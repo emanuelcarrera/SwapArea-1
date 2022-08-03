@@ -1,6 +1,7 @@
 var servidor = "http://localhost:777";
 cargarDropdown();
 setArticulo();
+GetImageneotro();
 let $misArticulos = document.getElementById('misArticulos');
 
 function cargarDropdown() {
@@ -129,7 +130,50 @@ evento.addEventListener("click", function(){
         GetImagenes();
 
       })
+      function GetImageneotro(){
+        
+        var xmlhttp = new XMLHttpRequest();
+        
+        xmlhttp.open("GET", servidor + '/Articulo/GetImagenArticulo/'+sessionStorage.getItem('idArticulo'), true);
+        xmlhttp.onreadystatechange = function () {
+            //Veo si llego la respuesta del servidor
+            if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+                //Reviso si la respuesta es correcta
+                
+                if (xmlhttp.status == 200) {
+                    
+                    var json = JSON.parse(xmlhttp.responseText);
+                    var cout = 0;
+                    var template = ``;
+                    if(json.length == 0)
+                    {
+                                 template +=`<img width="100%" height="100%" src="../imagenes/logo.jpg"  >`;
+                                
+                            
+                    }
+ 
+                    json.map(function(Articulos){
+                        if (cout === 0){
+                            template += Articulos.urlFoto;
+                            
+                        }
+                        cout++
+                    });
+                   
+    
 
+               }
+                    console.log(template);
+                    document.getElementById('item-display').src=template;
+    
+    
+                }
+
+            }
+    
+        xmlhttp.send();
+       }
+    
       function GetImagenes(){
         
         var xmlhttp = new XMLHttpRequest();

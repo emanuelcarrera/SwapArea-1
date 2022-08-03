@@ -18,6 +18,12 @@ class SolicitudesControlller{
         $Soli->monto =  $listaDeParametros['monto'];
         $Soli->Comprar($Soli);
         $response->getBody()->Write(json_encode($Soli));
+
+        $usu = new Usuarios();
+        $usu = $usu->GetMailByAeticulo($Soli->id_Articulo);
+        $mail= new Emails();
+        $mail->EnviarMail( $usu[0]->Mail ,"Tiene una nueva solicitud de intercambio" ,"Vea sus solicitudes" );
+         
         
         return $response ;
     }
@@ -55,6 +61,11 @@ class SolicitudesControlller{
 
         $Soli->solicitudIntercambio($Soli);
         $response->getBody()->Write(json_encode($Soli));
+
+        $usu = new Usuarios();
+        $usu = $usu->GetMailByAeticulo($Soli->id_Articulo);
+        $mail= new Emails();
+        $mail->EnviarMail( $usu[0]->Mail ,"Tiene una nueva solicitud de intercambio" ,"Vea sus solicitudes" );
         
         return $response ;
     }
@@ -71,6 +82,11 @@ class SolicitudesControlller{
         $arrayUsuarios = $Soli->AltaSolicitud($idArticulo,$ofertante,$oferta,$monto,$comentario);
       
         $response ->getBody()->Write(json_encode($listaDeParametros));
+
+        $usu = new Usuarios();
+        $usu = $usu->GetMailByAeticulo($idArticulo);
+        $mail= new Emails();
+        $mail->EnviarMail( $usu[0]->Mail ,"Tiene una nueva solicitud de intercambio" ,"Vea sus solicitudes" );
        return $response->withHeader('Content-Type', 'application/json');
      }
     

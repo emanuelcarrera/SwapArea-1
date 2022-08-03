@@ -12,7 +12,6 @@ class Solicitudes {
     public $RESULT;
 
 
-
     public function Comprar($Soli)
     {
       $objAccesoDatos = AccesoDatos::obtenerInstancia();

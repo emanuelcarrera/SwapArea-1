@@ -96,9 +96,9 @@ function Listar(){
                 });
                 
                 console.log(template);
-                document.getElementById('chat').innerHTML=template;
+                document.getElementById('divchat').innerHTML=template;
 
-                var objDiv = document.getElementById("chat");
+                var objDiv = document.getElementById("divchat");
                 objDiv.scrollTop = objDiv.scrollHeight;
             }
             else {
@@ -139,6 +139,8 @@ function comentar(){
     fileContent.append("Texto", document.getElementById("textcomentario").value);
 
     xmlhttp.send(fileContent);
+
+    document.getElementById("textcomentario").value = "";
 }
 
 setInterval(function(){Listar();},1000);

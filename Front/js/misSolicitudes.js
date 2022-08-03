@@ -40,11 +40,10 @@ function solicitudbyUsusario(){
                      template +=`
                      <div class="row" >
                      <div  class="col-sm-4 border border-dark rounded" >
-                     <a class="font-weight-light">Mi articulo</a>
-                       <div class="row" >
-                       <div  class="col-sm-2">
-                       </div> 
-                       <div  class="col-sm-4">
+                     <a class="font-weight-light">Su articulo</a>
+                  
+
+                       <div  class="">
                           
                           <br> `
                           if(Solicitudes.FOTO_ART_ != null){
@@ -58,24 +57,28 @@ function solicitudbyUsusario(){
                                 <br> `;
                             }
                           template += `
-                      
+                          <br>
                           <a class="font-weight-light"> ${Solicitudes.NOMBRE_ARt}</a>
-                          </div>
+                          <br>
+                          <a class="font-weight-light"> Valor: $ ${Solicitudes.VALOR_ART}</a>
+                          <br>
+                          
                           </div> 
                      </div>
 
                      <div  class="col-sm-4 border border-dark rounded"  >
                            
-                           <a class="font-weight-light">Me ofrecen </a>
+                           <a class="font-weight-light">Mi oferta </a>
                            <br>
                            <a class="font-weight-light">Dinero : $ ${Solicitudes.monto} </a>
+                           <br>
                         
 
                      `
                      if(Solicitudes.ID_ART_OFERTA != null)
                      {
                         template += `
-                        <a class="font-weight-light">Su articulo</a>
+                        <a class="font-weight-light">Mi Aticulo</a>
                         <br>
                         `;
                         if(Solicitudes.FOTO_ART_OFERTA != null){
@@ -105,7 +108,7 @@ function solicitudbyUsusario(){
                      `</div>
                      <div  class="col-sm-4 border border-dark rounded"  >
                      
-                         <a class="font-weight-light" > Usuario Ofertante</a>
+                         <a class="font-weight-light" > Usuario </a>
                           <br>
                         <a class="font-weight-light" >${Solicitudes.NombreUsuario}</a>
                         <br>
@@ -182,10 +185,8 @@ function OfertasbyUsusario(){
                     <div class="row" >
                     <div  class="col-sm-4 border border-dark rounded" >
                     <a class="font-weight-light">Mi articulo</a>
-                      <div class="row" >
-                      <div  class="col-sm-2">
-                      </div> 
-                      <div  class="col-sm-4">
+                      <div class="" >
+                      <div  class="">
                          
                          <br> `
                          if(Solicitudes.FOTO_ART_ != null){
@@ -201,6 +202,10 @@ function OfertasbyUsusario(){
                            template2 += `
                      
                          <a class="font-weight-light"> ${Solicitudes.NOMBRE_ARt}</a>
+                         <br>
+                         <a class="font-weight-light">Dinero : $ ${Solicitudes.monto} </a>
+                         <br>
+                      
                          </div>
                          </div> 
                     </div>

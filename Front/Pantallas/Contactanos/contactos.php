@@ -25,20 +25,20 @@ require "../header.php";
                 <div class="card-body">
                     <form>
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name" required>
+                            <label for="name">Asunto</label>
+                            <input type="text" class="form-control" id="asunto" aria-describedby="emailHelp" placeholder="" >
                         </div>
                         <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="" >
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea class="form-control" id="message" rows="6" required></textarea>
+                            <label for="message">Mensaje</label>
+                            <textarea class="form-control" id="message" rows="6" ></textarea>
                         </div>
                         <div class="mx-auto text-right">
-                        <button type="submit" class="btn btn-primary text-right"><i class="fa fa-pencil"></i> Enviar Consulta</button></div>
+                        <button class="btn btn-success" id="btnEnviar"  type="button" onclick="EnviarMail()">Enviar Consulta</button>
+                  </div>
                     </form>
                 </div>
             </div>
@@ -47,12 +47,13 @@ require "../header.php";
             <div class="card bg-light mb-3">
                 <div class="card-header bg-success text-white text-uppercase"><i class="fa fa-home"></i> Address</div>
                 <div class="card-body">
-                    <p>3 rue des Champs Elysées</p>
-                    <p>75008 PARIS</p>
-                    <p>France</p>
-                    <p>Email : email@example.com</p>
-                    <p>Tel. +33 12 56 11 51 84</p>
+                    <p>Av. Belgrano 1191, Avellaneda</p>
+                    <p>Buenos Aires</p>
+                    <p>Argentina</p>
+                    <p>Email : swaparea@hotmail.com</p>
+                    <p>Tel. +54 11 4265.0247 / 4265.0342</p>
                 </div>
+
 
             </div>
         </div>
@@ -60,3 +61,6 @@ require "../header.php";
 </div>
 
 <br><br><br><br>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../../js/Contacto.js"></script>
+

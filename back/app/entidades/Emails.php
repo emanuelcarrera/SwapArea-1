@@ -17,13 +17,15 @@ class Emails {
             $mail->isSMTP();
             $mail->Host = 'smtp-mail.outlook.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'CARRERAE@itbeltran.com.ar';
-            $mail->Password = 'Brujeria2';
+        //$mail->Username = 'CARRERAE@itbeltran.com.ar';
+        //$mail->Password = 'Brujeria2';
+           $mail->Username = 'swaparea@hotmail.com';
+           $mail->Password = 'Emafacu22';
             //$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
         
-            $mail->setFrom('CARRERAE@itbeltran.com.ar');//correo de envio
+            $mail->setFrom('swaparea@hotmail.com');//correo de envio
             $mail->addAddress($email, 'Receptor');// correo destino
         
             //$mail->addAttachment('docs/dashboard.png', 'Dashboard.png');
@@ -59,13 +61,15 @@ class Emails {
         $mail->isSMTP();
         $mail->Host = 'smtp-mail.outlook.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'CARRERAE@itbeltran.com.ar';
-        $mail->Password = 'Brujeria2';
+        //$mail->Username = 'CARRERAE@itbeltran.com.ar';
+        //$mail->Password = 'Brujeria2';
+        $mail->Username = 'swaparea@hotmail.com';
+        $mail->Password = 'Emafacu22';
         //$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
     
-        $mail->setFrom('CARRERAE@itbeltran.com.ar');//correo de envio
+        $mail->setFrom('swaparea@hotmail.com');//correo de envio
         $mail->addAddress($email, 'Receptor');// correo destino
     
         //$mail->addAttachment('docs/dashboard.png', 'Dashboard.png');

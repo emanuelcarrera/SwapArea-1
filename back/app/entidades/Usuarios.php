@@ -367,7 +367,18 @@ public function ValidarMail($mail)
 }
 
 
+public function GetMailByAeticulo($id)
+{
 
+  $objAccesoDatos = AccesoDatos::obtenerInstancia();
+  $consulta = $objAccesoDatos->prepararConsulta("SELECT  u.Mail FROM articulo a 
+  join usuarios u on a.idUsuario = u.idUsuario
+  WHERE A.idArticulo = $id ");
+
+  $consulta->execute();
+
+  return $consulta->fetchAll(PDO::FETCH_CLASS, 'Usuarios');
+}
 
 
 }

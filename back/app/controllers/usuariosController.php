@@ -293,6 +293,19 @@ public function getHistorialMoneda($request, $response, $args)
  }
 
 
+ public function MailContacto($request, $response, $args){
+
+    $usr=  new Usuarios();
+    $listaDeParametros = $request->getParsedBody();
+    $idU = $listaDeParametros['Mail'];
+    $Mensaje = $listaDeParametros['mensaje'];
+    $asunto = $listaDeParametros['asunto'];
+     
+    $mail= new Emails();
+    $mail->EnviarMail( 'emanueljcarrera@gmail.com', $asunto , $idU."   ".$Mensaje );
+    $response ->getBody()->Write(json_encode($Mensaje ));
+    return $response->withHeader('Content-Type', 'application/json');
+ }
 
 
 

@@ -52,6 +52,10 @@ function EnviarMail(){
     Swal.fire({
         title: 'Nos contactaremos via mail en la brevedad',
       })
+
+      document.getElementById('email').value = "";
+      document.getElementById('asunto').value = "";
+      document.getElementById("message").value = "";
    }
 
 }

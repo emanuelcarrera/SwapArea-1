@@ -293,9 +293,9 @@ function OfertasbyUsusario(){
 
                 });
                 
-                if(template === "")
+                if(template2 === "")
                 {
-                    template +=`<a class="font-weight-light">No se encontraron solicitudes</a>`
+                    template2 +=`<a class="font-weight-light">No se encontraron solicitudes</a>`
 
                 }
 

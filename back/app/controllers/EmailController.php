@@ -17,11 +17,9 @@ class EmailController{
         $mail= new Emails();
         $response = $mail->RecuperoPass($email,$token);
     
-
-        $response ->getBody()->Write($token);
   
             
-        return $response ;
+        return $response->withHeader('Content-Type', 'application/json');
     }
 
 

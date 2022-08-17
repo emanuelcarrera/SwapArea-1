@@ -51,6 +51,11 @@ function Login(){
                     if(!(id  == "0") )
                     {
                        window.location.href = "../Articulos/BuscarArticulos.php";
+                    }else{
+
+                        Swal.fire({
+                            title: 'Usuario o contraseña incorrectos',
+                          })
                     }
                 }
 

@@ -17,7 +17,7 @@ function RecuperoPass(){
 
             }
             else {
-                alert("ocurrio un error");
+              
             }
         }
     }

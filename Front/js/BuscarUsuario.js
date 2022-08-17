@@ -16,6 +16,7 @@ function ListarUsusario(){
                 var json = JSON.parse(xmlhttp.responseText);
                 var template = ``;
                 json.map(function(usuarios){
+                    if(usuarios.idUsuario !=  localStorage.getItem('id')){  
                     if (usuarios.foto == null)
                     { usuarios.foto  = "../imagenes/logo.jpg";  }
                      template +=
@@ -33,7 +34,7 @@ function ListarUsusario(){
                      
                      <br>
                      `;
-
+                    }
                 });
                 
                 console.log(template);
@@ -95,7 +96,7 @@ function Buscar(){
                 var json = JSON.parse(xmlhttp.responseText);
                 var template = ``;
                 json.map(function(usuarios){
-                      
+                    if(usuarios.idUsuario !=  localStorage.getItem('id')){  
                     if (usuarios.foto == null)
                     { usuarios.foto  = "../imagenes/logo.jpg";  }
                      template +=
@@ -113,6 +114,7 @@ function Buscar(){
                      
                      <br>
                      `;
+                }
 
                 });
                 

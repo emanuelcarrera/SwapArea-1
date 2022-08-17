@@ -38,7 +38,7 @@ class Emails {
             
     
         } catch (Exception $e) {
-            //$response->getBody()->Write($mail->ErrorInfo); 
+            $response->getBody()->Write('dd'); 
         }
     
 

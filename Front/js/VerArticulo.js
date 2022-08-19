@@ -18,7 +18,7 @@ function setArticulo(){
              var template = ``;
              json.map(function(Articulos){
  
-                if(localStorage.getItem('id') === Articulos.idUsuario){
+                if(localStorage.getItem('id') === Articulos.idUsuario || localStorage.getItem('id') === null){
                  document.getElementById("btnintercambio").hidden = true;
                  document.getElementById("btncomprar").hidden = true;
                 }
@@ -96,6 +96,7 @@ function setArticulo(){
 
 function comentar(){
 
+    if (localStorage.getItem('id') === null){
     sessionStorage.getItem('idArticulo');
     localStorage.getItem('id');
 
@@ -124,6 +125,12 @@ function comentar(){
 
     xmlhttp.send(fileContent);
     ListarComentarios();
+  }else{
+    Swal.fire({
+        title: 'Debe estar logueado para poder comentar',
+      })
+
+  }
 }
 
 function CompraArticulo(){

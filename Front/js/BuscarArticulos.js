@@ -256,3 +256,4 @@ function Ver(id){
 function $(valor) {
     return document.getElementById(valor);
 }
+

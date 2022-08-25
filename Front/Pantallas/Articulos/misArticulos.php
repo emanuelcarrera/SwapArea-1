@@ -14,8 +14,14 @@ require "../header.php";
 </div>
 </br>
 </br>
-<div id="lista" class="row  h-100 d-flex align-items-center justify-content-center ">
+<div id="lista" class="row  h-100 d-flex align-items-center justify-content-center "> </div>
+
+	
 </body>
+<?php
+require "../footer.php";
+
+?>
 
 <script src="../../js/misArticulos.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

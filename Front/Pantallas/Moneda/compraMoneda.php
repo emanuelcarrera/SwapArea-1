@@ -83,5 +83,10 @@ require "../header.php";
   <input  class="btn btn-primary" type="button" value="Ir a Monedero" onClick=" window.location.href='historialmoneda.php' ">
 </div>
 </div>
+
+<?php
+require "../footer.php";
+
+?>	
 <script src="../../js/CompraMoneda.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

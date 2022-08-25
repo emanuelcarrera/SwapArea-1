@@ -61,6 +61,10 @@ require "../header.php";
 </div>
 
 <br><br><br><br>
+<?php
+require "../footer.php";
+
+?>	
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../../js/Contacto.js"></script>
 

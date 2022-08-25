@@ -23,7 +23,7 @@
 								<a class="nav-link" href="../solicitudes/listadosolicitudes.php" ><i class="fa fa-handshake"></i> Solicitudes</a>
 							</li>
 							<li class="nav-item active" id="chat">
-								<a class="nav-link" href="../Chat/BuscarUsuario.php"><i class="fa fa-comments"></i> Chats</a>
+								<a class="nav-link" href="../Chat/Chats.php"><i id="icovisto" class="fa fa-comments"></i> Chats</a>
 							</li>
 							<li class="nav-item active">
 								<a class="nav-link" href="../Contactanos/contactos.php"><i class="fa fa-phone"></i>Contactenos</a>

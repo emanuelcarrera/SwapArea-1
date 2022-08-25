@@ -33,6 +33,15 @@ require "../header.php";
 </div>
 </br>
 </br>
+</br>
+</br>
+</br>
+</br>
+
+<?php
+require "../footer.php";
+
+?>	
 </body>
 
 <script src="../../js/HistorialMoneda.js"></script>

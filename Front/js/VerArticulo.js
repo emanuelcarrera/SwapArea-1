@@ -63,11 +63,18 @@ function setArticulo(){
                 var json = JSON.parse(xmlhttp.responseText);
                 var template = ``;
                 json.map(function(Comentarios){
-
+                    var fechaformat = new Date(Comentarios.fecha); 
+                   
+                    var fe = [(fechaformat.getDate()).toString().padStart(2, "0"),
+                    (parseInt(fechaformat.getMonth().toString().padStart(2, "0")) +1).toString(),
+                    fechaformat.getFullYear()].join('-')
+                    + ' ' + [ fechaformat.getHours().toString().padStart(2, "0"),
+                    fechaformat.getMinutes().toString().padStart(2, "0"),
+                    fechaformat.getSeconds().toString().padStart(2, "0")].join(':'); 
                      template +=`
-                     <div class="col-12 border border-dark rounded">
+                     <div class="border border-dark rounded" style="padding-left:0;">
                      <h10 class="card-text font-weight-light" style="color:blue">${Comentarios.NombreUsuario}</h10>
-                     <h20 class="card-text font-weight-light"> ${Comentarios.fecha}  </h20>
+                     <h20 class="card-text font-weight-light"> ${fe}  </h20>
                      </br>
                      <a class="card-text font-weight-light"> ${Comentarios.texto} </a>
                    
@@ -96,7 +103,7 @@ function setArticulo(){
 
 function comentar(){
 
-    if (localStorage.getItem('id') === null){
+    if (localStorage.getItem('id') !== null){
     sessionStorage.getItem('idArticulo');
     localStorage.getItem('id');
 

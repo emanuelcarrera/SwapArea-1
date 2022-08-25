@@ -27,8 +27,13 @@ require "../header.php";
 </br>
 </br>
 
-<div id="lista" class="row d-flex align-items-center justify-content-center">
+<div id="lista" class="row d-flex align-items-center justify-content-center"> </div>
 
 </body>
+
+<?php
+require "../footer.php";
+
+?>	
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../../js/misSolicitudes.js"></script>

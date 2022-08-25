@@ -79,10 +79,31 @@ public function GetDatosUsuario($usr)
     return $consulta->fetchAll(PDO::FETCH_CLASS, 'Usuarios');
 }
    
-public function TodosLosUsaurios()
+public function TodosLosUsaurios($id)
 {
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("SELECT * from `usuarios`");
+    $consulta = $objAccesoDatos->prepararConsulta("SELECT usu.NombreUsuario, usu.foto, usu.idUsuario,
+     (Select m.Mensaje from usuariosmensajes as um 
+    left join Mensaje as m 
+    on um.id_um = m.id_um 
+     where ($id = um.id_usuario and usu.idUsuario = um.id_Usuario2) 
+     or (usu.idUsuario = um.id_usuario and $id = um.id_Usuario2) ORDER by m.id_Mensaje desc  LIMIT 1) as M,
+     (Select m.FechaMensaje from usuariosmensajes as um 
+    left join Mensaje as m 
+    on um.id_um = m.id_um 
+     where ($id = um.id_usuario and usu.idUsuario = um.id_Usuario2) 
+     or (usu.idUsuario = um.id_usuario and $id = um.id_Usuario2) ORDER by m.id_Mensaje desc  LIMIT 1) as FechaMensaje,
+     (Select m.id_usuario from usuariosmensajes as um 
+    left join Mensaje as m 
+    on um.id_um = m.id_um 
+     where ($id = um.id_usuario and usu.idUsuario = um.id_Usuario2) 
+     or (usu.idUsuario = um.id_usuario and $id = um.id_Usuario2) ORDER by m.id_Mensaje desc  LIMIT 1) as emisor,
+     (Select COUNT(*) from usuariosmensajes as um 
+    left join Mensaje as m 
+    on um.id_um = m.id_um 
+     where (($id = um.id_usuario and usu.idUsuario = um.id_Usuario2) 
+     or (usu.idUsuario = um.id_usuario and $id= um.id_Usuario2)) and (m.id_usuario = usu.idUsuario and m.Visto is null) ) as visto
+    from `usuarios` as usu");
     
 
     $consulta->execute();
@@ -231,12 +252,19 @@ public function CompraMoneda($idU, $cantidad)
     $consulta = $objAccesoDatos->prepararConsulta("UPDATE `monedero` 
     SET `Monto` =  `Monto` +  $cantidad
     WHERE `idUsuario` = $idU ");
+      $dtz = new DateTimeZone("America/Argentina/Buenos_Aires");
+      $dt = new DateTime("now", $dtz);
 
+      //Stores time as "2021-04-04T13:35:48":
+      $currentTime = $dt->format("Y-m-d") . "T" . $dt->format("Hh:i:s");
+
+      //Stores time as "2021-04-04T01:35:20":
+      $currentTime = $dt->format("Y-m-d") . "T" . $dt->format("hh:i:s");
 
     $consulta->execute();
 
     $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO `historialmoneda`(`idUsuario`, `monto`, `fecha`) 
-    VALUES ($idU,$cantidad, now())");
+    VALUES ($idU,$cantidad, now() )");
 
     $consulta->execute();
     return $consulta->fetchAll();
@@ -278,8 +306,9 @@ public function GetUsuariosChats($usr)
 {
 
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("SELECT * from `usuarios` 
-     WHERE `idUsuario` in (select id_Usuario2 FROM `usuariosmensajes` 
+    $consulta = $objAccesoDatos->prepararConsulta("SELECT * 
+      from `usuarios` 
+      WHERE `idUsuario` in (select id_Usuario2 FROM `usuariosmensajes` 
       WHERE ($usr = id_usuario )) or `idUsuario` in (select  id_usuario FROM `usuariosmensajes` 
       WHERE ($usr = id_Usuario2))");
    
@@ -289,12 +318,33 @@ public function GetUsuariosChats($usr)
 }
 
 
-public function GetUsuariosbyName($nombre)
+public function GetUsuariosbyName($nombre,$id)
 {
 
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("SELECT * from `usuarios` 
-     WHERE Nombre like '%$nombre%' ");
+    $consulta = $objAccesoDatos->prepararConsulta("SELECT usu.NombreUsuario, usu.foto, usu.idUsuario,
+    (Select m.Mensaje from usuariosmensajes as um 
+     left join Mensaje as m 
+     on um.id_um = m.id_um 
+    where ($id = um.id_usuario and usu.idUsuario = um.id_Usuario2) 
+    or (usu.idUsuario = um.id_usuario and $id = um.id_Usuario2) ORDER by m.id_Mensaje desc  LIMIT 1) as M,
+    (Select m.FechaMensaje from usuariosmensajes as um 
+    left join Mensaje as m 
+    on um.id_um = m.id_um 
+    where ($id = um.id_usuario and usu.idUsuario = um.id_Usuario2) 
+    or (usu.idUsuario = um.id_usuario and $id = um.id_Usuario2) ORDER by m.id_Mensaje desc  LIMIT 1) as FechaMensaje,
+    (Select m.id_usuario from usuariosmensajes as um 
+    left join Mensaje as m 
+    on um.id_um = m.id_um 
+    where ($id = um.id_usuario and usu.idUsuario = um.id_Usuario2) 
+    or (usu.idUsuario = um.id_usuario and $id = um.id_Usuario2) ORDER by m.id_Mensaje desc  LIMIT 1) as emisor,
+    (Select COUNT(*) from usuariosmensajes as um 
+    left join Mensaje as m 
+    on um.id_um = m.id_um 
+    where (($id = um.id_usuario and usu.idUsuario = um.id_Usuario2) 
+    or (usu.idUsuario = um.id_usuario and $id= um.id_Usuario2)) and (m.id_usuario = usu.idUsuario and m.Visto is null) ) as visto 
+    from `usuarios` as usu
+    WHERE usu.Nombre like '%$nombre%' ");
    
     $consulta->execute();
 

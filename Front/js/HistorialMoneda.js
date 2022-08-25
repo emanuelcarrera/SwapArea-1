@@ -64,9 +64,9 @@ function Hostorial(){
                 json.map(function(moneda){
                   var fechaformat = new Date(moneda.fecha); 
                    
-                  var fe = [(fechaformat.getDate()+1).toString().padStart(2, "0"),
-                  fechaformat.getMonth().toString().padStart(2, "0"),
-                  fechaformat.getFullYear()].join('/')
+                  var fe = [(fechaformat.getDate()).toString().padStart(2, "0"),
+                  (parseInt(fechaformat.getMonth().toString().padStart(2, "0")) +1).toString(),
+                  fechaformat.getFullYear()].join('-')
                   + ' ' + [ fechaformat.getHours().toString().padStart(2, "0"),
                   fechaformat.getMinutes().toString().padStart(2, "0"),
                   fechaformat.getSeconds().toString().padStart(2, "0")].join(':'); 

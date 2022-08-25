@@ -11,7 +11,7 @@ require "../header.php";
               <div class="card-header">
                 <h4 class="card-title"><strong>Chat</strong></h4>
 				<img id="imgfoto" width="50" height="50" class="rounded-circle" alt="avatar">
-                <h5 id="txtnombre" class="btn btn-xs btn-secondary"  data-abc="true"></h5>
+                <h5 id="txtnombre"   data-abc="true"></h5>
               </div>
 
 <div id="divchat" class="ps-container ps-theme-default ps-active-y border border-dark rounded" style="overflow-y: scroll !important; height:400px !important;  background-color: #4d5259;">

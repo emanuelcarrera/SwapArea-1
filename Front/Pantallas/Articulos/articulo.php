@@ -36,7 +36,7 @@ require "../head.php";
 								<a class="nav-link" href="../solicitudes/listadosolicitudes.php" ><i class="fa fa-handshake"></i> Solicitudes</a>
 							</li>
 							<li class="nav-item active" id="chat">
-								<a class="nav-link" href="../Chat/BuscarUsuario.php"><i class="fa fa-comments"></i> Chats</a>
+								<a class="nav-link" href="../Chat/Chats.php"><i id="icovisto" class="fa fa-comments"></i> Chats</a>
 							</li>
 							<li class="nav-item active">
 								<a class="nav-link" href="../Contactanos/contactos.php"><i class="fa fa-phone"></i>Contactenos</a>
@@ -61,6 +61,7 @@ require "../head.php";
 <br>		  <br>		  	 
          <div class="container">
 			 <div class="row">
+				
                 <div class="col-4" > 
 					<div class="service-image-left border border-dark h-100 d-flex align-items-center justify-content-center rounded ">
                     
@@ -70,7 +71,6 @@ require "../head.php";
                           </div>				
 					  </div>
                   </div>	
-
 					
 				<div class="col-7 border border-dark rounded ">
 					<div  style="padding:2%;">
@@ -109,7 +109,8 @@ require "../head.php";
 		<br>		  <br>		  <br>
 		<hr>
 		<div class="container">
-			<div class="col-sm-9">
+		<div class="row">
+			<div class="col-11">
 	      <a>Comentarios </a>
 		  <br>
           <textarea id="textcomentario" class="form-control" ></textarea>
@@ -119,17 +120,23 @@ require "../head.php";
 		   </button>
 		   <br>	
 		   <br>
-		   <div class="container">
-		   
-		<div id="comentarios" class="row">
+		   <div id="comentarios" >
+		
+		</div>
+		   </div>
+		   </div>
 			</div>
+
 			</div>
 		</div>
 		</div>
 		</div>
 		<br>		  <br>
 
+		<?php
+require "../footer.php";
 
+?>	
 		<script type="text/javascript">
 // Call carousel manually
 $('#myCarouselCustom').carousel();

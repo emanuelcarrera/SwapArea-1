@@ -51,7 +51,10 @@ require "../header.php";
 
 
 </div>
+<?php
+require "../footer.php";
 
+?>	
 <script src="../..\js/AltaAticulo.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

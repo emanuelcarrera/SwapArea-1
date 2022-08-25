@@ -35,15 +35,21 @@ class ChatControlller{
         $listaDeParametros = $request->getParsedBody();
         $idA =  (int)$args['IDA'];
         $idA2 =  (int)$args['IDA2'];
-        $Result = $Com->getIdChat($idA,$idA2);
+        $Com = $Com->getIdChat($idA,$idA2);
         
-        if($Result == null)
+        if($Com[0]->id_um == null)
         {
-           $Com->createIdChat($idA,$idA2);
-           $Result = $Com->getIdChat($idA,$idA2);
+           $Com3 = new Chat();
+           $Com3->createIdChat($idA,$idA2);
+           $Com =$Com3->getIdChat($idA,$idA2);
+        }
+        else{
+             $Com2=  new Chat();
+             $idum = $Com[0]->id_um;
+             $Com2->Visar($idA,$idum);
         }
 
-        $response ->getBody()->Write(json_encode($Result ));
+        $response ->getBody()->Write(json_encode($Com[0]->id_um));
       
        return $response->withHeader('Content-Type', 'application/json');
     
@@ -60,6 +66,17 @@ class ChatControlller{
         $response ->getBody()->Write(json_encode($arrayUsuarios));
       
      
+       return $response->withHeader('Content-Type', 'application/json');
+     }
+
+     public function GetVistos($request, $response, $args){
+
+       
+        $idu = $args['idUsuario']; 
+        $Com=  new Chat();
+        $arrayUsuarios = $Com->getVisto($idu);
+        $response ->getBody()->Write(json_encode($arrayUsuarios));
+         
        return $response->withHeader('Content-Type', 'application/json');
      }
 

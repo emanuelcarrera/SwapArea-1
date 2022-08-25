@@ -42,8 +42,6 @@ function Listar(){
                      <div class="card-body" d-flex flex-column align-items-center justify-content-center>
                      <h5 class="card-title" >${Articulos.Nombre}</h5>
                      <br>
-                     <strong class="card-text font-weight-light">Descripción: ${Articulos.Descripcion}</strong>
-                     <br>
                      <strong class="card-text font-weight-light">Categoría: ${Articulos.Clasificacion}</strong>
                      <br>
                      <strong class="card-text font-weight-light">Valor: ${Articulos.Valor}</strong>
@@ -73,8 +71,6 @@ function Listar(){
                              <img class="card-img-top"  width="200" height="200" src=${Articulos.foto} >
                              <div class="card-body" d-flex flex-column align-items-center justify-content-center>
                              <h5 class="card-title" >${Articulos.Nombre}</h5>
-                             <br>
-                             <strong class="card-text font-weight-light">Descripción: ${Articulos.Descripcion}</strong>
                              <br>
                              <strong class="card-text font-weight-light">Categoría: ${Articulos.Clasificacion}</strong>
                              <br>
@@ -147,8 +143,6 @@ function Buscar(){
                          <div class="card-body" d-flex flex-column align-items-center justify-content-center>
                          <h5 class="card-title" >${Articulos.Nombre}</h5>
                          <br>
-                         <strong class="card-text font-weight-light">Descripción: ${Articulos.Descripcion}</strong>
-                         <br>
                          <strong class="card-text font-weight-light">Categoría: ${Articulos.Clasificacion}</strong>
                          <br>
                          <strong class="card-text font-weight-light">Valor: ${Articulos.Valor}</strong>
@@ -178,8 +172,6 @@ function Buscar(){
                                  <img class="card-img-top"  width="200" height="200" src=${Articulos.foto} >
                                  <div class="card-body" d-flex flex-column align-items-center justify-content-center>
                                  <h5 class="card-title" >${Articulos.Nombre}</h5>
-                                 <br>
-                                 <strong class="card-text font-weight-light">Descripción: ${Articulos.Descripcion}</strong>
                                  <br>
                                  <strong class="card-text font-weight-light">Categoría: ${Articulos.Clasificacion}</strong>
                                  <br>

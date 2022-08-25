@@ -53,5 +53,6 @@ require "../header.php";
 
 
 <?php
-require "footer.php";
-?>
+require "../footer.php";
+
+?>	

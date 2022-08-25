@@ -65,5 +65,10 @@ require "../header.php";
                     </div>
 
 </div>
+
+<?php
+require "../footer.php";
+
+?>	
 <script src="../../js/CrearSolicitud.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

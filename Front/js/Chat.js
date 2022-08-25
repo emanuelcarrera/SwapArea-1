@@ -1,51 +1,21 @@
 var servidor = "http://localhost:777";
-Listar();
-getUsuarioChat();
-function getUsuarioChat(){
 
-    var xmlhttp = new XMLHttpRequest();
-   
-    xmlhttp.open("GET", servidor + '/Usuarios/GetDatosUsuario/'+ sessionStorage.getItem('idusuariochat'), true);
-    xmlhttp.onreadystatechange = function () {
-        //Veo si llego la respuesta del servidor
-        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
-            //Reviso si la respuesta es correcta
-            
-            if (xmlhttp.status == 200) {
-                
-                var json = JSON.parse(xmlhttp.responseText);
-                var template = ``;
-                json.map(function(usuario){
-                    document.getElementById('txtnombre').innerHTML= usuario.NombreUsuario;
-                    if (usuario.foto != null)
-                    {
-                    document.getElementById('imgfoto').src = usuario.foto;
-                    }
-                    else
-                    {
 
-                        document.getElementById('imgfoto').src = "http://ssl.gstatic.com/accounts/ui/avatar_2x.png"
-                    }
-
-                    
-                });
-                
-            }
-            else {
-                alert("ocurrio un error");
-            }
-        }
-        
-    }
-
-    xmlhttp.send();
-
+scrollbot();
+function scrollbot()
+{
+    var objDiv = document.getElementById("divscroll");
+    objDiv.scrollTop = objDiv.scrollIntoView(false);
+    //document.getElementById('final').scrollIntoView(true);
 }
+
 
 
 
 function Listar(){
 
+    if (sessionStorage.getItem('idChat') !== null)
+    {
     var xmlhttp = new XMLHttpRequest();
    
     xmlhttp.open("GET", servidor + '/Chat/getChat/'+ sessionStorage.getItem('idChat'), true);
@@ -61,8 +31,8 @@ function Listar(){
                 json.map(function(Chat){
                     var fechaformat = new Date(Chat.FechaMensaje); 
                    
-                    var fe = [(fechaformat.getDate()+1).toString().padStart(2, "0"),
-                    fechaformat.getMonth().toString().padStart(2, "0"),
+                    var fe = [(fechaformat.getDate()).toString().padStart(2, "0"),
+                    (parseInt(fechaformat.getMonth().toString().padStart(2, "0")) +1).toString(),
                     fechaformat.getFullYear()].join('-')
                     + ' ' + [ fechaformat.getHours().toString().padStart(2, "0"),
                     fechaformat.getMinutes().toString().padStart(2, "0"),
@@ -70,25 +40,23 @@ function Listar(){
                      template +=``
                      if(Chat.id_usuario == localStorage.getItem('id')){
                         template += `
-                      
-     
-                     <div class="media media-chat media-chat-reverse">
-                     <div class="media-body">                
-                     <p>  ${Chat.Mensaje}</p>
-                     <p class="meta"><time datetime="2018">${fe}</time></p>
-                     </div>               
-                     </div> 
+                    
+                        <li class="clearfix">
+                            <div class="message-data">
+                                <span class="message-data-time">${fe}</span>
+                            </div>
+                            <div class="message my-message">${Chat.Mensaje}</div>                                    
+                        </li>
                      `;}
                      else{
 
                         template +=  `                      
-                        <div class="media media-chat">
-                        <div class="media-body">
-                        
-                        <p>  ${Chat.Mensaje}</p>
-                        <p class="meta"><time datetime="2018">${fe}</time></p>
-                        </div>               
-                        </div>                 
+                        <li class="clearfix">
+                            <div class="message-data text-right">
+                                <span class="message-data-time">${fe}</span>
+                            </div>
+                            <div class="message other-message float-right"> ${Chat.Mensaje} </div>
+                        </li>                
    
                         ` 
                      }
@@ -109,7 +77,7 @@ function Listar(){
     }
 
     xmlhttp.send();
-
+    }
 }
 
 

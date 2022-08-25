@@ -96,7 +96,7 @@ function Comprar(){
         }
         else
         {
-            if(document.getElementById("VtoA").value = year)
+            if(document.getElementById("VtoA").value === year)
             {
                
                 var MES = new Date().getMonth().toString()

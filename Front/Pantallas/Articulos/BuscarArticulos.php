@@ -24,8 +24,19 @@ require "../header.php";
 </br>
 </br>
 </br>
-<div id="lista" class="row  h-100 d-flex align-items-center justify-content-center ">
+<div id="lista" class="row  h-100 d-flex align-items-center justify-content-center "></diV>
+
+
+
+
+
 </body>
+<?php
+require "../footer.php";
+
+?>	
+
+
 
 
 

@@ -59,8 +59,7 @@ $app->group('/Usuarios', function (RouteCollectorProxy $group) {
     $group->post('/Alta', \usuariosController::class . ':Alta' );
     $group->post('/Baja', \usuariosController::class . ':Baja' );
     $group->post('/Modificacion', \usuariosController::class . ':Modificacion' );
-    $group->get('/Listar', \usuariosController::class . ':Listar' );
-    $group->POST('/Listar', \usuariosController::class . ':Listar' );
+    $group->get('/Listar/{id}', \usuariosController::class . ':Listar' );
     $group->get('/GetDatosUsuario/{idUsuario}[/]', \usuariosController::class . ':GetDatosUsuario' );
     $group->POST('/GuardarFoto', \usuariosController::class . ':GuardarFoto' );
     $group->get('/ValidadPass/{nombreUsuario}/{passold}/{pass}/{id}[/]', \usuariosController::class . ':ValidadPass' );
@@ -73,7 +72,7 @@ $app->group('/Usuarios', function (RouteCollectorProxy $group) {
     $group->get('/getmontoMoneda/{idU}', \usuariosController::class . ':getmontoMoneda' );
     $group->POST('/AltaUsuarioAngular', \usuariosController::class . ':AltaUsuarioAngular' );
     $group->get('/ValidarNombre/{nombre}', \usuariosController::class . ':ValidarNombre' );
-    $group->get('/GetUsuariosbyName/{nombre}', \usuariosController::class . ':GetUsuariosbyName' );
+    $group->get('/GetUsuariosbyName/{nombre}/{id}', \usuariosController::class . ':GetUsuariosbyName' );
     $group->POST('/ValidarNombreMail', \usuariosController::class . ':ValidarNombreMail' );
     $group->POST('/MailContacto', \usuariosController::class . ':MailContacto' );
     
@@ -95,6 +94,7 @@ $app->group('/Chat', function (RouteCollectorProxy $group) {
     $group->get('/getChat/{IDA}', \ChatControlller::class . ':getChat' );
     $group->get('/getIdChat/{IDA}/{IDA2}', \ChatControlller::class . ':getIdChat' );
     $group->get('/GetUsuariosChats/{idUsuario}', \ChatControlller::class . ':GetUsuariosChats' );
+    $group->get('/GetVistos/{idUsuario}', \ChatControlller::class . ':GetVistos' );
     
 });
 $app->group('/Solicitudes', function (RouteCollectorProxy $group) {

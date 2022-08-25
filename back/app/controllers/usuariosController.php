@@ -63,7 +63,8 @@ public function Modificacion($request, $response, $args){
 public function Listar($request, $response, $args){
 
    $usr=  new Usuarios();
-   $arrayUsuarios = $usr->TodosLosUsaurios();
+   $usr->idUsuario = $args['id']; 
+   $arrayUsuarios = $usr->TodosLosUsaurios($usr->idUsuario);
    $response ->getBody()->Write(json_encode($arrayUsuarios));
  
 
@@ -256,7 +257,8 @@ public function getHistorialMoneda($request, $response, $args)
  {
     $usr=  new Usuarios();
     $Nombre =  $args['nombre'];
-    $Usuarios = $usr->GetUsuariosbyName($Nombre);
+    $id =  $args['id'];
+    $Usuarios = $usr->GetUsuariosbyName($Nombre,$id);
     $response ->getBody()->Write(json_encode($Usuarios));
   
  

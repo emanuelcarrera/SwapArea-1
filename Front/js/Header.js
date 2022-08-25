@@ -1,5 +1,6 @@
 var servidor = "http://localhost:777";
 setUsertData();
+ChatVisto();
 function setUsertData()
 {
 
@@ -68,3 +69,48 @@ function setUsertData()
 	
    }
 }
+
+
+function ChatVisto(){
+    if(localStorage.getItem('id') !== null)
+    {
+    var xmlhttp = new XMLHttpRequest();
+   
+    xmlhttp.open("GET", servidor + '/Chat/GetVistos/'+localStorage.getItem('id'), true);
+    xmlhttp.onreadystatechange = function () {
+        //Veo si llego la respuesta del servidor
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+            //Reviso si la respuesta es correcta
+            
+            if (xmlhttp.status == 200) {
+                
+                var json = JSON.parse(xmlhttp.responseText);
+                json.map(function(Respuesta){
+
+                    if(parseInt(Respuesta.visto)> 0)
+                    {
+                        document.getElementById("icovisto").style.color = 'Red';
+                    }
+                    else
+                    {
+                        document.getElementById("icovisto").style.color = 'WHITE';
+
+                    }
+
+                });
+
+
+            }
+            else {
+                alert("ocurrio un error");
+            }
+        }
+    }
+
+    xmlhttp.send();
+}
+
+}
+
+
+setInterval(function(){ChatVisto();},1000);

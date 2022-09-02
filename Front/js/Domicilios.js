@@ -28,19 +28,21 @@ function GETDomicilio(){
 
 
                     template +=`
-                    <div  style="padding: 10px 50px 20px;  margin-top: 4em; border-style: inset;">
 
- 
-                    <strong>Calle: ${Respuesta.Direccion}</h2>
-                    <br>
-                    <strong>Ciudad: ${Respuesta.nombreCiuadad}</strong>
-                    <br>
-                    <strong>Provincia : ${Respuesta.nombreProvincia}</strong>
-                    <br>
-                    <strong>Pais : Argentina</strong>
-                    </div>
                   
-
+                    <div class="card d-flex align-items-center justify-content-center" style="width: 18rem;" >
+    
+                    <div class="card-body" d-flex flex-column align-items-center justify-content-center>
+                    <strong class="card-text font-weight-light" >Calle: ${Respuesta.Direccion}</strong>
+                    <br>
+                    <strong class="card-text font-weight-light">Ciudad: ${Respuesta.nombreCiuadad} </strong>
+                    <br>
+                    <strong class="card-text font-weight-light">Provincia: ${Respuesta.nombreProvincia}</strong>
+                    <br>
+                    <strong class="card-text font-weight-light">Pais : Argentina</strong>
+                    <br>
+                    </div>
+                    </div>
                     `;
 
 

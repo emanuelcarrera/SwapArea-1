@@ -14,23 +14,24 @@
       <!-- diapositivas -->
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="../imagenes/1.jpeg" alt="">
+          <img class="d-block w-100" src="../imagenes/1.jpeg" alt="" width="600" height="400">
             <div class="carousel-caption">
 
             </div>
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="../imagenes/2.jpeg" alt="">
+          <img class="d-block w-100" src="../imagenes/2.jpeg" alt="" width="600" height="400">
             <div class="carousel-caption">
 
             </div>
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="../imagenes/3.jpeg"alt="">
+          <img class="d-block w-100" src="../imagenes/3.jpeg"alt="" width="600" height="400">
             <div class="carousel-caption">
 
             </div>
         </div>
+
       </div>
       <!-- botones de desplazamiento a izquierda y derecha -->      
       <a class="carousel-control-prev" href="#carousel1" data-slide="prev">
@@ -46,8 +47,6 @@
 
 </div>
 </br>
-</br>
-</br>
                 <form class="form" action="##" method="post" id="registrationForm">
                 <input  class="form-control" id="txtBuscar" placeholder="Buscar" title="enter a location">
                 <br>
@@ -59,9 +58,6 @@
                 <button class="btn btn-success" id="btnEnviar"  type="button" onclick="Buscar()"><i class="fa fa-search"></i>Buscar</button>
                 </form>
                 
-</br>
-</br>
-</br>
 <div id="lista" class="row  h-100 d-flex align-items-center justify-content-center "></diV>
 
 

@@ -42,6 +42,17 @@ function Comprar(){
             title: 'Numero de tarjeta obligatorio',
           })
     }
+    else
+    {    if (document.getElementById("Tarjeta").value.length != 16)
+        {
+            valido =1;
+            Swal.fire({
+                title: 'Tarjeta invalida',
+              })
+        }
+
+
+    }
      
     if(document.getElementById("nombre").value === null || document.getElementById("nombre").value === "")
     {
@@ -49,6 +60,17 @@ function Comprar(){
         Swal.fire({
             title: 'Nombre en la tarjeta obligatorio',
           })
+    }else{
+
+
+       if( !(/^[a-zA-Z ]+$/.test(document.getElementById("nombre").value )))
+       {
+        valido =1;
+        Swal.fire({
+            title: 'Nombre invalido',
+          })
+
+       }
     }
 
 
@@ -64,7 +86,7 @@ function Comprar(){
         }else
         {
             Swal.fire({
-                title: 'CVV obligatorio',
+                title: 'CVV deben ser 3 digitos',
               })
         }
 
@@ -75,7 +97,7 @@ function Comprar(){
     if(document.getElementById("VtoA").value === null || document.getElementById("VtoA").value === "" || document.getElementById("VtoM").value === null || document.getElementById("VtoM").value === "")
     {
         valido =1;
-        document.getElementById("Vtoa").style.visibility = "visible"; 
+        //document.getElementById("Vtoa").style.visibility = "visible"; 
         Swal.fire({
             title: 'Fecha de vencimiento obligatorio',
           })

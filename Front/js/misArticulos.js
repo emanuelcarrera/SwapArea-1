@@ -30,8 +30,6 @@ function ListarUsuarios(){
                      <div class="card-body" d-flex flex-column align-items-center justify-content-center>
                      <h5 class="card-title" >${Articulos.Nombre}</h5>
                      <br>
-                     <strong class="card-text font-weight-light">Descripción: ${Articulos.Descripcion}</strong>
-                     <br>
                      <strong class="card-text font-weight-light">Categoría: ${Articulos.Clasificacion}</strong>
                      <br>
                      <strong class="card-text font-weight-light">Valor: ${Articulos.Valor}</strong>
@@ -51,7 +49,9 @@ function ListarUsuarios(){
                 
                 if(template === "")
                 {
-                    template +=`<a class="font-weight-light">NO cunta con articulos</a>`
+                    template +=`<a class="font-weight-light">NO cunta con articulos</a>
+                    </br>
+                    </br></br></br></br></br></br></br></br></br></br></br></br></br></br>`
 
                 }
 

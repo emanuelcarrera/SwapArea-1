@@ -113,4 +113,4 @@ function ChatVisto(){
 }
 
 
-setInterval(function(){ChatVisto();},1000);
+setInterval(function(){ChatVisto();},10000);

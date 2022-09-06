@@ -185,7 +185,7 @@ public function GetCategorias()
 
 
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
-    $consulta = $objAccesoDatos->prepararConsulta("SELECT idCategoria,Descripcion FROM `categorias` ");
+    $consulta = $objAccesoDatos->prepararConsulta("SELECT idCategoria,Descripcion FROM `categorias` order by Descripcion");
   
     $consulta->execute();
 

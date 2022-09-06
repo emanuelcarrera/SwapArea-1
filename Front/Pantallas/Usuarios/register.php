@@ -1,8 +1,11 @@
 <?php
 require "../head.php";
-
+require "../header.php";
 ?>	
 
+<br>
+<br>
+<br>
 
 <div class="container">
 
@@ -97,6 +100,12 @@ require "../head.php";
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </body>
+
+<?php
+require "../footer.php";
+
+?>
+
 
 <script src="../../js/Usuarios.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

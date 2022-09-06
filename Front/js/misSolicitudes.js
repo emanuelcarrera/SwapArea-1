@@ -136,7 +136,8 @@ function solicitudbyUsusario(){
                 
                 if(template === "")
                 {
-                    template +=`<a class="font-weight-light">No se encontraron solicitudes</a>`
+                    template +=`<a class="font-weight-light">No se encontraron solicitudes</a>
+                    </br></br></br></br></br></br></br></br></br>`
 
                 }
 
@@ -295,7 +296,8 @@ function OfertasbyUsusario(){
                 
                 if(template2 === "")
                 {
-                    template2 +=`<a class="font-weight-light">No se encontraron solicitudes</a>`
+                    template2 +=`<a class="font-weight-light">No se encontraron solicitudes</a>
+                    </br></br></br></br></br></br></br></br></br></br>`
 
                 }
 

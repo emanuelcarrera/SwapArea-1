@@ -2,7 +2,7 @@ var servidor = "http://localhost:777";
 
 function RecuperoPass(){
 
-
+   if( document.getElementById("mailLaboral").value != ""){
     var xmlhttp = new XMLHttpRequest();
     var fileContent = new FormData();
     xmlhttp.open("POST", servidor + '/Emails/RecuperoPass', true);
@@ -29,6 +29,13 @@ function RecuperoPass(){
     Swal.fire({
         title: 'Se ha envido un email para el cambio de la contraseña',
       })
+
+    }else{
+
+        Swal.fire({
+            title: 'campo obligatorio',
+          })
+    }
 
 }
 

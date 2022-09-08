@@ -33,6 +33,15 @@ class Solicitudes {
 
     }
 
+    public function CambioArt($id)
+    {
+      $objAccesoDatos = AccesoDatos::obtenerInstancia();
+      $consulta = $objAccesoDatos->prepararConsulta("CALL AceptarSolicitud2 ($id)"); 
+      $consulta->execute();
+      return $consulta->fetchAll();
+
+    }
+
     public function RechazarSolicitud($id)
     {
       $objAccesoDatos = AccesoDatos::obtenerInstancia();

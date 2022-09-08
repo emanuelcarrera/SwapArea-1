@@ -16,10 +16,10 @@ require "../header.php";
 <a id="titulo" > </a>
 </br>
 </br>
-<button   class="btn btn-success" id="btnofertas"  type="button" onclick="OfertasbyUsusario()"> Ofertas de otros usuarios</button>
+<button   class="btn btn-success" id="btnofertas"  type="button" onclick="OfertasbyUsusario()"> Solicitudes recibidas</button>
 </br>
 </br>
-<button class="btn btn-success" id="btnsolictud"  type="button" onclick="solicitudbyUsusario()"> Solicitudes que hice</button>
+<button class="btn btn-success" id="btnsolictud"  type="button" onclick="solicitudbyUsusario()"> Solicitudes realizadas</button>
 </br>
 
 </div>

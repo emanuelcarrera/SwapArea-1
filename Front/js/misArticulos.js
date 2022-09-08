@@ -49,7 +49,7 @@ function ListarUsuarios(){
                 
                 if(template === "")
                 {
-                    template +=`<a class="font-weight-light">NO cunta con articulos</a>
+                    template +=`<img  src="../imagenes/Sin articulos.jpg" >
                     </br>
                     </br></br></br></br></br></br></br></br></br></br></br></br></br></br>`
 

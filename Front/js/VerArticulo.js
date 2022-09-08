@@ -22,8 +22,15 @@ function setArticulo(){
                  document.getElementById("btnintercambio").hidden = true;
                  document.getElementById("btncomprar").hidden = true;
                 }
+                 
+                 if(Articulos.Usuariofoto != null)
+                 {
+                    document.getElementById("imgfusu").src = Articulos.Usuariofoto;
+                 }
+                 else{
 
-                 document.getElementById("imgfusu").src = Articulos.Usuariofoto;
+                    document.getElementById("imgfusu").src ="http://ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                 }
                  //document.getElementById("item-display").src = Articulos.foto;
                  document.getElementById("lblnombre").innerHTML =  Articulos.Nombre;
                  document.getElementById("lblvalor").innerHTML =  Articulos.Valor;

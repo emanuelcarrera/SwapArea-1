@@ -115,6 +115,7 @@ function Chatear(idotrousuario)
                
                     sessionStorage.setItem('idusuariochat', idotrousuario);
                     sessionStorage.setItem('idChat', json);
+                    Buscar();
                     getUsuarioChat();
               
             }

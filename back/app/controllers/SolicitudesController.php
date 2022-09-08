@@ -33,6 +33,8 @@ class SolicitudesControlller{
         $id = (int)$args['id'];
 
         $RESULT= $Soli->AceptarSolicitud($id);
+    
+
         $response->getBody()->Write(json_encode($RESULT));
         
         return $response ;

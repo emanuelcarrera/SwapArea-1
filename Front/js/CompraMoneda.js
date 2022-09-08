@@ -138,7 +138,7 @@ function Comprar(){
 
 
 
-    if($("cantidad").value === null || $("cantidad").value === "")
+    if($("cantidad").value === null || $("cantidad").value === "" || $("cantidad").value === "0")
     {
         valido =1;
         Swal.fire({

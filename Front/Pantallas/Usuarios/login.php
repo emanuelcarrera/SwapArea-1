@@ -57,7 +57,13 @@ require "../head.php";
 	<div class="col-md-4">
 </div>
 </div>
+</br>
+</br></br>
 
+<?php
+require "../footer.php";
+
+?>	
 
 </body>
 </html>

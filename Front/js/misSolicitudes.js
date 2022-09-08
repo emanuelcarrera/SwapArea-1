@@ -53,7 +53,7 @@ function solicitudbyUsusario(){
                             }
                             else
                             {
-                                template += `<img width="100" height="100" src=../imagenes/logo.jpg"} >
+                                template += `<img width="100" height="100" src="../imagenes/logo.jpg" >
                                 <br> `;
                             }
                           template += `
@@ -88,7 +88,7 @@ function solicitudbyUsusario(){
                         }
                         else
                         {
-                            template += `<img width="100" height="100" src=../imagenes/logo.jpg"} >
+                            template += `<img width="100" height="100" src="../imagenes/logo.jpg" >
                             <br> `;
                         }
                         template += `
@@ -115,8 +115,17 @@ function solicitudbyUsusario(){
                         <div class="row" >
                         <div  class="col-sm-3">
                         </diV>
-                        <div  class="col-sm-4">
-                          <img src="${Solicitudes.foto}" width="100" height="100" class="rounded-circle" alt="avatar">
+                        <div  class="col-sm-4">`
+                        if(Solicitudes.foto != null){
+                            template += `<img src="${Solicitudes.foto}" width="100" height="100" class="rounded-circle" alt="avatar">`;
+    
+                           }
+                           else
+                           {
+                            template += `<img width="100" height="100" class="rounded-circle" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                               `;
+                           }
+                           template += `
                           </diV>
                           </diV>
                           <div class="row" >
@@ -136,7 +145,7 @@ function solicitudbyUsusario(){
                 
                 if(template === "")
                 {
-                    template +=`<a class="font-weight-light">No se encontraron solicitudes</a>
+                    template +=`<img  src="../imagenes/sin solicitudes creadas.jpg" >
                     </br></br></br></br></br></br></br></br></br>`
 
                 }
@@ -203,7 +212,7 @@ function OfertasbyUsusario(){
                            }
                            else
                            {
-                            template2 += `<img width="100" height="100" src=../imagenes/logo.jpg"} >
+                            template2 += `<img width="100" height="100" src="../imagenes/logo.jpg" >
                                <br> `;
                            }
                            template2 += `
@@ -238,7 +247,7 @@ function OfertasbyUsusario(){
                        }
                        else
                        {
-                        template2 += `<img width="100" height="100" src=../imagenes/logo.jpg"} >
+                        template2 += `<img width="100" height="100" src="../imagenes/logo.jpg" >
                            <br> `;
                        }
                        template2 += `
@@ -265,8 +274,17 @@ function OfertasbyUsusario(){
                        <div class="row" >
                        <div  class="col-sm-3">
                        </diV>
-                       <div  class="col-sm-4">
-                         <img src="${Solicitudes.foto}" width="100" height="100" class="rounded-circle" alt="avatar">
+                       <div  class="col-sm-4">`
+                       if(Solicitudes.foto != null){
+                        template2 += `<img src="${Solicitudes.foto}" width="100" height="100" class="rounded-circle" alt="avatar">`;
+
+                       }
+                       else
+                       {
+                        template2 += `<img width="100" height="100" class="rounded-circle" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" >
+                           `;
+                       }
+                       template2 += `
                          </diV>
                          </diV>
                          <div class="row" >
@@ -296,7 +314,7 @@ function OfertasbyUsusario(){
                 
                 if(template2 === "")
                 {
-                    template2 +=`<a class="font-weight-light">No se encontraron solicitudes</a>
+                    template2 +=`<img  src="../imagenes/sin solicitudes.jpg" >
                     </br></br></br></br></br></br></br></br></br></br>`
 
                 }

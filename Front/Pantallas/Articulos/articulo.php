@@ -83,12 +83,12 @@ require "../head.php";
 
                      </div>
 					 <hr>
-					   <div class="product-title">Nombre :<label class="card-text font-weight-light" id="lblnombre"> </div>
+					   <div class="product-title">Nombre:<label class="card-text font-weight-light" id="lblnombre"> </div>
 					
 				     	<hr>
-				    	<div class="product-price">Valor : $<label class="card-text font-weight-light" id="lblvalor"> </label></div>
+				    	<div class="product-price">Valor: $<label class="card-text font-weight-light" id="lblvalor"> </label></div>
 				    	<hr>
-				    	<div class="product-drecipction">Descripción : <label class="card-text font-weight-light" id="lbldescripcion"> </label></div>
+				    	<div class="product-drecipction">Descripción: <label class="card-text font-weight-light" id="lbldescripcion"> </label></div>
 				    	<hr>
 				    	<div class="btn-group cart">
 						<button type="button" id="btnintercambio" class="btn btn-success">

@@ -138,6 +138,7 @@ function comentar(){
     fileContent.append("Texto", document.getElementById("textcomentario").value);
 
     xmlhttp.send(fileContent);
+    document.getElementById("textcomentario").value = "";
     ListarComentarios();
   }else{
     Swal.fire({

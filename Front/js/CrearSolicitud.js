@@ -91,7 +91,7 @@ evento.addEventListener("click", function(){
 
       function   EnviarSolicitud()
       {
-
+       if(document.getElementById("misArticulos").value != "-- Seleccione --"){
         var xmlhttp = new XMLHttpRequest();
         var fileContent = new FormData();
         xmlhttp.open("POST", servidor + '/Solicitudes/AltaSolicitud', true);
@@ -121,7 +121,12 @@ evento.addEventListener("click", function(){
         Swal.fire({
             title: 'Se envio una solicitud al vendedor',
           })
+        }else{
 
+            Swal.fire({
+                title: 'Seleccione un articulo',
+              })
+        }
 
       }
 

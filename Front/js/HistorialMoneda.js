@@ -62,6 +62,7 @@ function Hostorial(){
               
                 </tr>`;
                 json.map(function(moneda){
+                    if(moneda.monto != 0){
                   var fechaformat = new Date(moneda.fecha); 
                    
                   var fe = [(fechaformat.getDate()).toString().padStart(2, "0"),
@@ -80,7 +81,7 @@ function Hostorial(){
                 <td>${moneda.monto}</td>
 
                      `;
-
+                    }
                 });
                 template +=`</table>
                 </div>`;

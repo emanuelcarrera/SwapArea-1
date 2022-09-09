@@ -27,13 +27,17 @@ function RecuperoPass(){
     xmlhttp.send(fileContent);
 
     Swal.fire({
+        confirmButtonText: 'OK',
         title: 'Se ha envido un email para el cambio de la contraseña',
+      }).then((result) => {
+
+        window.location.href = "/SwapArea/SwapArea/Front/Pantallas/Usuarios/Login.php";
       })
 
     }else{
 
         Swal.fire({
-            title: 'campo obligatorio',
+            title: 'Por favor ingrese su mail',
           })
     }
 

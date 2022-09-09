@@ -21,6 +21,8 @@ function load() {
 
 function Login(){
 
+
+    if($("NombreUsuariotxt").value != "" && $("Contraseñatxt").value != ""){
     var xmlhttp = new XMLHttpRequest();
 
     var url = '/Usuarios/Login/'+($("NombreUsuariotxt").value) +'/'+ ( $("Contraseñatxt").value);
@@ -61,15 +63,20 @@ function Login(){
 
                 
             }
-            else {
-                alert("ocurrio un error");
-            }
+
         }
+       }
+       xmlhttp.send();
+    }else{
+
+        Swal.fire({
+            title: 'Campos obligatorios',
+          })
     }
 
 
     
-    xmlhttp.send();
+
 
 
 

@@ -16,7 +16,7 @@ function solicitudbyUsusario(){
             
             if (xmlhttp.status == 200) {
                 
-                document.getElementById('titulo').innerText = 'Solicitudes que hice a otros usuarios';
+                document.getElementById('titulo').src = '../imagenes/soli1.jpg';
                 var json = JSON.parse(xmlhttp.responseText);
                 var template = ``;
                 json.map(function(Solicitudes){
@@ -177,7 +177,7 @@ function OfertasbyUsusario(){
             //Reviso si la respuesta es correcta
             
             if (xmlhttp.status == 200) {
-                document.getElementById('titulo').innerText = 'Solicitudes que me hicieron';
+                document.getElementById('titulo').src = '../imagenes/soli2.jpg';
                 var json = JSON.parse(xmlhttp.responseText);
                 var template2 = ``;
                 json.map(function(Solicitudes){

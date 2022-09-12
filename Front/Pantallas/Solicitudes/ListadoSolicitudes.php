@@ -9,11 +9,11 @@ require "../header.php";
 
 <body>
 
-</br>
+
 </br>
 </br>
 <div class="container" >
-<img id="titulo" width="250" height="100" src="" >
+<img id="titulo"  src="" >
 </br>
 </br>
 <button   class="btn btn-success" id="btnofertas"  type="button" onclick="OfertasbyUsusario()"> Solicitudes recibidas</button>

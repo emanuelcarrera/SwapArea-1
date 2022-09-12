@@ -106,6 +106,8 @@ $app->group('/Solicitudes', function (RouteCollectorProxy $group) {
     $group->get('/OfertasbyUsusario/{IDU}', \SolicitudesControlller::class . ':OfertasbyUsusario' );
     $group->POST('/AltaSolicitud', \SolicitudesControlller::class . ':AltaSolicitud' );
     $group->POST('/EnviarMail', \SolicitudesControlller::class . ':EnviarMail' );
+    $group->get('/vistoSolicitudes/{IDU}', \SolicitudesControlller::class . ':vistoSolicitudes' );
+    
     
 });
 

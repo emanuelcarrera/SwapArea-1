@@ -152,6 +152,18 @@ class Solicitudes {
         return $consulta->fetchAll();
     
     }
+    public function getVistosolicitudes($idU)
+    {
+
+      $objAccesoDatos = AccesoDatos::obtenerInstancia();
+      $consulta = $objAccesoDatos->prepararConsulta("SELECT COUNT(*) as visto FROM `solicitudes` WHERE dueno = $idU  and estado = 0");
+    
+      $consulta->execute();
+      return $consulta->fetchAll();
+
+    }
+
+
 }
 
 $Copmentario = new Comentarios;

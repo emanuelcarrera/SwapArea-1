@@ -172,7 +172,10 @@ public function EliminarArticulo($idA)
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
     $consulta = $objAccesoDatos->prepararConsulta("DELETE from fotosarticulos where idarticulo = $idA;
     DELETE FROM `comentarios` WHERE id_articulo = $idA;
-    DELETE from articulo where idarticulo = $idA; ");
+    DELETE from articulo where idarticulo = $idA;
+    DELETE FROM `solicitudes` WHERE `id_Artuculo` = $idA OR `id_Articulo_oferta` = $idA;
+
+    ");
   
     $consulta->execute();
 

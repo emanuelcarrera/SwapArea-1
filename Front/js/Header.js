@@ -1,6 +1,7 @@
 var servidor = "http://localhost:777";
 setUsertData();
 ChatVisto();
+vistoSolicitudes();
 function setUsertData()
 {
 
@@ -112,5 +113,43 @@ function ChatVisto(){
 
 }
 
+function vistoSolicitudes(){
+    if(localStorage.getItem('id') !== null)
+    {
+    var xmlhttp = new XMLHttpRequest();
+   
+    xmlhttp.open("GET", servidor + '/Solicitudes/vistoSolicitudes/'+localStorage.getItem('id'), true);
+    xmlhttp.onreadystatechange = function () {
+        //Veo si llego la respuesta del servidor
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+            //Reviso si la respuesta es correcta
+            
+            if (xmlhttp.status == 200) {
+                
+                var json = JSON.parse(xmlhttp.responseText);
+                json.map(function(Respuesta){
 
+                    if(parseInt(Respuesta.visto)> 0)
+                    {
+                        document.getElementById("icovistosoli").style.color = 'Red';
+                    }
+                    else
+                    {
+                        document.getElementById("icovistosoli").style.color = 'WHITE';
+
+                    }
+
+                });
+
+
+            }
+        }
+    }
+
+    xmlhttp.send();
+}
+
+}
+
+setInterval(function(){vistoSolicitudes();},10000);
 setInterval(function(){ChatVisto();},10000);

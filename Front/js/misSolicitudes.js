@@ -17,6 +17,8 @@ function solicitudbyUsusario(){
             if (xmlhttp.status == 200) {
                 
                 document.getElementById('titulo').src = '../imagenes/soli1.jpg';
+                document.getElementById('titulo').width="250";
+                document.getElementById('titulo').height="85";
                 var json = JSON.parse(xmlhttp.responseText);
                 var template = ``;
                 json.map(function(Solicitudes){
@@ -178,6 +180,8 @@ function OfertasbyUsusario(){
             
             if (xmlhttp.status == 200) {
                 document.getElementById('titulo').src = '../imagenes/soli2.jpg';
+                document.getElementById('titulo').width="250";
+                document.getElementById('titulo').height="100";
                 var json = JSON.parse(xmlhttp.responseText);
                 var template2 = ``;
                 json.map(function(Solicitudes){
@@ -375,7 +379,7 @@ function AceptarSolicitud(id){
         if (result.isConfirmed) {
            
             getAceptar(id);
-
+            vistoSolicitudes();
         } 
       })}
 
@@ -402,10 +406,9 @@ function AceptarSolicitud(id){
                         
                         if (xmlhttp.status == 200) {
                             OfertasbyUsusario();
+                            vistoSolicitudes();
                         }
-                        else {
-                            alert("ocurrio un error");
-                        }
+
                     }
                 }
             

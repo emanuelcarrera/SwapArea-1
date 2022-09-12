@@ -154,6 +154,17 @@ class SolicitudesControlller{
             
         return $response ;
     }
+    public function vistoSolicitudes($request, $response, $args){
+
+        $Soli=  new Solicitudes();
+        $idu =  (int)$args['IDU'];
+        $count = $Soli->getVistosolicitudes($idu);
+        $response ->getBody()->Write(json_encode($count));
+      
+       return $response->withHeader('Content-Type', 'application/json');
+    
+    }
+
 
 }
 

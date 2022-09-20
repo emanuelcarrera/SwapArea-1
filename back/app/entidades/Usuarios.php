@@ -430,7 +430,51 @@ public function GetMailByAeticulo($id)
   return $consulta->fetchAll(PDO::FETCH_CLASS, 'Usuarios');
 }
 
+public function  getTokenMoneda($idU)
+{
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("select Token FROM `monedero` where `idUsuario`= $idU ");
+  
+    $consulta->execute();
 
+    return $consulta->fetchAll();
+}
+
+public function  SetTokenMoneda($idU,$Token)
+{
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("UPDATE `monedero` SET `Token`='$Token' 
+    WHERE `idUsuario` = $idU");
+  
+    $consulta->execute();
+
+    return $consulta->fetchAll();
+}
+
+public function  RetiroSaldo($idU,$saldo)
+{
+    $objAccesoDatos = AccesoDatos::obtenerInstancia();
+    $consulta = $objAccesoDatos->prepararConsulta("UPDATE `monedero` 
+    SET `Monto` =  `Monto` -  $saldo
+    WHERE `idUsuario` = $idU ");
+      $dtz = new DateTimeZone("America/Argentina/Buenos_Aires");
+      $dt = new DateTime("now", $dtz);
+
+      //Stores time as "2021-04-04T13:35:48":
+      $currentTime = $dt->format("Y-m-d") . "T" . $dt->format("Hh:i:s");
+
+      //Stores time as "2021-04-04T01:35:20":
+      $currentTime = $dt->format("Y-m-d") . "T" . $dt->format("hh:i:s");
+
+    $consulta->execute();
+
+    $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO `historialmoneda`(`idUsuario`, `monto`, `fecha`) 
+    VALUES ($idU,-$saldo, now() )");
+
+    $consulta->execute();
+    return $consulta->fetchAll();
+
+}
 }
 
 

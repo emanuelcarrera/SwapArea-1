@@ -21,6 +21,13 @@ require "../header.php";
 </div>
 </div>
 </br>
+<div  class="row" style="text-align: center;">
+     <div class="col-4">
+      </div>
+      <div class="col-4">
+<input  class="btn btn-primary" type="button" value="Ratirar Saldo" onClick=" window.location.href='Retiro.php' ">
+</div>
+</div>
 </br>
 
 <div  class="row" style="text-align: center;">

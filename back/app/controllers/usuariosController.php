@@ -309,6 +309,50 @@ public function getHistorialMoneda($request, $response, $args)
     return $response->withHeader('Content-Type', 'application/json');
  }
 
+ public function getTokenMoneda($request, $response, $args)
+ {
+    $usr=  new Usuarios();
+    $id =  $args['id'];
+    $Token = $usr->getTokenMoneda($id);
+    $response ->getBody()->Write(json_encode($Token));
+  
+   return $response->withHeader('Content-Type', 'application/json');
+ }
+
+ public function SetTokenMoneda($request, $response, $args)
+ {
+    $usr=  new Usuarios();
+    $listaDeParametros = $request->getParsedBody();
+    $id = $listaDeParametros['id']; 
+    $Token = uniqid();
+    $usr->SetTokenMoneda($id,$Token);
+    $Email  = $usr->GetMail($id);
+    $mail= new Emails();
+    $mail->EnviarMail( $Email[0]->Mail ,$Token,"SWAPAREA Token de validacion" );
+
+    $response ->getBody()->Write(json_encode("OK"));
+  
+ 
+   return $response->withHeader('Content-Type', 'application/json');
+ }
+
+ public function RetiroSaldo($request, $response, $args)
+ {
+    $usr=  new Usuarios();
+    $listaDeParametros = $request->getParsedBody();
+    $id = $listaDeParametros['id']; 
+    $saldo = $listaDeParametros['saldo']; 
+    $Token = uniqid();
+    $usr->RetiroSaldo($id,$saldo);
+    $Email  = $usr->GetMail($id);
+    $mail= new Emails();
+    $mail->EnviarMail( $Email[0]->Mail ,"Se retiro : ". $saldo . "  de su saldo." ,"SWAPAREA Retiro de saldo" );
+
+    $response ->getBody()->Write(json_encode("OK"));
+  
+ 
+   return $response->withHeader('Content-Type', 'application/json');
+ }
 
 
 }

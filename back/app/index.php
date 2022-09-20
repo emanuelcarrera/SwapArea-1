@@ -75,7 +75,9 @@ $app->group('/Usuarios', function (RouteCollectorProxy $group) {
     $group->get('/GetUsuariosbyName/{nombre}/{id}', \usuariosController::class . ':GetUsuariosbyName' );
     $group->POST('/ValidarNombreMail', \usuariosController::class . ':ValidarNombreMail' );
     $group->POST('/MailContacto', \usuariosController::class . ':MailContacto' );
-    
+    $group->get('/getTokenMoneda/{id}', \usuariosController::class . ':getTokenMoneda' );
+    $group->post('/SetTokenMoneda', \usuariosController::class . ':SetTokenMoneda' );
+    $group->post('/RetiroSaldo', \usuariosController::class . ':RetiroSaldo' );
     
 });
 $app->group('/Comentarios', function (RouteCollectorProxy $group) {

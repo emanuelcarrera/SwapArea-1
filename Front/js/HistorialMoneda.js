@@ -18,7 +18,7 @@ function GetMonto(){
                 var template = ``;
                 json.map(function(moneda){
                     document.getElementById("hmonto").innerHTML  = "Monto actual  ";
-                    document.getElementById("hmonto2").innerHTML  = "$"+ moneda.Monto;
+                    document.getElementById("hmonto2").innerHTML  =  moneda.Monto;
 
                 });
                 

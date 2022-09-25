@@ -5,8 +5,34 @@ function AceptarRetiro(){
 
 
     if(  document.getElementById("txtMonto").value != ""  &&  document.getElementById("txtCBU").value != ""){
+    if(parseInt(document.getElementById("txtMonto").value) > 0 ){
+    if( parseInt(document.getElementById("txtMonto").value) <=  parseInt(document.getElementById("hmonto2").innerHTML) ){
+        if (document.getElementById("txtCBU").value.length === 22)
+        {
 
-    if( parseInt(document.getElementById("txtMonto").value) <=  parseInt(document.getElementById("hmonto2").innerHTML)  ){
+            var xmlhttp = new XMLHttpRequest();
+            let timerInterval
+        Swal.fire({
+          title: 'Espere',
+          html: '',
+          timer: 2000,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+            timerInterval = setInterval(() => {
+              b.textContent = Swal.getTimerLeft()
+            }, 100)
+          },
+          willClose: () => {
+            clearInterval(timerInterval)
+          }
+        }).then((result) => {
+          /* Read more about handling dismissals below */
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log('I was closed by the timer')
+          }
+        })
 
     var xmlhttp = new XMLHttpRequest();
      
@@ -44,7 +70,14 @@ function AceptarRetiro(){
     obje.append("id", localStorage.getItem('id'));
   
     //envio el mensaje    
-    xmlhttp.send(obje);
+    xmlhttp.send(obje);  
+    
+}else{            
+Swal.fire({
+    title: 'CBU/CVU incorrecto',
+  })
+}
+
     }else{
 
         Swal
@@ -53,6 +86,12 @@ function AceptarRetiro(){
         })
  
     } 
+    }else{
+        Swal
+        .fire({
+            title: "El saldo debe ser mayor a 0"
+        })
+    }
 
     }else{
         Swal
@@ -101,6 +140,28 @@ function ValidarToken(valid){
 
 function OK(){
     var xmlhttp = new XMLHttpRequest();
+    let timerInterval
+Swal.fire({
+  title: 'Procesando',
+  html: '',
+  timer: 2000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading()
+    const b = Swal.getHtmlContainer().querySelector('b')
+    timerInterval = setInterval(() => {
+      b.textContent = Swal.getTimerLeft()
+    }, 100)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log('I was closed by the timer')
+  }
+})
      
     xmlhttp.open("POST", servidor + '/Usuarios/RetiroSaldo', true);
     xmlhttp.onreadystatechange = function () {

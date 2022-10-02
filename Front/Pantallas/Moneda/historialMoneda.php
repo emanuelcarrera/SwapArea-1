@@ -25,7 +25,7 @@ require "../header.php";
      <div class="col-4">
       </div>
       <div class="col-4">
-<input  class="btn btn-primary" type="button" value="Ratirar Saldo" onClick=" window.location.href='Retiro.php' ">
+<input  class="btn btn-primary" type="button" value="Retirar Saldo" onClick=" window.location.href='Retiro.php' ">
 </div>
 </div>
 </br>

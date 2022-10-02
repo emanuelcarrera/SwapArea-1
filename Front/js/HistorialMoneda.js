@@ -58,7 +58,7 @@ function Hostorial(){
               
                   <td>Fecha </td>
               
-                  <td>Cantidad comprada</td>
+                  <td>Monto</td>
               
                 </tr>`;
                 json.map(function(moneda){

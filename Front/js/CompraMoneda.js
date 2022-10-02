@@ -93,7 +93,6 @@ function Comprar(){
 
     }
 
-   
     if(document.getElementById("VtoA").value === null || document.getElementById("VtoA").value === "" || document.getElementById("VtoM").value === null || document.getElementById("VtoM").value === "")
     {
         valido =1;
@@ -144,6 +143,15 @@ function Comprar(){
         Swal.fire({
             title: 'Cantidad obligatorio',
           })
+    }else{
+
+        if(parseInt(document.getElementById("cantidad").value) <= 0 ){
+            valido =1;
+            Swal.fire({
+                title: 'La cantidad debe ser mayor a 0',
+              })
+        }
+    
     }
 
 

@@ -44,7 +44,7 @@ function Listar(){
                      <br>
                      <strong class="card-text font-weight-light">Categoría: ${Articulos.Clasificacion}</strong>
                      <br>
-                     <strong class="card-text font-weight-light">Valor: ${Articulos.Valor}</strong>
+                     <strong class="card-text font-weight-light">Valor: $ ${Articulos.Valor}</strong>
                      <br>
                      <div  class="d-flex align-items-center justify-content-center">
                      <input type="button" onclick="Ver(${Articulos.idArticulo})" value="VER" class="form-control" />
@@ -74,7 +74,7 @@ function Listar(){
                              <br>
                              <strong class="card-text font-weight-light">Categoría: ${Articulos.Clasificacion}</strong>
                              <br>
-                             <strong class="card-text font-weight-light">Valor: ${Articulos.Valor}</strong>
+                             <strong class="card-text font-weight-light">Valor: $ ${Articulos.Valor}</strong>
                              <br>
                              <div  class="d-flex align-items-center justify-content-center">
                              <input type="button" onclick="Ver(${Articulos.idArticulo})" value="VER" class="form-control" />
@@ -145,7 +145,7 @@ function Buscar(){
                          <br>
                          <strong class="card-text font-weight-light">Categoría: ${Articulos.Clasificacion}</strong>
                          <br>
-                         <strong class="card-text font-weight-light">Valor: ${Articulos.Valor}</strong>
+                         <strong class="card-text font-weight-light">Valor: $  ${Articulos.Valor}</strong>
                          <br>
                          <div  class="d-flex align-items-center justify-content-center">
                          <input type="button" onclick="Ver(${Articulos.idArticulo})" value="VER" class="form-control"/>
@@ -175,7 +175,7 @@ function Buscar(){
                                  <br>
                                  <strong class="card-text font-weight-light">Categoría: ${Articulos.Clasificacion}</strong>
                                  <br>
-                                 <strong class="card-text font-weight-light">Valor: ${Articulos.Valor}</strong>
+                                 <strong class="card-text font-weight-light">Valor: $ ${Articulos.Valor}</strong>
                                  <br>
                                  <div  class="d-flex align-items-center justify-content-center">
                                  <input type="button" onclick="Ver(${Articulos.idArticulo})" value="VER" class="form-control" />
@@ -226,7 +226,7 @@ function cargarCategorias() {
             
             if (xmlhttp.status == 200) {
                 var json = JSON.parse(xmlhttp.responseText);
-                let template = '<option class="form-control" selected disabled > Seleccione </option>';
+                let template = '<option class="form-control" > Seleccione </option>';
                 json.forEach(respuesta => {
                     template += `<option class="form-control" value="${respuesta.idCategoria}">${respuesta.Descripcion}</option>`;
                 })

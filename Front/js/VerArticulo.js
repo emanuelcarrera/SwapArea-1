@@ -71,6 +71,12 @@ function setArticulo(){
                 var template = ``;
                 json.map(function(Comentarios){
                     var fechaformat = new Date(Comentarios.fecha); 
+
+                    if(Comentarios.foto === null)
+                    {
+                        Comentarios.foto = "http://ssl.gstatic.com/accounts/ui/avatar_2x.png";
+
+                    }
                    
                     var fe = [(fechaformat.getDate()).toString().padStart(2, "0"),
                     (parseInt(fechaformat.getMonth().toString().padStart(2, "0")) +1).toString(),
@@ -79,7 +85,15 @@ function setArticulo(){
                     fechaformat.getMinutes().toString().padStart(2, "0"),
                     fechaformat.getSeconds().toString().padStart(2, "0")].join(':'); 
                      template +=`
-                     <div class="border border-dark rounded" style="padding-left:0;">
+                     <div style="font-family: sans-serif;
+                     font-size: 18px;
+                     font-weight: 400;
+                     color: #ffffff;
+                     background: rgb(221, 220, 220);
+                     margin: 0 0 25px;
+                     overflow: hidden;
+                     padding: 20px;">
+                     <a href="../Usuarios/perfilUsuario.php" > <img src="${Comentarios.foto}"  width="30" height="30" class="rounded-circle"  >
                      <h10 class="card-text font-weight-light" style="color:blue">${Comentarios.NombreUsuario}</h10>
                      <h20 class="card-text font-weight-light"> ${fe}  </h20>
                      </br>

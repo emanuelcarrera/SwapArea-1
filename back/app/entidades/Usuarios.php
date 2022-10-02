@@ -103,7 +103,7 @@ public function TodosLosUsaurios($id)
     on um.id_um = m.id_um 
      where (($id = um.id_usuario and usu.idUsuario = um.id_Usuario2) 
      or (usu.idUsuario = um.id_usuario and $id= um.id_Usuario2)) and (m.id_usuario = usu.idUsuario and m.Visto is null) ) as visto
-    from `usuarios` as usu");
+    from `usuarios` as usu  order by visto desc ");
     
 
     $consulta->execute();
@@ -344,7 +344,7 @@ public function GetUsuariosbyName($nombre,$id)
     where (($id = um.id_usuario and usu.idUsuario = um.id_Usuario2) 
     or (usu.idUsuario = um.id_usuario and $id= um.id_Usuario2)) and (m.id_usuario = usu.idUsuario and m.Visto is null) ) as visto 
     from `usuarios` as usu
-    WHERE usu.Nombre like '%$nombre%' ");
+    WHERE usu.Nombre like '%$nombre%' order by visto desc ");
    
     $consulta->execute();
 

@@ -83,12 +83,12 @@ require "../head.php";
 
                      </div>
 					 <hr>
-					   <div class="product-title">Nombre:<label class="card-text font-weight-light" id="lblnombre"> </div>
+					   <div class="product-title" style="font-family: Georgia;"><h3>  Nombre:<label class="card-text font-weight-light" id="lblnombre"> </h1> </div>
 					
 				     	<hr>
-				    	<div class="product-price">Valor: $<label class="card-text font-weight-light" id="lblvalor"> </label></div>
+				    	<div class="product-price" style="font-family: Georgia;">Valor: $<label class="card-text font-weight-light" id="lblvalor"> </label></div>
 				    	<hr>
-				    	<div class="product-drecipction">Descripción: <label class="card-text font-weight-light" id="lbldescripcion"> </label></div>
+				    	<div class="product-drecipction" style="font-family: Georgia;">Descripción: <label class="card-text font-weight-light" id="lbldescripcion"> </label></div>
 				    	<hr>
 				    	<div class="btn-group cart">
 						<button type="button" id="btnintercambio" class="btn btn-success">
@@ -153,3 +153,5 @@ $("#nextBtn").click(function(){
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../..\js/VerArticulo.js"></script>
 <script src="../../js/Header.js"></script>
+
+<script src="../../css/comentarios.css"></script>

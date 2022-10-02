@@ -26,7 +26,7 @@ function ListarUsusario(){
                      <img src="${usuarios.foto}" alt="avatar">
                      <div class="about">
                          <div class="name">${usuarios.NombreUsuario}</div>
-                         <div class="status"> Mensajes sin leer : ${usuarios.visto}</div>                                            
+                         <div class="status" `;if(usuarios.visto > 0){ template += ` style="color:red;" `}; template +=`> Mensajes sin leer : ${usuarios.visto}</div>                                            
                      </div>
                     </li>
 
@@ -152,7 +152,7 @@ function Buscar(){
                      <img src="${usuarios.foto}" alt="avatar">
                      <div class="about">
                          <div class="name">${usuarios.NombreUsuario}</div>
-                         <div class="status"> Mensajes sin leer : ${usuarios.visto}</div>                                            
+                         <div class="status" ' `;if(usuarios.visto > 0){ template += ` style="color:red;" `}; template +=` > Mensajes sin leer : ${usuarios.visto}</div>                                            
                      </div>
                     </li>
 

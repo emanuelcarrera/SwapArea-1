@@ -32,7 +32,7 @@ class Comentarios {
     {
 
       $objAccesoDatos = AccesoDatos::obtenerInstancia();
-      $consulta = $objAccesoDatos->prepararConsulta("select com.* , usu.NombreUsuario, usu.foto
+      $consulta = $objAccesoDatos->prepararConsulta("select com.* , usu.NombreUsuario, usu.foto , usu.idUsuario as idU
        FROM `comentarios` as com 
       join usuarios as usu 
       on com.id_usuario = usu.idUsuario

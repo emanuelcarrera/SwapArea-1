@@ -15,7 +15,7 @@ function AceptarRetiro(){
         Swal.fire({
           title: 'Espere',
           html: '',
-          timer: 2000,
+          timer: 3000,
           timerProgressBar: true,
           didOpen: () => {
             Swal.showLoading()
@@ -58,6 +58,7 @@ function AceptarRetiro(){
 
                         Swal
                         .fire({
+                            title: "Token de validación incorrecto",
                             icon :'error',
                         })
                     }
@@ -123,7 +124,7 @@ function ValidarToken(valid){
 
                         Swal
                         .fire({
-                            title: "Token invalido",
+                            title: 'Token de validación incorrecto',
                             icon :'error',
                         })
                     }
@@ -144,7 +145,7 @@ function OK(){
 Swal.fire({
   title: 'Procesando',
   html: '',
-  timer: 2000,
+  timer: 3000,
   timerProgressBar: true,
   didOpen: () => {
     Swal.showLoading()
@@ -171,6 +172,7 @@ Swal.fire({
             if (xmlhttp.status == 200) {
                 Swal
                 .fire({
+                    title: 'Operacion exitosa',
                     icon :'success',
                 })
                 GetMonto();

@@ -22,6 +22,9 @@ function setArticulo(){
                  document.getElementById("btnintercambio").hidden = true;
                  document.getElementById("btncomprar").hidden = true;
                 }
+
+                sessionStorage.setItem('chatdueño', Articulos.idUsuario);
+                
                  
                  if(Articulos.Usuariofoto != null)
                  {
@@ -93,11 +96,11 @@ function setArticulo(){
                      margin: 0 0 25px;
                      overflow: hidden;
                      padding: 20px;">
-                     <a href="../Usuarios/perfilUsuario.php" > <img src="${Comentarios.foto}"  width="30" height="30" class="rounded-circle"  >
-                     <h10 class="card-text font-weight-light" style="color:blue">${Comentarios.NombreUsuario}</h10>
-                     <h20 class="card-text font-weight-light"> ${fe}  </h20>
+                     <a onclick="resirectChat(${Comentarios.idU})" style="color:blue;"> <img src="${Comentarios.foto}"  width="30" height="30" class="rounded-circle"  >
+                     <h10 class="card-text font-weight-light" style="color:blue, size:1;">${Comentarios.NombreUsuario}</h10> </a>
+                     <a  style="color:black; font-size: 10px;" > ${fe}  </a>
                      </br>
-                     <a class="card-text font-weight-light"> ${Comentarios.texto} </a>
+                     <a class="card-text font-weight-light" style="color:rgb(94, 92, 92);"> ${Comentarios.texto} </a>
                    
                      </div>
 
@@ -352,4 +355,38 @@ evento.addEventListener("click", function(){
         xmlhttp.send();
        }
     
+
+
+       function resirectChat(id)
+       {
+
+        if(id == 0)
+        {
+          id = sessionStorage.getItem('chatdueño');
+        }
+
+        var xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.open("GET", servidor + '/Chat/getIdChat/'+localStorage.getItem('id')+'/'+id);
+        xmlhttp.onreadystatechange = function () {
+            //Veo si llego la respuesta del servidor
+            if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+                //Reviso si la respuesta es correcta
+                
+                if (xmlhttp.status == 200) {
+                    var json = JSON.parse(xmlhttp.responseText);
+                   
+                        sessionStorage.setItem('idusuariochat', id);
+                        sessionStorage.setItem('idChat', json);
+                        
+                        window.location.href = "/SwapArea/SwapArea/Front/Pantallas/Chat/Chats.php";
+                }
+                else {
+                   
+                }
+            }
+        }
+        xmlhttp.send();
+
+       }
      

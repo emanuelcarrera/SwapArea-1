@@ -78,7 +78,7 @@ require "../head.php";
 					<div  >
 				
                         <br>
-                          <img id="imgfusu" src="" width="50" height="50" class="rounded-circle" alt="avatar">
+                          <img id="imgfusu" src="" width="50" height="50" class="rounded-circle" alt="avatar" onclick="resirectChat(0)">
 						  <label id="nombreusu"></label>
 
                      </div>
@@ -149,6 +149,9 @@ $("#prevBtn").click(function(){
 $("#nextBtn").click(function(){
     $("#myCarouselCustom").carousel("next");
 });
+
+
+
 </script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../..\js/VerArticulo.js"></script>

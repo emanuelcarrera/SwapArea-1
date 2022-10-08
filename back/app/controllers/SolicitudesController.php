@@ -22,7 +22,11 @@ class SolicitudesControlller{
         $usu = new Usuarios();
         $usu = $usu->GetMailByAeticulo($Soli->id_Articulo);
         $mail= new Emails();
-        $mail->EnviarMail( $usu[0]->Mail ,"Tiene una nueva solicitud de intercambio" ,"Vea sus solicitudes" );
+        $mail->EnviarMail( $usu[0]->Mail ,"Hola! Recibiste una nueva solicitud de intercambio!
+        <br>
+        Por favor ingresa a la pagina para contestarta!
+        <br>
+        Atte SwapArea. ","Tiene una nueva solicitud de intercambio"  );
          
         
         return $response ;
@@ -67,7 +71,11 @@ class SolicitudesControlller{
         $usu = new Usuarios();
         $usu = $usu->GetMailByAeticulo($Soli->id_Articulo);
         $mail= new Emails();
-        $mail->EnviarMail( $usu[0]->Mail ,"Tiene una nueva solicitud de intercambio" ,"Vea sus solicitudes" );
+        $mail->EnviarMail( $usu[0]->Mail ,"Hola! Recibiste una nueva solicitud de intercambio!
+        <br>
+        Por favor ingresa a la pagina para contestarta!
+        <br>
+        Atte SwapArea. ","Tiene una nueva solicitud de intercambio" );
         
         return $response ;
     }
@@ -88,7 +96,11 @@ class SolicitudesControlller{
         $usu = new Usuarios();
         $usu = $usu->GetMailByAeticulo($idArticulo);
         $mail= new Emails();
-        $mail->EnviarMail( $usu[0]->Mail ,"Tiene una nueva solicitud de intercambio" ,"Vea sus solicitudes" );
+        $mail->EnviarMail( $usu[0]->Mail ,"Hola! Recibiste una nueva solicitud de intercambio!
+        <br>
+        Por favor ingresa a la pagina para contestarta!
+        <br>
+        Atte SwapArea. ","Tiene una nueva solicitud de intercambio"  );
        return $response->withHeader('Content-Type', 'application/json');
      }
     

@@ -68,6 +68,8 @@ class Emails {
         //$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
+        $mail->isHTML(true);
+        $mail->CharSet = 'UTF-8';
     
         $mail->setFrom('swaparea@hotmail.com');//correo de envio
         $mail->addAddress($email, 'Receptor');// correo destino

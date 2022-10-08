@@ -15,7 +15,13 @@ class EmailController{
         $email = $listaDeParametros['MAIL'];
         $token = uniqid();
         $mail= new Emails();
-        $response = $mail->RecuperoPass($email,$token);
+        $response = $mail->RecuperoPass($email,'Hola! Recibimos tu solicitud para cambiar la contraseña! 
+        <br>
+        Por favor ingresa el siguiente token para efectuar el cambio de la misma: '.$token.'
+        <br>
+        Si vos no solicitaste el cambio de contraseña, por favor desestima este mail y contactate con nosotros si lo ves necesario
+        <br>
+        Atte SwapArea.');
     
   
             

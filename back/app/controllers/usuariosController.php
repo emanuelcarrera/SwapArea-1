@@ -19,14 +19,20 @@ public function Alta($request, $response, $args){
     $usr->dni =  $listaDeParametros['dni'];
     $usr->Telefono =  $listaDeParametros['Telefono'];
     $usr->CrearUsuario($usr);
-    $LisatU = $usr->Login($usr);  
-    $Email  = $usr->GetMail($LisatU[0]->idUsuario);
+    //$LisatU = $usr->Login($usr);  
+    //$Email  = $usr->GetMail($LisatU[0]->idUsuario);
     
     $mail= new Emails();
-    $mail->EnviarMail( $Email[0]->Mail ,"Usuario Creado","SWAPAREA ALTA DE USUARIO" );
+    $mail->EnviarMail( $listaDeParametros['Mail'] ,"Hola! Nos da mucho gusto poder saludarte y darte la bienvenida a SwapArea!
+    <br>
+    Te confirmamos por este medio que se dio el alta de usuario correctamente!
+    <br>
+    Apurate a subir tus articulos y empezar a intercambiar!
+    <br>
+    Atte SwapArea.","SWAPAREA ALTA DE USUARIO" );
 
 
-    $response ->getBody()->Write(json_encode( $Email ));
+    $response ->getBody()->Write(json_encode( $listaDeParametros['Mail']));
     
     return $response;
 }
@@ -226,7 +232,11 @@ public function getDomicilio($request, $response, $args)
      
     $Email  = $usr->GetMail($idU);
     $mail= new Emails();
-    $mail->EnviarMail( $Email[0]->Mail ,"Sa sumaron ".$cantidad." moneedas a su cuenta" ,"Compra de moneda swaparea" );
+    $mail->EnviarMail( $Email[0]->Mail ,"Hola! Te confirmamos que se hizo la compra de moneda correctamente!
+    <br>
+    Para revisar tu saldo ingresa al monedero.
+    <br>
+    Atte SwapArea.","Carga de saldo swaparea" );
 
     $response ->getBody()->Write(json_encode($listaDeParametros));
     return $response->withHeader('Content-Type', 'application/json');
@@ -328,7 +338,11 @@ public function getHistorialMoneda($request, $response, $args)
     $usr->SetTokenMoneda($id,$Token);
     $Email  = $usr->GetMail($id);
     $mail= new Emails();
-    $mail->EnviarMail( $Email[0]->Mail ,$Token,"SWAPAREA Token de validacion" );
+    $mail->EnviarMail( $Email[0]->Mail ,"Hola! Recibimos tu solicitud para retirar saldo de tu cuenta! 
+    <br>
+    Por favor ingresa el siguiente token para finalizar con el retiro :  ".$Token."
+    <br>
+    Atte SwapArea.","SWAPAREA Token de validacion" );
 
     $response ->getBody()->Write(json_encode("OK"));
   

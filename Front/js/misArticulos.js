@@ -24,6 +24,7 @@ function ListarUsuarios(){
                     if (Articulos.foto == null)
                     { Articulos.foto  = "../imagenes/logo.jpg";  }
                      template +=`
+                     <div  style="padding:2px;">
                      <div class="card d-flex align-items-center justify-content-center" style="width: 18rem;" >
             
                      <img class="card-img-top"  width="200" height="200" src=${Articulos.foto} >
@@ -43,13 +44,14 @@ function ListarUsuarios(){
                      </div>
                      </div>
                      </div>
+                     </div>
                      `;
 
                 });
                 
                 if(template === "")
                 {
-                    template +=`<img  src="../imagenes/Sin articulos.jpg" >
+                    template +=`<a>Todavia no tiene articulos. </a>
                     </br>
                     </br></br></br></br></br></br></br></br></br></br></br></br></br></br>`
 

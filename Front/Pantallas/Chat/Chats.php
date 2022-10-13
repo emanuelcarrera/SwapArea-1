@@ -14,7 +14,7 @@ require "../header.php";
                     </div>
                     <input type="text" class="form-control" id="txtBuscar" placeholder="Buscar">
                 </div>
-                <ul id="lista" class="list-unstyled chat-list mt-2 mb-0">
+                <ul id="lista" class="list-unstyled chat-list mt-2 mb-0" style="height:450px; overflow-y: scroll;">
                     
                 </ul>
             </div>

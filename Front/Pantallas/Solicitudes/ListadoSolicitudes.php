@@ -13,7 +13,7 @@ require "../header.php";
 </br>
 </br>
 <div class="container" >
-<img id="titulo"  src="" >
+<a id="titulo" > </a>
 </br>
 </br>
 <button   class="btn btn-success" id="btnofertas"  type="button" onclick="OfertasbyUsusario()"> Solicitudes recibidas</button>

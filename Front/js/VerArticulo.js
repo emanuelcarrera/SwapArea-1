@@ -281,7 +281,8 @@ evento.addEventListener("click", function(){
                     else if(json.length == 1)
                     {
                         json.map(function(Articulos){
-                            template +=`<img width="100%" height="100%" src="${Articulos.urlFoto}"  >`;
+                            template +=`<img id="myImg" src="${Articulos.urlFoto}"  onclick="imgzoom('${Articulos.urlFoto}')" alt="Snow" style="width:100%;max-width:300px">
+                            `;
                         });
                     }
                     else{
@@ -311,7 +312,7 @@ evento.addEventListener("click", function(){
                          template +=`
                          
                            <div class="item active" >
-                             <img width="100%" height="100%" src="${Articulos.urlFoto}"  >
+                             <img width="100%" height="100%" onclick="imgzoom('${Articulos.urlFoto}')" src="${Articulos.urlFoto}"  >
                              </div>
                          
                          `;
@@ -320,7 +321,7 @@ evento.addEventListener("click", function(){
                          {
                             template +=`
                             <div class="item" >
-                            <img width="100%" height="100%" src="${Articulos.urlFoto}"  >
+                            <img width="100%" height="100%" onclick="imgzoom('${Articulos.urlFoto}')" src="${Articulos.urlFoto}"  >
                             </div>`;
                          }
     
@@ -389,4 +390,29 @@ evento.addEventListener("click", function(){
         xmlhttp.send();
 
        }
+
+
+       // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+function imgzoom(url){
+
+  console.log(url);
+  modal.style.display = "block";
+  modalImg.src = url;
+
+}
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
      

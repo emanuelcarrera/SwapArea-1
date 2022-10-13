@@ -16,9 +16,7 @@ function solicitudbyUsusario(){
             
             if (xmlhttp.status == 200) {
                 
-                document.getElementById('titulo').src = '../imagenes/soli1.jpg';
-                document.getElementById('titulo').width="250";
-                document.getElementById('titulo').height="85";
+                document.getElementById('titulo').text = 'Solicitudes realizadas';
                 var json = JSON.parse(xmlhttp.responseText);
                 var template = ``;
                 json.map(function(Solicitudes){
@@ -147,8 +145,8 @@ function solicitudbyUsusario(){
                 
                 if(template === "")
                 {
-                    template +=`<img  src="../imagenes/sin solicitudes creadas.jpg" >
-                    </br></br></br></br></br></br></br></br></br>`
+                    template +=`<a>No tiene solicitudes</a>
+                    </br></br></br></br></br></br></br></br></br></br></br>`;
 
                 }
 
@@ -179,9 +177,7 @@ function OfertasbyUsusario(){
             //Reviso si la respuesta es correcta
             
             if (xmlhttp.status == 200) {
-                document.getElementById('titulo').src = '../imagenes/soli2.jpg';
-                document.getElementById('titulo').width="250";
-                document.getElementById('titulo').height="100";
+                document.getElementById('titulo').text = 'Solicitudes resibidas';
                 var json = JSON.parse(xmlhttp.responseText);
                 var template2 = ``;
                 json.map(function(Solicitudes){
@@ -293,7 +289,7 @@ function OfertasbyUsusario(){
                          </diV>
                          <div class="row" >
                        <br>
-                         <button class="form-control" onclick="Chatear(${Solicitudes.ofertate})" >Contactar</button> 
+                         <button class="form-control" onclick="Chatear(${Solicitudes.ofertante})" >Contactar</button> 
                          </diV> 
                      </diV>
                     </div><br>`
@@ -318,8 +314,8 @@ function OfertasbyUsusario(){
                 
                 if(template2 === "")
                 {
-                    template2 +=`<img  src="../imagenes/sin solicitudes.jpg" >
-                    </br></br></br></br></br></br></br></br></br></br>`
+                    template2 +=`<a>No tiene ofertas </a>
+                    </br></br></br></br></br></br></br></br></br></br></br>`
 
                 }
 
@@ -339,12 +335,12 @@ function OfertasbyUsusario(){
 }
 
 
-function Chatear(idotrousuario)
+function Chatear(id)
 {
 
     var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("GET", servidor + '/Chat/getIdChat/'+localStorage.getItem('id')+'/'+idotrousuario);
+    xmlhttp.open("GET", servidor + '/Chat/getIdChat/'+localStorage.getItem('id')+'/'+id);
     xmlhttp.onreadystatechange = function () {
         //Veo si llego la respuesta del servidor
         if (xmlhttp.readyState == XMLHttpRequest.DONE) {
@@ -352,13 +348,14 @@ function Chatear(idotrousuario)
             
             if (xmlhttp.status == 200) {
                 var json = JSON.parse(xmlhttp.responseText);
-                json.map(function(id){
-                    sessionStorage.setItem('idChat', id.id_um);
-                    window.location.href = "/SwapArea/SwapArea/Front/Pantallas/Chat/Chat.php";
-                });
+               
+                    sessionStorage.setItem('idusuariochat', id);
+                    sessionStorage.setItem('idChat', json);
+                    
+                    window.location.href = "/SwapArea/SwapArea/Front/Pantallas/Chat/Chats.php";
             }
             else {
-                alert("ocurrio un error");
+               
             }
         }
     }

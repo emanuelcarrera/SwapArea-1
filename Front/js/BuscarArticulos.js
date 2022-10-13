@@ -35,7 +35,7 @@ function Listar(){
                     { Articulos.foto  = "../imagenes/logo.jpg";  }
                      template +=`
                       
-
+                     <div  style="padding:2px;">
                      <div class="card d-flex align-items-center justify-content-center" style="width: 18rem;" >
 
                      <img class="card-img-top"  width="200" height="200" src=${Articulos.foto} >
@@ -52,6 +52,7 @@ function Listar(){
                      </div>
                      </div>
                      </div>
+                     </div>
 
                     
 
@@ -65,7 +66,7 @@ function Listar(){
                             { Articulos.foto  = "../imagenes/logo.jpg";  }
                              template +=`
                               
-        
+                             <div  style="padding:2px;">
                              <div class="card d-flex align-items-center justify-content-center" style="width: 18rem;" >
         
                              <img class="card-img-top"  width="200" height="200" src=${Articulos.foto} >
@@ -82,7 +83,7 @@ function Listar(){
                              </div>
                              </div>
                              </div>
-        
+                             </div>
                             
         
                              `;
@@ -94,7 +95,18 @@ function Listar(){
                    }
 
                 });
-                
+                template+=
+                ` <br><br><br>
+                <footer class="row" style="bottom: 0;width: 100%;">
+			
+                <p style="padding-left:5%;"> 
+                <img width="30" height="30" class="rounded-circle" src="../imagenes/logo.jpg"/> 
+                 &copy; 2017-2021 SwapArea, Inc. &middot;    </p>
+                 </p>
+                 <p style="padding-left:60%;"><a href="#">Back to top</a>
+            </footer>
+    
+`;
                 console.log(template);
                 document.getElementById('lista').innerHTML=template;
 
@@ -136,7 +148,7 @@ function Buscar(){
                         { Articulos.foto  = "../imagenes/logo.jpg";  }
                          template +=`
                           
-    
+                         <div  style="padding:2px;">
                          <div class="card d-flex align-items-center justify-content-center" style="width: 18rem;" >
     
                          <img class="card-img-top"  width="200" height="200" src=${Articulos.foto} >
@@ -154,7 +166,7 @@ function Buscar(){
                          </div>
                          </div>
     
-                        
+                         </div>
     
                          `;
                        }else{
@@ -166,7 +178,7 @@ function Buscar(){
                                 { Articulos.foto  = "../imagenes/logo.jpg";  }
                                  template +=`
                                   
-            
+                                 <div  style="padding:2px;">
                                  <div class="card d-flex align-items-center justify-content-center" style="width: 18rem;" >
             
                                  <img class="card-img-top"  width="200" height="200" src=${Articulos.foto} >
@@ -184,7 +196,7 @@ function Buscar(){
                                  </div>
                                  </div>
             
-                                
+                                 </div>
             
                                  `;
     
@@ -193,6 +205,16 @@ function Buscar(){
 
                 });
                 
+                template+=
+                ` 	<br><br><br>	<footer class="row" style="bottom: 0;width: 100%;">
+			
+                <p style="padding-left:5%;"> 
+                <img width="30" height="30" class="rounded-circle" src="../imagenes/logo.jpg"/> 
+                 &copy; 2017-2021 SwapArea, Inc. &middot;    </p>
+                 </p>
+                 <p style="padding-left:60%;"><a href="#">Back to top</a>
+            </footer>
+    `;
                 console.log(template);
                 document.getElementById('lista').innerHTML=template;
 

@@ -72,7 +72,6 @@ function getUsuarioChat(){
                     }
                     else
                     {
-
                         document.getElementById('imgfoto').src = "http://ssl.gstatic.com/accounts/ui/avatar_2x.png"
                     }
                     document.getElementById('divchat2').style.visibility='visible'

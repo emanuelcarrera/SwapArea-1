@@ -120,7 +120,18 @@ evento.addEventListener("click", function(){
         xmlhttp.send(fileContent);
         Swal.fire({
             title: 'Se envio una solicitud al vendedor',
-          })
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#28a745',
+
+          }).then((result) => {
+
+        if (result.isConfirmed) {
+           
+            window.location.href = '../solicitudes/listadosolicitudes.php'
+
+        } 
+        })
+
         }else{
 
             Swal.fire({

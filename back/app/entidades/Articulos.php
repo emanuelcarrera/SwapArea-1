@@ -130,7 +130,7 @@ public function ListarAUsuario($idUsuario)
     $consulta = $objAccesoDatos->prepararConsulta("select a.idArticulo,a.idUsuario,a.Nombre,a.Descripcion,(SELECT urlFoto from fotosarticulos where idArticulo = a.idArticulo LIMIT 1 ) as foto,a.Valor ,b.Descripcion as Clasificacion 
     FROM `articulo` as a 
     join categorias as b on b.idCategoria = a.idCategoria 
-    WHERE `idUsuario` = $idUsuario");
+    WHERE `idUsuario` = $idUsuario order by a.Nombre");
       
     $consulta->execute();
 

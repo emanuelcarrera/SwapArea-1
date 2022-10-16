@@ -62,12 +62,13 @@ function Listar(){
                      }
 
                 });
-                
+
                 console.log(template);
                 document.getElementById('divchat').innerHTML=template;
 
-                var objDiv = document.getElementById("divchat");
-                objDiv.scrollTop = objDiv.scrollHeight;
+                var element = document.getElementById('divscroll');
+
+                element.scrollTop = element.scrollHeight;
             }
             else {
                 alert("ocurrio un error");

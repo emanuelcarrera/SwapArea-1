@@ -90,7 +90,8 @@ class Solicitudes {
        usu.Apellido,
        usu.Mail,
        usu.Telefono,
-       usu.foto  FROM 
+       usu.foto,
+       soli.fecha  FROM 
       `solicitudes` as soli 
        join articulo as art1 on soli.id_Artuculo = art1.idArticulo 
        left join articulo as art2 on soli.id_Articulo_oferta = art2.idArticulo
@@ -122,7 +123,8 @@ class Solicitudes {
        usu.Apellido,
        usu.Mail,
        usu.Telefono,
-       usu.foto 
+       usu.foto, 
+       soli.fecha
        FROM 
        `solicitudes` as soli 
        join articulo as art1 on soli.id_Artuculo = art1.idArticulo 
@@ -143,8 +145,8 @@ class Solicitudes {
         SELECT @id;
         set @id = (select idUsuario from `articulo` where `idArticulo` = $idArticulo);
 
-        INSERT INTO `solicitudes` (`id_Artuculo`, `dueno`, `ofertante`, `id_Articulo_oferta`, `monto`, `comentario`,`estado`) 
-        VALUES ($idArticulo,@id,$ofertante,$oferta,$monto,'$comentario',0);"); 
+        INSERT INTO `solicitudes` (`id_Artuculo`, `dueno`, `ofertante`, `id_Articulo_oferta`, `monto`, `comentario`,`estado`,`fecha`) 
+        VALUES ($idArticulo,@id,$ofertante,$oferta,$monto,'$comentario',0,now());"); 
         $consulta->execute();
     
         $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM `solicitudes` WHERE 1");

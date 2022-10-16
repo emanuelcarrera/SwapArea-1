@@ -33,7 +33,7 @@ function ListarUsuarios(){
                      <br>
                      <strong class="card-text font-weight-light">Categoría: ${Articulos.Clasificacion}</strong>
                      <br>
-                     <strong class="card-text font-weight-light">Valor: ${Articulos.Valor}</strong>
+                     <strong class="card-text font-weight-light">Valor: $ ${Articulos.Valor}</strong>
                      <br>
                      <div  class="d-flex align-items-center justify-content-center">
                           <input type="button" onclick="Editar(${Articulos.idArticulo})" value="Editar" class="btn btn-primary" />

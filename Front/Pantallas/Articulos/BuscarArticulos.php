@@ -14,19 +14,19 @@
       <!-- diapositivas -->
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="../imagenes/NUEVAS.jpg" alt="" width="600" height="400">
+          <img class="d-block w-100" src="../imagenes/NUEVAS.jpg" alt="" width="300" height="450">
             <div class="carousel-caption">
 
             </div>
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="../imagenes/NUEVAS(1).jpg" alt="" width="600" height="400">
+          <img class="d-block w-100" src="../imagenes/NUEVAS(1).jpg" alt="" width="300" height="450">
             <div class="carousel-caption">
 
             </div>
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="../imagenes/NUEVAS(2).jpg"alt="" width="600" height="400">
+          <img class="d-block w-100" src="../imagenes/NUEVAS(2).jpg"alt="" width="300" height="450">
             <div class="carousel-caption">
 
             </div>

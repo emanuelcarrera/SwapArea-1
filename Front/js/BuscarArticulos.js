@@ -29,7 +29,7 @@ function Listar(){
                 var json = JSON.parse(xmlhttp.responseText);
                 var template = ``;
                 json.map(function(Articulos){
-                   if(document.getElementById("Categorias").value === "Seleccione"){
+                   if(document.getElementById("Categorias").value === "Categorías"){
                            
                     if (Articulos.foto == null)
                     { Articulos.foto  = "../imagenes/logo.jpg";  }
@@ -103,7 +103,7 @@ function Listar(){
                 <img width="30" height="30" class="rounded-circle" src="../imagenes/logo.jpg"/> 
                  &copy; 2017-2021 SwapArea, Inc. &middot;    </p>
                  </p>
-                 <p style="padding-left:60%;"><a href="#">Back to top</a>
+                 <p style="padding-left:60%;"><a href="#"> Volver a arriba </a>
             </footer>
     
 `;
@@ -142,7 +142,7 @@ function Buscar(){
                 var template = ``;
                 json.map(function(Articulos){
 
-                    if(document.getElementById("Categorias").value === "Seleccione"){
+                    if(document.getElementById("Categorias").value === "Categorías"){
                            
                         if (Articulos.foto == null)
                         { Articulos.foto  = "../imagenes/logo.jpg";  }
@@ -212,7 +212,7 @@ function Buscar(){
                 <img width="30" height="30" class="rounded-circle" src="../imagenes/logo.jpg"/> 
                  &copy; 2017-2021 SwapArea, Inc. &middot;    </p>
                  </p>
-                 <p style="padding-left:60%;"><a href="#">Back to top</a>
+                 <p style="padding-left:60%;"><a href="#"> Volver a arriba </a>
             </footer>
     `;
                 console.log(template);
@@ -248,7 +248,7 @@ function cargarCategorias() {
             
             if (xmlhttp.status == 200) {
                 var json = JSON.parse(xmlhttp.responseText);
-                let template = '<option class="form-control" > Seleccione </option>';
+                let template = '<option class="form-control" > Categorías </option>';
                 json.forEach(respuesta => {
                     template += `<option class="form-control" value="${respuesta.idCategoria}">${respuesta.Descripcion}</option>`;
                 })

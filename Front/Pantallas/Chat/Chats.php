@@ -26,7 +26,7 @@ require "../header.php";
                     <div class="row">
                         <div class="col-lg-6">
                             <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
-                                <img id="imgfoto" src="" alt="avatar">
+                                <img id="imgfoto" src="" alt="avatar"  width="45" height="45">     
                             </a>
                             <div class="chat-about">
                                 <h6 id="txtnombre" class="m-b-0"></h6>

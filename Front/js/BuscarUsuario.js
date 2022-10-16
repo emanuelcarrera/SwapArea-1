@@ -23,7 +23,7 @@ function ListarUsusario(){
                      template +=
                      `
                      <li class="clearfix" onclick="Chatear(${usuarios.idUsuario})">
-                     <img src="${usuarios.foto}" alt="avatar">
+                     <img src="${usuarios.foto}" alt="avatar" width="45" height="45">
                      <div class="about">
                          <div class="name">${usuarios.NombreUsuario}</div>
                          <div class="status" `;if(usuarios.visto > 0){ template += ` style="color:red;" `}; template +=`> Mensajes sin leer : ${usuarios.visto}</div>                                            
@@ -148,7 +148,7 @@ function Buscar(){
                      template +=
                      `
                      <li class="clearfix" onclick="Chatear(${usuarios.idUsuario})">
-                     <img src="${usuarios.foto}" alt="avatar">
+                     <img src="${usuarios.foto}" alt="avatar" width="45" height="45">
                      <div class="about">
                          <div class="name">${usuarios.NombreUsuario}</div>
                          <div class="status" ' `;if(usuarios.visto > 0){ template += ` style="color:red;" `}; template +=` > Mensajes sin leer : ${usuarios.visto}</div>                                            

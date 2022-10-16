@@ -20,7 +20,7 @@ function setUsertData()
 		document.getElementById("moneda").hidden = false;
 		document.getElementById("chat").hidden = false;
 		document.getElementById("Solicitudes").hidden = false;
-		document.getElementById("log").innerHTML  = "Salir";
+		document.getElementById("log").innerHTML  = "Cerrar sección";
         //Veo si llego la respuesta del servidor
         if (xmlhttp.readyState == XMLHttpRequest.DONE) {
             //Reviso si la respuesta es correcta
@@ -58,7 +58,7 @@ function setUsertData()
     xmlhttp.send();
    }else{
 
-	document.getElementById("log").innerHTML  = "Login";
+	document.getElementById("log").innerHTML  = "Iniciar sección";
 	
 	document.getElementById("nombreuHeader").visible  =  false;
 	document.getElementById("Headerimg").hidden = true;

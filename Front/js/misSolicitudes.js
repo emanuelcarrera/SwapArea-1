@@ -21,6 +21,14 @@ function solicitudbyUsusario(){
                 var template = ``;
                 json.map(function(Solicitudes){
 
+                    var fechaformat = new Date(Solicitudes.fecha); 
+                    var fe = [(fechaformat.getDate()).toString().padStart(2, "0"),
+                    (parseInt(fechaformat.getMonth().toString().padStart(2, "0")) +1).toString(),
+                    fechaformat.getFullYear()].join('-')
+                    + ' ' + [ fechaformat.getHours().toString().padStart(2, "0"),
+                    fechaformat.getMinutes().toString().padStart(2, "0"),
+                    fechaformat.getSeconds().toString().padStart(2, "0")].join(':'); 
+
                     template +=`
                     <div  class="col-sm-9" style="padding: 10px 50px 20px;">
                     <div class="border border-dark rounded"  style="padding: 10px 50px 20px; with:100%;  margin-top: 4em;">`
@@ -40,101 +48,131 @@ function solicitudbyUsusario(){
                      template +=`
                      <div class="row" >
                      <div  class="col-sm-4 border border-dark rounded" >
-                     <a class="font-weight-light">Su articulo</a>
-                  
+                     <div class="d-flex align-items-center justify-content-center">  
+                     <h5 class="product-title" style="font-family: 'Alata', sans-serif;"> Quiero  </h5>
+                     </div>
 
                        <div  class="">
-                          
-                          <br> `
+                       <div class="d-flex align-items-center justify-content-center">  
+                       <a class="font-weight-light" style="font-family: Georgia;"> ${Solicitudes.NOMBRE_ARt}</a>
+                       </div>
+                          <br>
+                          <div class="d-flex align-items-center justify-content-center">  
+                          `
                           if(Solicitudes.FOTO_ART_ != null){
-                            template += `<img width="100" height="100" src=${Solicitudes.FOTO_ART_} >
-                            <br> `;
+                            template += `<img width="100" height="100"  class="rounded float-left"  src=${Solicitudes.FOTO_ART_} >
+                             `;
     
                             }
                             else
                             {
-                                template += `<img width="100" height="100" src="../imagenes/logo.jpg" >
-                                <br> `;
+                                template += `<img width="100"  class="rounded float-left"  height="100" src="../imagenes/logo.jpg" >
+                                `;
                             }
                           template += `
+                          </div>
                           <br>
-                          <a class="font-weight-light"> ${Solicitudes.NOMBRE_ARt}</a>
-                          <br>
-                          <a class="font-weight-light"> Valor: $ ${Solicitudes.VALOR_ART}</a>
+                          <div class="d-flex align-items-center justify-content-center">  
+                          <a class="font-weight-light" style="font-family: Georgia;"> Valor: $ ${Solicitudes.VALOR_ART}</a>
+                          </div> 
                           <br>
                           
                           </div> 
-                     </div>
-
+                     </div>`
+                     template +=
+                     `
                      <div  class="col-sm-4 border border-dark rounded"  >
-                           
-                           <a class="font-weight-light">Mi oferta </a>
-                           <br>
-                           <a class="font-weight-light">Dinero : $ ${Solicitudes.monto} </a>
-                           <br>
+                     <div class="d-flex align-items-center justify-content-center">  
+                     <h5 class="product-title" style="font-family: 'Alata', sans-serif;"> Usuario  </h5>
+                     </diV>
+                          
+                          <div class="d-flex align-items-center justify-content-center">  
+                        <a class="font-weight-light" style="font-family: Georgia;">${Solicitudes.NombreUsuario}</a>
+                        </diV>
+                     
+                        <div class="row" >
+                        <div  class="col-sm-3">
+                        </diV>
+                        <div  class="col-sm-4">`
+                        if(Solicitudes.foto != null){
+                            template += `<img src="${Solicitudes.foto}" onclick="Chatear(${Solicitudes.dueno})" width="100" height="100" class="rounded-circle" alt="avatar">`;
+    
+                           }
+                           else
+                           {
+                            template += `<img width="100" height="100" onclick="Chatear(${Solicitudes.dueno})" class="rounded-circle" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                               `;
+                           }
+
+
+                           template += `
+                          </diV>
+                          </diV>`
+
+                          if(Solicitudes.comentario != null && Solicitudes.comentario != "")
+                          {
+                              template +=`<br>  <a class="font-weight-light" style="font-family: Georgia;"> Mi Cometario :  ${Solicitudes.comentario} </a> `
+                          }
+                          template += ` </div>`
+
+                     template += `<div  class="col-sm-4 border border-dark rounded"  >
+                     
+                     <div class="d-flex align-items-center justify-content-center">  
+                     <h5 class="product-title" style="font-family: 'Alata', sans-serif;"> Mi oferta  </h5>
+                     </diV>
                         
 
                      `
                      if(Solicitudes.ID_ART_OFERTA != null)
                      {
                         template += `
-                        <a class="font-weight-light">Mi Aticulo</a>
+                        <div class="d-flex align-items-center justify-content-center">  
+                        <a class="font-weight-light" style="font-family: Georgia;"> ${Solicitudes.NOMBRE_ART_OFERTA}</a>
                         <br>
+                        </div>
                         `;
                         if(Solicitudes.FOTO_ART_OFERTA != null){
-                        template += `<img width="100" height="100" src=${Solicitudes.FOTO_ART_OFERTA} >
-                        <br> `;
+                        template += `       <div class="d-flex align-items-center justify-content-center">  <img width="100" height="100" class="rounded float-left"  src=${Solicitudes.FOTO_ART_OFERTA} >
+                        </div> `;
 
                         }
                         else
                         {
-                            template += `<img width="100" height="100" src="../imagenes/logo.jpg" >
-                            <br> `;
+                            template += ` <div class="d-flex align-items-center justify-content-center"> <img width="100" height="100" class="rounded float-left"  src="../imagenes/logo.jpg" >
+                            </div>`;
                         }
                         template += `
-                        <a class="font-weight-light"> ${Solicitudes.NOMBRE_ART_OFERTA}</a>
+                      
                         <br>
-                        <a class="font-weight-light"> Valor: $ ${Solicitudes.VALOR_ART_OFERTA}</a>
+                        <div class="d-flex align-items-center justify-content-center"> 
+                        <a class="font-weight-light" style="font-family: Georgia;"> Valor: $ ${Solicitudes.VALOR_ART_OFERTA}</a>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center"> 
+                        <a class="font-weight-light" style="font-family: Georgia;">Dinero extra: $ ${Solicitudes.monto} </a>
+                        </div>
                         <br>
+                        
                         `;
 
+                     }
+                     else{
+
+
+                        template +=
+                        `   <div class="d-flex align-items-center justify-content-center"> 
+                        <a class="font-weight-light" style="font-family: Georgia;">Dinero : $ ${Solicitudes.monto} </a>
+                        </div>
+                        <br>` 
                      }     
                     
-                    if(Solicitudes.comentario != null)
-                    {
-                        template +=`<a class="font-weight-light" >Cometario :  ${Solicitudes.comentario} </a>`
-                    }
+
                      template +=
                      `</div>
-                     <div  class="col-sm-4 border border-dark rounded"  >
-                     
-                         <a class="font-weight-light" > Usuario </a>
-                          <br>
-                        <a class="font-weight-light" >${Solicitudes.NombreUsuario}</a>
-                        <br>
-                        <div class="row" >
-                        <div  class="col-sm-3">
-                        </diV>
-                        <div  class="col-sm-4">`
-                        if(Solicitudes.foto != null){
-                            template += `<img src="${Solicitudes.foto}" width="100" height="100" class="rounded-circle" alt="avatar">`;
-    
-                           }
-                           else
-                           {
-                            template += `<img width="100" height="100" class="rounded-circle" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-                               `;
-                           }
-                           template += `
-                          </diV>
-                          </diV>
-                          <div class="row" >
-                        <br>
-                          <button class="form-control" onclick="Chatear(${Solicitudes.dueno})" >Contactar</button> 
-                          </diV> 
-                      </diV>
                      </div>
+                     <a style="font-family: Georgia;"> Fecha :  ${fe} </a>
                      </div>
+
+
                      <br>
                      </div>
                      </div>
@@ -181,6 +219,13 @@ function OfertasbyUsusario(){
                 var json = JSON.parse(xmlhttp.responseText);
                 var template2 = ``;
                 json.map(function(Solicitudes){
+                    var fechaformat = new Date(Solicitudes.fecha); 
+                    var fe = [(fechaformat.getDate()).toString().padStart(2, "0"),
+                    (parseInt(fechaformat.getMonth().toString().padStart(2, "0")) +1).toString(),
+                    fechaformat.getFullYear()].join('-')
+                    + ' ' + [ fechaformat.getHours().toString().padStart(2, "0"),
+                    fechaformat.getMinutes().toString().padStart(2, "0"),
+                    fechaformat.getSeconds().toString().padStart(2, "0")].join(':'); 
                     template2 +=`
                     <div  class="col-sm-9" style="padding: 10px 50px 20px;">
                     <div class="border border-dark rounded"  style="padding: 10px 50px 20px; with:100%;  margin-top: 4em;">`
@@ -200,107 +245,139 @@ function OfertasbyUsusario(){
                     template2 +=`
                     <div class="row" >
                     <div  class="col-sm-4 border border-dark rounded" >
-                    <a class="font-weight-light">Mi articulo</a>
+
+                    <div class="d-flex align-items-center justify-content-center">  
+                    <h5 class="product-title" style="font-family: 'Alata', sans-serif;"> Mi articulo  </h5>
+                    </diV>
                       <div class="" >
                       <div  class="">
-                         
+                      <div class="d-flex align-items-center justify-content-center">  
+                      <a class="font-weight-light" style="font-family: Georgia;"> ${Solicitudes.NOMBRE_ARt}</a>
+                      </diV>
+                      <div class="d-flex align-items-center justify-content-center">  
                          <br> `
                          if(Solicitudes.FOTO_ART_ != null){
-                            template2 += `<img width="100" height="100" src=${Solicitudes.FOTO_ART_} >
+                            template2 += `<img width="100" class="rounded float-left"  height="100" src=${Solicitudes.FOTO_ART_} >
                            <br> `;
    
                            }
                            else
                            {
-                            template2 += `<img width="100" height="100" src="../imagenes/logo.jpg" >
+                            template2 += `<img width="100" class="rounded float-left" height="100" src="../imagenes/logo.jpg" >
                                <br> `;
                            }
                            template2 += `
-                     
-                         <a class="font-weight-light"> ${Solicitudes.NOMBRE_ARt}</a>
+                           </diV>
+                   
                          <br>
-                         <a class="font-weight-light">Dinero : $ ${Solicitudes.monto} </a>
+                         <div class="d-flex align-items-center justify-content-center">  
+                         <a class="font-weight-light" style="font-family: Georgia;">Valor : $ ${Solicitudes.VALOR_ART} </a>
+
+                         </div>
                          <br>
                       
                          </div>
                          </div> 
-                    </div>
+                    </div>   `
+                    template2 +=
+                    `<div  class="col-sm-4 border border-dark rounded"  >
+                    <div class="d-flex align-items-center justify-content-center">  
+                    <h5 class="product-title" style="font-family: 'Alata', sans-serif;"> Usuario  </h5>
+                    </diV>
+                    <div class="d-flex align-items-center justify-content-center">  
+                       <a class="font-weight-light" style="font-family: Georgia;">${Solicitudes.NombreUsuario}</a>
+                       </diV>
+                       
+                       <div class="d-flex align-items-center justify-content-center">  `
+                       if(Solicitudes.foto != null){
+                        template2 += `<img src="${Solicitudes.foto}" onclick="Chatear(${Solicitudes.ofertante})"  width="100" height="100" class="rounded-circle" alt="avatar">`;
 
-                    <div  class="col-sm-4 border border-dark rounded"  >
-                          
-                          <a class="font-weight-light">Me ofrecen </a>
-                          <br>
-                          <a class="font-weight-light">Dinero : $ ${Solicitudes.monto} </a>
+                       }
+                       else
+                       {
+                        template2 += `<img width="100" height="100" onclick="Chatear(${Solicitudes.ofertante})"  class="rounded-circle" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" >
+                           `;
+                       }
+
+                       
+                       template2 += ` </diV>`
+                       
+                       if(Solicitudes.comentario != null && Solicitudes.comentario != "")
+                       {
+                        template2 +=`<br> <a class="font-weight-light" style="font-family: Georgia;">Su cometario :  ${Solicitudes.comentario} </a>`
+                       }
+                        
+                       template2 += ` <br>
+                    
+                      
+                     </diV>
+                    `
+                    template2 += `    <div  class="col-sm-4 border border-dark rounded"  >
+                    <div class="d-flex align-items-center justify-content-center">  
+                    <h5 class="product-title" style="font-family: 'Alata', sans-serif;"> Oferta  </h5>
+                    </diV>
+
+
                        
 
                     `
                     if(Solicitudes.ID_ART_OFERTA != null)
                     {
                         template2 += `
-                       <a class="font-weight-light">Su articulo</a>
-                       <br>
+                  
+                       
+                       <div class="d-flex align-items-center justify-content-center">  
+                       <a class="font-weight-light"style="font-family: Georgia;"> ${Solicitudes.NOMBRE_ART_OFERTA}</a>
+                       </div>
+                      
+                       <div class="d-flex align-items-center justify-content-center">  
                        `;
                        if(Solicitudes.FOTO_ART_OFERTA != null){
-                        template2 += `<img width="100" height="100" src=${Solicitudes.FOTO_ART_OFERTA} >
-                       <br> `;
+                        template2 += `<img width="100" height="100" class="rounded float-left" src=${Solicitudes.FOTO_ART_OFERTA} >
+                        `;
 
                        }
                        else
                        {
-                        template2 += `<img width="100" height="100" src="../imagenes/logo.jpg" >
-                           <br> `;
-                       }
-                       template2 += `
-                       <a class="font-weight-light"> ${Solicitudes.NOMBRE_ART_OFERTA}</a>
-                       <br>
-                       <a class="font-weight-light"> Valor: $ ${Solicitudes.VALOR_ART_OFERTA}</a>
-                       <br>
-                       `;
-
-                    }     
-                   
-                   if(Solicitudes.comentario != null)
-                   {
-                    template2 +=`<a class="font-weight-light" >Cometario :  ${Solicitudes.comentario} </a>`
-                   }
-                    template2 +=
-                    `</div>
-                    <div  class="col-sm-4 border border-dark rounded"  >
-                    
-                        <a class="font-weight-light" > Usuario Ofertante</a>
-                         <br>
-                       <a class="font-weight-light" >${Solicitudes.NombreUsuario}</a>
-                       <br>
-                       <div class="row" >
-                       <div  class="col-sm-3">
-                       </diV>
-                       <div  class="col-sm-4">`
-                       if(Solicitudes.foto != null){
-                        template2 += `<img src="${Solicitudes.foto}" width="100" height="100" class="rounded-circle" alt="avatar">`;
-
-                       }
-                       else
-                       {
-                        template2 += `<img width="100" height="100" class="rounded-circle" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" >
+                        template2 += `<img width="100" height="100" class="rounded float-left"  src="../imagenes/logo.jpg" >
                            `;
                        }
                        template2 += `
-                         </diV>
-                         </diV>
-                         <div class="row" >
-                       <br>
-                         <button class="form-control" onclick="Chatear(${Solicitudes.ofertante})" >Contactar</button> 
-                         </diV> 
-                     </diV>
-                    </div><br>`
+                       </div>
+                       <div class="d-flex align-items-center justify-content-center">  
+                       <a class="font-weight-light" style="font-family: Georgia;"> Valor: $ ${Solicitudes.VALOR_ART_OFERTA}</a>
+                       </div>
+                       <div class="d-flex align-items-center justify-content-center">  
+                       <a class="font-weight-light" style="font-family: Georgia;">Dinero Extra: $ ${Solicitudes.monto} </a>
+                       </div>
+                       `;
+
+                    }     
+                    else{
+
+
+                        template2 +=
+                        `   <div class="d-flex align-items-center justify-content-center"> 
+                        <a class="font-weight-light" style="font-family: Georgia;">Dinero : $ ${Solicitudes.monto} </a>
+                        </div>
+                        <br>` 
+                     }     
+                    
+                   
+                    template2 +=
+                    `</div>`
+                    
+                    
+                    template2 += `<br>`
                     if(Solicitudes.estado == "0")
                     {
-                       template2 +=  `<button class="btn btn-success" type="button" onclick="AceptarSolicitud(${Solicitudes.id_Solicitud})"> Aceptar</button>
-                                      <button class="btn btn-danger" type="button" onclick="RechazarSolicitud(${Solicitudes.id_Solicitud})"> Rechazar</button>`
+                       template2 +=  `<div style="padding:2px;" > <button class="btn btn-success" type="button" onclick="AceptarSolicitud(${Solicitudes.id_Solicitud})"> Aceptar</button></div>
+                       <div style="padding:2px;" >   <button class="btn btn-danger" type="button"  onclick="RechazarSolicitud(${Solicitudes.id_Solicitud})"> Rechazar</button></div>`
                     }
 
-                    template2 +=  `</div>
-                     <br>`
+                    template2 +=  ` <div style="padding:2px; font-family: Georgia;">  <a style="padding-right:2px;"> Fecha :  ${fe} </a> </div></div>
+                 
+                     `
 
 
 

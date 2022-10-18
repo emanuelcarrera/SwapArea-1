@@ -43,11 +43,17 @@ function GETDomicilio(){
                     <br>
                     </div>
                     </div>
+                    <br> <br>
                     `;
 
 
 
                 });
+
+                if(template == '')
+                {
+                    template +=`<strong class="card-text font-weight-light">No cuenta con domicilios registrados</strong>  <br> <br> <br> <br> <br> <br> <br> <br> `;
+                }
                 
                 console.log(template);
                 document.getElementById('lista').innerHTML=template;

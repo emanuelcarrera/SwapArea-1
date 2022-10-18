@@ -16,12 +16,12 @@ require "../header.php";
                 
                     <br><br>
 
-					<div class="product-title">Nombre :<label id="lblnombre"> </div>
+					<div class="product-title">Nombre: <label id="lblnombre"> </div>
 					
 					<hr>
-					<div class="product-price">Valor : $<label id="lblvalor"> </label></div>
+					<div class="product-price">Valor: $<label id="lblvalor"> </label></div>
 					<hr>
-					<div class="product-drecipction">Descripción : <label id="lbldescripcion"> </label></div>
+					<div class="product-drecipction">Descripción: <label id="lbldescripcion"> </label></div>
 					
                 
 

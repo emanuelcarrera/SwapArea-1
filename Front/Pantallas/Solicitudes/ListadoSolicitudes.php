@@ -13,7 +13,7 @@ require "../header.php";
 </br>
 </br>
 <div class="container" >
-<a id="titulo" > </a>
+
 </br>
 </br>
 <button   class="btn btn-success" id="btnofertas"  type="button" onclick="OfertasbyUsusario()"> Solicitudes recibidas</button>
@@ -26,7 +26,9 @@ require "../header.php";
 
 </br>
 </br>
-
+<div class="d-flex align-items-center justify-content-center">  
+ <h3> <a id="titulo" > </a> </h3>
+</div>
 <div id="lista" class="row d-flex align-items-center justify-content-center"> </div>
 
 </body>

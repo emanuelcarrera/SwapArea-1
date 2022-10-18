@@ -99,7 +99,7 @@ public function TodosLosArticulos()
     $objAccesoDatos = AccesoDatos::obtenerInstancia();
     $consulta = $objAccesoDatos->prepararConsulta("select a.idArticulo,a.idUsuario,a.Nombre,a.Descripcion,(SELECT urlFoto from fotosarticulos where idArticulo = a.idArticulo LIMIT 1 ) as foto,a.Valor ,b.Descripcion as Clasificacion 
     FROM `articulo` as a 
-    join categorias as b on b.idCategoria = a.idCategoria ");
+    join categorias as b on b.idCategoria = a.idCategoria order by a.Nombre ");
     
    
     $consulta->execute();
@@ -116,7 +116,7 @@ public function Buscar($Busca)
     $consulta = $objAccesoDatos->prepararConsulta("select a.idArticulo,a.idUsuario,a.Nombre,a.Descripcion,(SELECT urlFoto from fotosarticulos where idArticulo = a.idArticulo LIMIT 1 ) as foto,a.Valor ,b.Descripcion as Clasificacion 
     FROM `articulo` as a 
     join categorias as b on b.idCategoria = a.idCategoria
-     where a.`Nombre` like '%$Busca%' or  a.`Descripcion` like '%$Busca%'");
+     where a.`Nombre` like '%$Busca%' or  a.`Descripcion` like '%$Busca%' order by a.Nombre ");
     
    
     $consulta->execute();

@@ -20,7 +20,7 @@ function setUsertData()
 		document.getElementById("moneda").hidden = false;
 		document.getElementById("chat").hidden = false;
 		document.getElementById("Solicitudes").hidden = false;
-		document.getElementById("log").innerHTML  = "Cerrar sección";
+		document.getElementById("log").innerHTML  = "Cerrar sesión";
         //Veo si llego la respuesta del servidor
         if (xmlhttp.readyState == XMLHttpRequest.DONE) {
             //Reviso si la respuesta es correcta

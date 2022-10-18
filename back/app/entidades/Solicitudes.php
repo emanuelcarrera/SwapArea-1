@@ -29,6 +29,19 @@ class Solicitudes {
       $objAccesoDatos = AccesoDatos::obtenerInstancia();
       $consulta = $objAccesoDatos->prepararConsulta("CALL AceptarSolicitud ($id)"); 
       $consulta->execute();
+
+
+
+      $consulta = $objAccesoDatos->prepararConsulta("UPDATE `solicitudes` SET `estado`= 2
+      WHERE id_Solicitud in((SELECT id_Solicitud FROM solicitudes S
+      JOIN articulo A on A.idArticulo = s.id_Artuculo
+      where (a.idUsuario != s.dueno) and s.estado = 0)) or
+      id_Solicitud in(
+      (SELECT id_Solicitud FROM solicitudes S
+      JOIN articulo A on A.idArticulo = s.id_Articulo_oferta
+      where (a.idUsuario != s.ofertante) and s.estado = 0))
+      "); 
+      $consulta->execute();
       return $consulta->fetchAll();
 
     }

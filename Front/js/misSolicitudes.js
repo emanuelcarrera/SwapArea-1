@@ -73,7 +73,7 @@ function solicitudbyUsusario(){
                           </div>
                           <br>
                           <div class="d-flex align-items-center justify-content-center">  
-                          <a class="font-weight-light" style="font-family: Georgia;"> Valor: $ ${Solicitudes.VALOR_ART}</a>
+                          <a class="font-weight-light" style="font-family: Georgia;"> Valor: $${Solicitudes.VALOR_ART}</a>
                           </div> 
                           <br>
                           
@@ -145,7 +145,7 @@ function solicitudbyUsusario(){
                       
                         <br>
                         <div class="d-flex align-items-center justify-content-center"> 
-                        <a class="font-weight-light" style="font-family: Georgia;"> Valor: $ ${Solicitudes.VALOR_ART_OFERTA}</a>
+                        <a class="font-weight-light" style="font-family: Georgia;"> Valor: $${Solicitudes.VALOR_ART_OFERTA}</a>
                         </div>
                         <div class="d-flex align-items-center justify-content-center"> 
                         <a class="font-weight-light" style="font-family: Georgia;">Dinero extra: $ ${Solicitudes.monto} </a>
@@ -215,7 +215,7 @@ function OfertasbyUsusario(){
             //Reviso si la respuesta es correcta
             
             if (xmlhttp.status == 200) {
-                document.getElementById('titulo').text = 'Solicitudes resibidas';
+                document.getElementById('titulo').text = 'Solicitudes recibidas';
                 var json = JSON.parse(xmlhttp.responseText);
                 var template2 = ``;
                 json.map(function(Solicitudes){
@@ -271,7 +271,7 @@ function OfertasbyUsusario(){
                    
                          <br>
                          <div class="d-flex align-items-center justify-content-center">  
-                         <a class="font-weight-light" style="font-family: Georgia;">Valor : $ ${Solicitudes.VALOR_ART} </a>
+                         <a class="font-weight-light" style="font-family: Georgia;">Valor : $${Solicitudes.VALOR_ART} </a>
 
                          </div>
                          <br>
@@ -345,10 +345,10 @@ function OfertasbyUsusario(){
                        template2 += `
                        </div>
                        <div class="d-flex align-items-center justify-content-center">  
-                       <a class="font-weight-light" style="font-family: Georgia;"> Valor: $ ${Solicitudes.VALOR_ART_OFERTA}</a>
+                       <a class="font-weight-light" style="font-family: Georgia;"> Valor: $${Solicitudes.VALOR_ART_OFERTA}</a>
                        </div>
                        <div class="d-flex align-items-center justify-content-center">  
-                       <a class="font-weight-light" style="font-family: Georgia;">Dinero Extra: $ ${Solicitudes.monto} </a>
+                       <a class="font-weight-light" style="font-family: Georgia;">Dinero Extra: $${Solicitudes.monto} </a>
                        </div>
                        `;
 
@@ -358,7 +358,7 @@ function OfertasbyUsusario(){
 
                         template2 +=
                         `   <div class="d-flex align-items-center justify-content-center"> 
-                        <a class="font-weight-light" style="font-family: Georgia;">Dinero : $ ${Solicitudes.monto} </a>
+                        <a class="font-weight-light" style="font-family: Georgia;">Dinero : $${Solicitudes.monto} </a>
                         </div>
                         <br>` 
                      }     
